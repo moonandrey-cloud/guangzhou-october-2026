@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Семь дней · Чжанцзяцзе и Яншо</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="rail" aria-label="Дни">
+    <a class="rail-btn on" href="#cover">Начало</a>
+    <a class="rail-btn" href="#map">Карта</a>
+    <a class="rail-btn" href="#d1">1</a>
+    <a class="rail-btn" href="#d2">2</a>
+    <a class="rail-btn" href="#d3">3</a>
+    <a class="rail-btn" href="#d4">4</a>
+    <a class="rail-btn" href="#d5">5</a>
+    <a class="rail-btn" href="#d6">6</a>
+    <a class="rail-btn" href="#d7">7</a>
+    <a class="rail-btn" href="#stay">Жильё</a>
+    <a class="rail-btn" href="#money">Смета</a>
+    <a class="rail-btn" href="#why">Почему нет</a>
+    <a class="rail-btn" href="#body">Тело</a>
+  </nav>
+
+  <div class="hint" id="hint">Колёсико или пробел. Нажмите на фото — оно на весь экран. Кнопка на карточке открывает день.</div>
+  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  <div class="veil" id="veil"></div>
+
+  <main id="deck">
+
+    <section class="slide" id="cover" data-rail="cover">
+      <div class="bg ken zoomable" style="background-image:url('photos/mist.jpg')" data-full="photos/mist.jpg"></div>
+      <div class="card in">
+        <p class="kicker">Конец октября 2026 · соло · поезда, без перелётов</p>
+        <h1>Семь дней,<br>которых ещё нет</h1>
+        <p>Чжанцзяцзе — столбы из «Аватара». Яншо — река с купюры. Улинъюань не другой город: район у ворот того же парка.</p>
+        <p class="soft">10 км в горный день. Первый класс на двух длинных поездах. ~10 800 ¥.</p>
+      </div>
+    </section>
+
+    <section class="slide light" id="map" data-rail="map">
+      <div class="inner">
+        <p class="kicker dark">Один маршрут</p>
+        <h2>Горы сначала. Река везёт домой.</h2>
+        <div class="split">
+          <div>
+            <div class="geo" style="background-image:url('photos/south-china.jpg')" role="img" aria-label="Карта Южного Китая">
+              <i style="left:34%;top:21%"></i>
+              <b style="left:42%;top:17%">Чжанцзяцзе<br>дни 1–4</b>
+              <i style="left:34%;top:61%"></i>
+              <b style="left:44%;top:58%">Яншо<br>дни 5–7</b>
+              <i style="left:63%;top:77%"></i>
+              <b style="left:72%;top:73%">Гуанчжоу<br>старт и финиш</b>
+            </div>
+            <p class="geo-note">Рельеф. От Яншо до Гуанчжоу около двух часов. Из Чжанцзяцзе было бы семь.</p>
+          </div>
+          <div>
+            <p>Обратная дорога из Яншо короткая, около двух часов. Если начать с реки, неделя кончится семью часами в кресле. Поэтому горы первые. Тридцатого днём уже поезд: тридцать первого ярмарка открывается с утра, и вы не с перрона.</p>
+            <ul class="plain">
+              <li>3 ночи у восточных ворот парка</li>
+              <li>1 ночь в городе, у канатки Тяньмэнь</li>
+              <li>2 ночи в Синпине, не на Западной улице</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="d1" data-rail="d1">
+      <div class="bg ken slow zoomable" style="background-image:url('photos/gz-south.jpg')" data-full="photos/gz-south.jpg"></div>
+      <div class="card">
+        <p class="kicker">День 1 · 24 октября · природа 0 ч</p>
+        <h2>Шесть часов кресла</h2>
+        <p>Утром проводите сотрудника в Байюне. Потом Южный Гуанчжоу, вечером Западный Чжанцзяцзе. Пять с половиной часов, иногда семь, место в первом классе, как в «Сапсане». К парку вы подойдёте уже к ночи, и это хорошо. После проводов и такого сидения там всё равно нечего успеть.</p>
+        <p class="day-sum">день ~1 950 ¥</p>
+        <button class="peek" type="button" data-sheet="s1">Что входит в день</button>
+      </div>
+    </section>
+
+    <section class="slide" id="d2" data-rail="d2">
+      <div class="bg ken zoomable" style="background-image:url('photos/pillars.jpg')" data-full="photos/pillars.jpg"></div>
+      <div class="card">
+        <p class="kicker">День 2 · 25 октября · 7–8 ч на природе · ~10 км</p>
+        <h2>Вас везут в скалу</h2>
+        <p>Утром лифт Байлун поднимает внутрь горы. Дальше Юаньцзяцзе, «Первый мост под небом», автобус на Тяньцзы, вниз канаткой. Между площадками ходите сами: это и есть десять километров. Пешком наверх вместо лифта не идём, там двадцать километров ступеней.</p>
+        <p class="day-sum">день ~1 290 ¥</p>
+        <button class="peek" type="button" data-sheet="s2">Что входит в день</button>
+      </div>
+    </section>
+
+    <section class="slide pair" id="d2b" data-rail="d2">
+      <button class="pic zoomable" type="button" style="background-image:url('photos/bailong.jpg')" data-full="photos/bailong.jpg" aria-label="Лифт Байлун"></button>
+      <button class="pic zoomable" type="button" style="background-image:url('photos/clouds.jpg')" data-full="photos/clouds.jpg" aria-label="Туман над столбами"></button>
+      <div class="strip">Лифт в скале. Вас везут. Между площадками ходите сами — это и есть 10 км.</div>
+    </section>
+
+    <section class="slide" id="d3" data-rail="d3">
+      <div class="bg ken zoomable" style="background-image:url('photos/park.jpg')" data-full="photos/park.jpg"></div>
+      <div class="card">
+        <p class="kicker">День 3 · 26 октября · 6–7 ч · ~10 км</p>
+        <h2>Семь километров вдоль воды</h2>
+        <p>Тропа «Золотой кнут», семь с половиной километров в одну сторону, назад экоавтобус. Второй район сегодня не добавляем: иначе будет пятнадцать–восемнадцать километров, а вам хватает десяти.</p>
+        <p class="day-sum">день ~930 ¥ · без озера и игл</p>
+        <button class="peek" type="button" data-sheet="s3">Что входит в день</button>
+      </div>
+    </section>
+
+    <section class="slide light" id="d3f" data-rail="d3">
+      <div class="inner">
+        <p class="kicker dark">Если тропа кончилась рано</p>
+        <h2>Одна вещь. Не три.</h2>
+        <div class="cards reveal">
+          <article>
+            <img src="photos/baofeng.jpg" alt="Озеро Баофэн" class="zoomable" data-full="photos/baofeng.jpg">
+            <h3>Озеро Баофэн</h3>
+            <p>Лодка 1,5–2 часа, до 17:00. Такси 10–15 мин. +96–120 ¥ сверху сметы дня.</p>
+          </article>
+          <article>
+            <img src="photos/cave.jpg" alt="Пещера Хуанлун" class="zoomable" data-full="photos/cave.jpg">
+            <h3>Пещера Хуанлун</h3>
+            <p>Полдня. Не вместо столбов. Не вместе с Янцзяцзе.</p>
+          </article>
+          <article>
+            <img src="photos/mist.jpg" alt="Улинъюань" class="zoomable" data-full="photos/mist.jpg">
+            <h3>Иглы или ноги</h3>
+            <p>К 15:00 больница Улинъюань, иглы. Вечером массаж ног на улице Улин: вывеска 足疗, «цзуляо». Не оба впритык к горам.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="d4" data-rail="d4">
+      <div class="bg ken zoomable" style="background-image:url('photos/tianmen-road.jpg')" data-full="photos/tianmen-road.jpg"></div>
+      <div class="card">
+        <p class="kicker">День 4 · 27 октября · 7–8 ч · 10–12 км</p>
+        <h2>Дыра в горе</h2>
+        <p>Небесные врата, Тяньмэнь: сквозное отверстие 131 метр. Снизу 999 ступеней, эскалатор есть. Потом тропа Гуйгу — доски в обрыве — и стекло вдоль скалы. Картинка, где человек в поясе ползёт боком, это Хуашань, другая провинция.</p>
+        <p class="day-sum">день ~1 240 ¥</p>
+        <button class="peek" type="button" data-sheet="s4">Что входит в день</button>
+      </div>
+    </section>
+
+    <section class="slide pair" id="d4b" data-rail="d4">
+      <button class="pic zoomable" type="button" style="background-image:url('photos/tianmen-gate.jpg')" data-full="photos/tianmen-gate.jpg" aria-label="Дыра Тяньмэнь издалека"></button>
+      <button class="pic zoomable" type="button" style="background-image:url('photos/guigu.jpg')" data-full="photos/guigu.jpg" aria-label="Тропа Гуйгу по обрыву"></button>
+      <div class="strip">Слева та же дыра с серпантина. Справа доски Гуйгу в обрыве. Пояс не выдают: держат перила.</div>
+    </section>
+
+    <section class="slide" id="d5" data-rail="d5">
+      <div class="bg ken zoomable" style="background-image:url('photos/xingping.jpg')" data-full="photos/xingping.jpg"></div>
+      <div class="card">
+        <p class="kicker">День 5 · 28 октября · 1,5–2 ч вечером</p>
+        <h2>Снова кресло, потом река</h2>
+        <p>Утром Чжанцзяцзе, вечером Гуйлинь: около семи часов, снова первый класс. Оттуда короткий поезд до Яншо. Ночуете не на Западной улице, а в посёлке Синпин, у самой купюры. Если свет ещё есть, закат с холма Лаочжай.</p>
+        <p class="day-sum">день ~2 390 ¥</p>
+        <button class="peek" type="button" data-sheet="s5">Что входит в день</button>
+      </div>
+    </section>
+
+    <section class="slide" id="d6" data-rail="d6">
+      <div class="bg ken zoomable" style="background-image:url('photos/liriver.jpg')" data-full="photos/liriver.jpg"></div>
+      <div class="card">
+        <p class="kicker">День 6 · 29 октября · 6–8 ч · 5–8 км</p>
+        <h2>Купюра, потом поля</h2>
+        <p>Утром смотровая с двадцати юаней, та самая картинка. Потом короткий плот по реке Ли. Днём река Юйлун: вас несут водой, не автобусом по вершине, рядом можно взять велосипед. Западную улицу Яншо оставляем туристам.</p>
+        <p class="day-sum">день ~2 270 ¥</p>
+        <button class="peek" type="button" data-sheet="s6">Что входит в день</button>
+      </div>
+    </section>
+
+    <section class="slide pair" id="d6b" data-rail="d6">
+      <button class="pic zoomable" type="button" style="background-image:url('photos/yangshuo-air.jpg')" data-full="photos/yangshuo-air.jpg" aria-label="Яншо сверху"></button>
+      <button class="pic zoomable" type="button" style="background-image:url('photos/yulong.jpg')" data-full="photos/yulong.jpg" aria-label="Река Юйлун"></button>
+      <div class="strip">Слева пики сверху. Справа Юйлун: вас несут водой, не автобусом по вершине.</div>
+    </section>
+
+    <section class="slide" id="d7" data-rail="d7">
+      <div class="bg ken zoomable" style="background-image:url('photos/liriver2.jpg')" data-full="photos/liriver2.jpg"></div>
+      <div class="card">
+        <p class="kicker">День 7 · 30 октября · поезд после обеда</p>
+        <h2>Ещё утро у реки, и домой</h2>
+        <p>Утром Синпин можно не спеша: старый посёлок или повтор холма. После обеда поезд около двух часов, Южный Гуанчжоу. На Пачжоу сегодня не идти: между фазами зал закрыт. Тридцать первого третья фаза откроется уже с утра, и вы будете выспаны.</p>
+        <p class="day-sum">день ~720 ¥ · без ночёвки · ярмарка завтра</p>
+        <button class="peek" type="button" data-sheet="s7">Что входит в день</button>
+      </div>
+    </section>
+
+    <section class="slide light" id="stay" data-rail="stay">
+      <div class="inner">
+        <p class="kicker dark">Где спать</p>
+        <h2>Три адреса</h2>
+        <div class="hotels reveal">
+          <article>
+            <img src="photos/mist.jpg" alt="Туман у ворот парка">
+            <p class="where">Ночи 1–3 · у ворот</p>
+            <h3>MEI CEN</h3>
+            <p>9.7 · 5 минут до ворот. В смете 650 ¥/ночь.</p>
+            <a href="https://www.trip.com/hotels/zhangjiajie-hotel-detail-134820748/mei-cen-resort-hotel/" target="_blank" rel="noopener">Trip.com</a>
+          </article>
+          <article>
+            <img src="photos/tianmen-city.jpg" alt="Город у горы Тяньмэнь">
+            <p class="where">Ночь 4 · у канатки</p>
+            <h3>Hampton by Hilton</h3>
+            <p>9.7 · 150 м до канатки. Завтрак с 7:00. В смете 550 ¥.</p>
+            <a href="https://www.trip.com/hotels/zhangjiajie-hotel-detail-63335949/tianmenshan-hilton-huanpeng-hotel/" target="_blank" rel="noopener">Trip.com</a>
+          </article>
+          <article>
+            <img src="photos/xingping.jpg" alt="Река у Синпина">
+            <p class="where">Ночи 5–6 · Синпин</p>
+            <h3>Mochi</h3>
+            <p>9.6 · вид на купюру. В смете 1 300 ¥/ночь.</p>
+            <a href="https://www.trip.com/hotels/yangshuo-hotel-detail-116959637/mochi-luxury-river-view-resort-hotel/" target="_blank" rel="noopener">Trip.com</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light money-slide" id="money" data-rail="money">
+      <div class="inner wide">
+        <p class="kicker dark">Смета соло · курс 12,92 ₽/¥ · 4.09.2026</p>
+        <h2>~10 800 юаней · ~140 000 ₽</h2>
+        <p>Номер целиком. Плот на Юйлун целиком. Без шопинга, массажа и озера — они сверху, если возьмёте.</p>
+
+        <div class="bars">
+          <div><b>Жильё</b><i style="--w:100%"></i><span>5 100 ¥</span></div>
+          <div><b>Поезда</b><i style="--w:34%"></i><span>1 750 ¥</span></div>
+          <div><b>Еда</b><i style="--w:30%"></i><span>1 540 ¥</span></div>
+          <div><b>Парки и плоты</b><i style="--w:24%"></i><span>1 200 ¥</span></div>
+          <div><b>Такси</b><i style="--w:24%"></i><span>1 200 ¥</span></div>
+        </div>
+
+        <h3 class="sub">По дням. Нажмите строку — откроется разбивка.</h3>
+        <div class="table-wrap">
+        <table class="day-table">
+          <thead>
+            <tr><th>День</th><th>Поезд</th><th>Ночь</th><th>Еда</th><th>Парк / плот</th><th>Такси</th><th>Итого</th></tr>
+          </thead>
+          <tbody>
+            <tr data-sheet="s1"><td>1 · дорога</td><td>900</td><td>650</td><td>220</td><td>—</td><td>180</td><td>1 950</td></tr>
+            <tr data-sheet="s2"><td>2 · столбы</td><td>—</td><td>650</td><td>220</td><td>380</td><td>40</td><td>1 290</td></tr>
+            <tr data-sheet="s3"><td>3 · ручей</td><td>—</td><td>650</td><td>220</td><td>—</td><td>60</td><td>930</td></tr>
+            <tr data-sheet="s4"><td>4 · Тяньмэнь</td><td>—</td><td>550</td><td>220</td><td>288</td><td>180</td><td>1 238</td></tr>
+            <tr data-sheet="s5"><td>5 · в Яншо</td><td>590</td><td>1 300</td><td>220</td><td>—</td><td>280</td><td>2 390</td></tr>
+            <tr data-sheet="s6"><td>6 · река</td><td>—</td><td>1 300</td><td>220</td><td>532</td><td>220</td><td>2 272</td></tr>
+            <tr data-sheet="s7"><td>7 · домой</td><td>260</td><td>—</td><td>220</td><td>—</td><td>240</td><td>720</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td>Неделя</td><td>1 750</td><td>5 100</td><td>1 540</td><td>1 200</td><td>1 200</td><td>~10 790</td></tr>
+          </tfoot>
+        </table>
+        </div>
+        <p class="fine">Цифры округлены, чтобы сойтись со сметой недели. Билеты на поезд скачут. Озеро, шоу, массаж, иглы — не внутри этих сумм.</p>
+      </div>
+    </section>
+
+    <section class="slide light" id="why" data-rail="why">
+      <div class="inner">
+        <p class="kicker dark">Это не забыли</p>
+        <h2>Не влезло в семь дней</h2>
+        <p>Неделя уже занята: два поезда, три горных дня под потолок 10–12 км, один речной. Тридцатого днём уже поезд. Ниже — что можно добавить только если выкинуть что-то из плана или появится восьмой день.</p>
+        <button class="why-pic zoomable" type="button" style="background-image:url('photos/glass-bridge.jpg')" data-full="photos/glass-bridge.jpg" aria-label="Стеклянный мост">
+          <span>Стеклянный мост через каньон. Не Тяньмэнь. Если будет 8-й день — его.</span>
+        </button>
+        <div class="why-list">
+          <details>
+            <summary>Тропа со страховкой, как на Хуашане</summary>
+            <p>Та фотография, где человек в поясе пристёгнут к тросу и боком идёт по узкой доске без перил, снята на Хуашане, провинция Шэньси, рядом с Сианем. От Гуанчжоу это другой конец страны, только самолётом или ночью в поезде. В Чжанцзяцзе этого аттракциона нет. Ближний «парк со страховкой», Шинючжай, стоит у Чанша: данься, стеклянный мост, 50 метров досок в поясе. Пейзаж не «Аватар», ехать полдня. Ваша тропа здесь — Гуйгу на Тяньмэнь, 27-го.</p>
+          </details>
+          <details>
+            <summary>Стеклянный мост через каньон</summary>
+            <p>Полдня плюс 40 минут от парка. Дни 2–4 уже под потолок ходьбы. Вшить его — значит выкинуть ручей или Тяньмэнь, либо приехать разбитым. Если будет 8-й день — его. Стекло на Тяньмэнь другое: там настил вдоль скалы, не мост над пропастью.</p>
+          </details>
+          <details>
+            <summary>Начать с Яншо, горы потом</summary>
+            <p>Можно. Тогда финиш — семь часов в кресле из Чжанцзяцзе. Мы развернули маршрут, чтобы последний поезд был два часа. Это выбор порядка, не нехватка времени.</p>
+          </details>
+          <details>
+            <summary>Террасы Лунцзи</summary>
+            <p>Нужен целый день: 2–3 часа в каждую сторону из Синпина плюс ступени. Чтобы вставить, придётся выкинуть Тяньмэнь или реку. На семь дней с двумя поездами не успеваем.</p>
+          </details>
+          <details>
+            <summary>Данься и Либо</summary>
+            <p>Другие ландшафты и ещё поезда. Это уже другая поездка, не «добавка к субботе». Не успеваем и не пытались втиснуть.</p>
+          </details>
+          <details>
+            <summary>Янцзяцзе в день ручья</summary>
+            <p>Успеть можно только ногами. Будет 15–18 км. Потолок 15. Узкая тропа по ребру и так будет на Тяньмэнь на следующий день.</p>
+          </details>
+          <details>
+            <summary>Шоу «Прелестный Сянси»</summary>
+            <p>Успеваем: вечер дня 2 или 3, 80 минут, +158–198 ¥. Не включил в обязательное, потому что это зал, не горы. Если захотите вечер не на улице — берите.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="body" data-rail="body">
+      <div class="inner">
+        <p class="kicker dark">После километров</p>
+        <h2>Ноги вечером. Иглы — днём.</h2>
+        <div class="two">
+          <div>
+            <h3>Массаж ног</h3>
+            <p>Зашли на час. На вывеске 足疗, «цзуляо», foot massage. 80–180 юаней. Не в смете недели.</p>
+            <ul class="plain">
+              <li>У парка: улица Улин, массаж слепых напротив «Тяньцзы»</li>
+              <li>У канатки: салон Мяоцзя в комплексе Hampton</li>
+              <li>Синпин: попросите ресепшн Mochi</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Иглоукалывание</h3>
+            <p>С улицы, без записи. Паспорт, окошко 挂号 «гуахао» (регистратура), слово 针灸 «чжэньцзю» (acupuncture). Час–полтора. После 17:00 отделение закрыто. Не в смете недели, около 60–180 юаней.</p>
+            <ul class="plain">
+              <li>В горах удобнее всего день 3, к 15:00, больница Улинъюань</li>
+              <li>Утро 30-го ещё Синпин, если захотите. Иглы лучше день 3, 26-го</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="end" data-rail="body">
+      <div class="bg ken zoomable" style="background-image:url('photos/yangshuo-raft.jpg')" data-full="photos/yangshuo-raft.jpg"></div>
+      <div class="card">
+        <p class="kicker">Октябрь ещё впереди</p>
+        <h2>Теперь вы прошли это один раз</h2>
+        <p>Фото — Wikimedia Commons. План текстом лежит в той же папке. Стрелка вверх вернёт к туману.</p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="sheet" id="s1" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">День 1</p>
+    <h3>Поезд и первая ночь</h3>
+    <p>Сначала Байюнь: проводите сотрудника. Потом Южный вокзал, первый класс, такси к воротам, ужин, сон. Парк закрыт к вашему приезду осмысленно: после проводов и семи часов в кресле там нечего успеть.</p>
+    <p>Запас, не план: ночной C4108 с Байюнь ~20:16, к утру на месте. Тогда этот день становится ночью в купе.</p>
+    <table>
+      <tr><td>Поезд, 1 класс</td><td>900 ¥</td></tr>
+      <tr><td>Ночь у парка</td><td>650 ¥</td></tr>
+      <tr><td>Еда</td><td>220 ¥</td></tr>
+      <tr><td>Такси с вокзала</td><td>180 ¥</td></tr>
+      <tr><th>День</th><th>1 950 ¥ · ~25 200 ₽</th></tr>
+    </table>
+  </aside>
+
+  <aside class="sheet" id="s2" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">День 2</p>
+    <h3>Столбы</h3>
+    <p>К открытию. Лифт, площадки, мост, Тяньцзы, канатка вниз. Билет парка на несколько дней платится сегодня, завтра по нему же.</p>
+    <p>380 ¥ = вход ~236 и канатки/лифт внутри. Пешком наверх вместо лифта не ходим: будет 20 км ступеней.</p>
+    <table>
+      <tr><td>Ночь у парка</td><td>650 ¥</td></tr>
+      <tr><td>Еда</td><td>220 ¥</td></tr>
+      <tr><td>Парк и канатки</td><td>380 ¥</td></tr>
+      <tr><td>Такси вечером</td><td>40 ¥</td></tr>
+      <tr><th>День</th><th>1 290 ¥ · ~16 700 ₽</th></tr>
+    </table>
+  </aside>
+
+  <aside class="sheet" id="s3" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">День 3</p>
+    <h3>Ручей</h3>
+    <p>7,5 км в одну сторону, назад автобус. Вход уже оплачен вчера. Янцзяцзе не добавляем.</p>
+    <p>Сверху сметы, если захотите: озеро 96–120, иглы 60–180, массаж 80–180. Одно, не всё.</p>
+    <table>
+      <tr><td>Ночь у парка</td><td>650 ¥</td></tr>
+      <tr><td>Еда</td><td>220 ¥</td></tr>
+      <tr><td>Такси</td><td>60 ¥</td></tr>
+      <tr><th>День</th><th>930 ¥ · ~12 000 ₽</th></tr>
+    </table>
+  </aside>
+
+  <aside class="sheet" id="s4" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">День 4</p>
+    <h3>Тяньмэнь и тропа Гуйгу</h3>
+    <p>Утром вещи в город. Канатка, автобус на 99 поворотов. Главное дня: Гуйгу, 1,6 км досок в середине обрыва, и стеклянный настил вдоль скалы. 999 ступеней — эскалатор. Это не мост через каньон и не Хуашань со страховкой.</p>
+    <p>Верх канатки с ноября 2025 на ремонте — уточнить. Ветер может закрыть стекло. Тогда остаётся деревянная Гуйгу, не героизм.</p>
+    <table>
+      <tr><td>Ночь у канатки</td><td>550 ¥</td></tr>
+      <tr><td>Еда</td><td>220 ¥</td></tr>
+      <tr><td>Билет Тяньмэнь</td><td>288 ¥</td></tr>
+      <tr><td>Такси, переезд</td><td>180 ¥</td></tr>
+      <tr><th>День</th><th>1 238 ¥ · ~16 000 ₽</th></tr>
+    </table>
+  </aside>
+
+  <aside class="sheet" id="s5" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">День 5</p>
+    <h3>Поезд в Синпин</h3>
+    <p>Первый класс до Гуйлиня ~7 часов, второй до Яншо 20–40 минут. Вечером Лаочжай, 2–3 км. Самый дорогой день: длинный поезд плюс ночь с видом на реку.</p>
+    <table>
+      <tr><td>Поезд 1 кл. + до Яншо</td><td>590 ¥</td></tr>
+      <tr><td>Ночь Mochi</td><td>1 300 ¥</td></tr>
+      <tr><td>Еда</td><td>220 ¥</td></tr>
+      <tr><td>Такси, пересадки</td><td>280 ¥</td></tr>
+      <tr><th>День</th><th>2 390 ¥ · ~30 900 ₽</th></tr>
+    </table>
+  </aside>
+
+  <aside class="sheet" id="s6" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">День 6</p>
+    <h3>Река</h3>
+    <p>Купюра 20 юаней, короткий плот по Лицзян, днём Юйлун целиком на вас. Если мало — ещё велосипед или ночная рыбалка через отель, это сверху.</p>
+    <table>
+      <tr><td>Ночь Mochi</td><td>1 300 ¥</td></tr>
+      <tr><td>Еда</td><td>220 ¥</td></tr>
+      <tr><td>Плоты Лицзян + Юйлун</td><td>532 ¥</td></tr>
+      <tr><td>Такси к Юйлун</td><td>220 ¥</td></tr>
+      <tr><th>День</th><th>2 272 ¥ · ~29 400 ₽</th></tr>
+    </table>
+  </aside>
+
+  <aside class="sheet" id="s7" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">День 7</p>
+    <h3>Утро у реки, днём домой</h3>
+    <p>Ночёвки больше нет. Утро свободное. После обеда второй класс, около двух часов. На ярмарку сегодня не идти: 30-го зал закрыт. Завтра, 31-го, третья фаза с утра.</p>
+    <table>
+      <tr><td>Поезд Яншо → Гуанчжоу</td><td>260 ¥</td></tr>
+      <tr><td>Еда</td><td>220 ¥</td></tr>
+      <tr><td>Такси до вокзалов</td><td>240 ¥</td></tr>
+      <tr><th>День</th><th>720 ¥ · ~9 300 ₽</th></tr>
+    </table>
+  </aside>
+
+  <div class="lightbox" id="box" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <img alt="">
+  </div>
+
+  <script src="tour.js"></script>
+</body>
+</html>

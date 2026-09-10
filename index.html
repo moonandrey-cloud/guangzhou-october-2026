@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Октябрь · Гонконг, выставки, горы</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="work">
+  <div class="chapters" id="chapters">
+    <button type="button" data-mode="work" data-jump="map" class="on">Работа</button>
+    <button type="button" data-mode="nature" data-jump="n-map">Горы</button>
+  </div>
+  <nav class="rail" data-for="work" aria-label="Работа">
+    <a class="rail-btn on" href="#cover">Старт</a>
+    <a class="rail-btn" href="#map">Карта</a>
+    <a class="rail-btn" href="#gifts">Дары</a>
+    <a class="rail-btn" href="#hk">HK</a>
+    <a class="rail-btn" href="#gz">GZ</a>
+    <a class="rail-btn" href="#sz">SZ</a>
+    <a class="rail-btn" href="#phase2">Мебель</a>
+    <a class="rail-btn" href="#bye">Проводы</a>
+    <a class="rail-btn" href="#phase3">Ярмарка</a>
+    <a class="rail-btn" href="#springs">Отдых</a>
+  </nav>
+  <nav class="rail" data-for="nature" hidden aria-label="Горы">
+    <a class="rail-btn" href="#cover">Старт</a>
+    <a class="rail-btn" href="#n-map">Карта</a>
+    <a class="rail-btn" href="#pillars">Столбы</a>
+    <a class="rail-btn" href="#tianmen">Тяньмэнь</a>
+    <a class="rail-btn" href="#river">Река</a>
+  </nav>
+
+  <div class="hint" id="hint">Колёсико — дальше. На горах миниатюры внизу листают фото одного места.</div>
+  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  <div class="veil" id="veil"></div>
+
+  <main id="deck">
+
+    <section class="slide" id="cover" data-chapter="all" data-rail="cover">
+      <div class="bg ken" style="background-image:url('photos/hk-night.jpg')"></div>
+      <div class="card in">
+        <p class="kicker">12 октября — 3 ноября 2026 · соло</p>
+        <h1>Две поездки<br>в одном календаре</h1>
+        <p>Двенадцатого в 14:50 самолёт садится в Гуанчжоу, в Байюне. В Гонконг вы едете уже поездом, к вечеру. Потом залы и заводы. Двадцать четвёртого сотрудник улетает из Байюня, и в тот же день вы садитесь на поезд в горы.</p>
+        <div class="doors">
+          <button class="door" type="button" data-mode="work" data-jump="map">
+            <b>Работа</b>
+            <span>12–23 октября, и снова 31-го на Пачжоу</span>
+          </button>
+          <button class="door" type="button" data-mode="nature" data-jump="n-map">
+            <b>Горы</b>
+            <span>24–30 октября. Столбы, дыра в горе, река</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="map" data-chapter="work" data-rail="map">
+      <div class="inner">
+        <p class="kicker dark">Работа · дельта Жемчужной реки</p>
+        <h2>Три города рядом. Это одна равнина.</h2>
+        <div class="split">
+          <div>
+            <div class="geo" style="background-image:url('photos/prd-map.jpg')" role="img" aria-label="Карта дельты Жемчужной реки">
+              <i style="left:39%;top:25%"></i>
+              <b style="left:26%;top:22%">Гуанчжоу<br>15–18, 23, 30–3</b>
+              <i style="left:77%;top:70%"></i>
+              <b style="left:64%;top:66%">Шэньчжэнь<br>18–23</b>
+              <i style="left:82%;top:88%"></i>
+              <b style="left:68%;top:86%">Гонконг<br>вечер 12–15</b>
+            </div>
+            <p class="geo-note">Дельта Жемчужной реки. Три города на одной воде: от Байюня до West Kowloon один короткий поезд.</p>
+          </div>
+          <div>
+            <p>Двенадцатого вы не «уже в Гонконге». Сначала аэропорт Байюнь, потом Южный вокзал Гуанчжоу, потом скоростной в West Kowloon. Тринадцатого и четырнадцатого зал. Пятнадцатого утром обратно на материк, на Кантонскую ярмарку.</p>
+            <ul class="plain">
+              <li>12-го: прилёт 14:50, поезд в ГК к вечеру</li>
+              <li>13–14: Electronics Fair</li>
+              <li>15–17: Пачжоу, фаза 1</li>
+              <li>18–22: заводы, вечером 22-го уже Гуанчжоу</li>
+              <li>23-го: вторая фаза, только мебель, зона B</li>
+              <li>24-го: проводы в Байюне и поезд в горы</li>
+              <li>31-го и 1-го: снова Пачжоу, уже третья фаза</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="n-map" data-chapter="nature" data-rail="n-map">
+      <div class="inner">
+        <p class="kicker dark">Горы · Хунань и Гуанси</p>
+        <h2>Сначала столбы. Река везёт домой.</h2>
+        <div class="split">
+          <div>
+            <div class="geo" style="background-image:url('photos/south-china.jpg')" role="img" aria-label="Карта горного маршрута">
+              <i style="left:34%;top:21%"></i>
+              <b style="left:42%;top:17%">Чжанцзяцзе<br>24–27</b>
+              <i style="left:34%;top:61%"></i>
+              <b style="left:44%;top:58%">Яншо<br>28–30</b>
+              <i style="left:63%;top:77%"></i>
+              <b style="left:70%;top:73%">Гуанчжоу<br>старт 24-го, финиш 30-го</b>
+            </div>
+            <p class="geo-note">Те же горы, что на карте работы, только смотрите на север и запад. От Яншо до Гуанчжоу около двух часов. Поэтому 30-го вы уже дома, а 31-го ярмарка с утра.</p>
+          </div>
+          <div>
+            <p>Семь дней, только поезда. Столбы 25–26-го. 27-го Тяньмэнь: дыра в горе, 999 ступеней, потом тропа по обрыву. Река — в конце, чтобы поезд домой был короткий.</p>
+            <div class="btn-row">
+              <a class="out" href="тур/index.html">Открыть горный тур</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="gifts" data-chapter="work" data-rail="gifts">
+      <div class="inner">
+        <p class="kicker dark">До вылета · из России</p>
+        <h2>Не платок второй раз. Что ещё везут.</h2>
+        <p>Платки, матрёшку, шоколад и конфеты вы уже возили. Китайским партнёрам это знакомо и приятно, но тот же набор два года подряд выглядит как склад. Ниже то, чего у них обычно нет, и что не стыдно положить на стол после переговоров.</p>
+        <div class="two">
+          <div>
+            <h3>На стол в цехе, на 6–8 человек</h3>
+            <p>Кедровый орех из Сибири, в банке, не россыпью. Алтайский или башкирский мёд в стекле. Тульский пряник или коломенская пастила, если шоколад уже был. Это едят вместе, пакетик не лежит в шкафу.</p>
+          </div>
+          <div>
+            <h3>Хозяину встречи, одна вещь</h3>
+            <p>Небольшой янтарь из Калининграда: брошь, запонки, чётки. Китайцы янтарь знают, российский для них другой. Либо маленькая шкатулка палех. Не часы, не нож, не зонт.</p>
+          </div>
+        </div>
+        <p>Один пакет на завод, не по сувениру каждому инженеру. Чётное число коробок, бумага красная или золотая, не белая. Водку только тому, с кем уже пили. Чай из России не везите: у них свой лучше.</p>
+        <button class="peek" type="button" data-sheet="s-gifts">Что нельзя и сколько штук</button>
+      </div>
+    </section>
+
+    <section class="slide" id="hk" data-chapter="work" data-rail="hk">
+      <div class="bg ken" style="background-image:url('photos/gz-south.jpg')"></div>
+      <div class="card">
+        <p class="kicker">12 октября · пн · самолёт 14:50</p>
+        <h2>Сначала Байюнь, потом рельсы</h2>
+        <p>Самолёт садится в Гуанчжоу, в аэропорту Байюнь, в 14:50. Это не Гонконг. Граница, чемодан, потом аэроэкспресс или такси на Южный вокзал. Оттуда скоростной до West Kowloon, около часа. К вечеру вы на острове. Ночи 12, 13 и 14-го — Elysion Place Hotel, Causeway Bay, 7 Moreton Terrace. До зала выставки одна станция метро.</p>
+        <p class="day-sum">к 19–20 часам уже гавань · три ночи в Козуэй-Бей</p>
+        <button class="peek" type="button" data-sheet="s-hk">Как доехать в Гонконг</button>
+      </div>
+    </section>
+
+    <section class="slide" id="fair" data-chapter="work" data-rail="hk">
+      <div class="bg ken zoomable" style="background-image:url('photos/hkcec.jpg')" data-full="photos/hkcec.jpg"></div>
+      <div class="card">
+        <p class="kicker">13 октября · вт · 10:00–18:00</p>
+        <h2>Первый день в зале</h2>
+        <p>Hong Kong Electronics Fair, осенняя выставка электроники. Зал HKCEC стоит на берегу в Ваньчае, Wan Chai. Тринадцатого и четырнадцатого вы здесь оба дня, с десяти до шести. JWD ищите на стенде. Ellipal — если они выйдут. Людей, которых хотите увидеть, лучше ловить здесь, а не откладывать на заводы в Шэньчжэне.</p>
+        <p class="day-sum">1 Expo Drive, Wan Chai · выезд только 15-го</p>
+        <button class="peek" type="button" data-sheet="s-fair">Зал и что взять с собой</button>
+      </div>
+    </section>
+
+    <section class="slide pair" id="hkb" data-chapter="work" data-rail="hk">
+      <button class="pic zoomable" type="button" style="background-image:url('photos/hk-night.jpg')" data-full="photos/hk-night.jpg" aria-label="Ночной Гонконг"></button>
+      <button class="pic zoomable" type="button" style="background-image:url('photos/hkcec.jpg')" data-full="photos/hkcec.jpg" aria-label="Зал выставки"></button>
+      <div class="strip">Слева вечер после поезда из Гуанчжоу. Справа зал, ради которого вы это ехали.</div>
+    </section>
+
+    <section class="slide" id="meet" data-chapter="work" data-rail="hk">
+      <div class="bg ken slow zoomable" style="background-image:url('photos/dim.jpg')" data-full="photos/dim.jpg"></div>
+      <div class="card">
+        <p class="kicker">14 октября · ср · снова выставка</p>
+        <h2>Тот же зал, уже без растерянности</h2>
+        <p>По таблице это второй день Electronics Fair, не день кабинетов. Снова HKCEC, снова десять–восемнадцать. Людей, которых вчера только отметили, можно поймать уже спокойно. Вечером собрать чемодан и лечь: в пятнадцатого в 7:30 поезд на материк.</p>
+        <p class="day-sum">выезд 15 октября, не сегодня</p>
+        <button class="peek" type="button" data-sheet="s-fair">Два дня в HKCEC</button>
+      </div>
+    </section>
+
+    <section class="slide" id="gz" data-chapter="work" data-rail="gz">
+      <div class="bg ken zoomable" style="background-image:url('photos/gz-south.jpg')" data-full="photos/gz-south.jpg"></div>
+      <div class="card">
+        <p class="kicker">15 октября · чт · 07:30–18:00</p>
+        <h2>Утром обратно на материк</h2>
+        <p>В 7:30 поезд с West Kowloon, к обеду Южный Гуанчжоу, днём уже Пачжоу. Это первая фаза Кантонской ярмарки: электроника, бытовая техника, станки. Половины дня хватит, чтобы отметиться. Вечером час массажа ног у отеля, не термы. На вывеске 足疗, по-русски «цзуляо», по-английски foot massage.</p>
+        <p class="day-sum">первый вечер снова в Гуанчжоу</p>
+        <button class="peek" type="button" data-sheet="s-gz">Гуанчжоу, 15–17</button>
+      </div>
+    </section>
+
+    <section class="slide" id="canton" data-chapter="work" data-rail="gz">
+      <div class="bg ken zoomable" style="background-image:url('photos/pazhou.jpg')" data-full="photos/pazhou.jpg"></div>
+      <div class="card">
+        <p class="kicker">16 октября · пт · 09:30–18:00</p>
+        <h2>Полный день на Пачжоу</h2>
+        <p>Кантонская ярмарка, по-китайски 广交会, «гуанцзяохуэй», по-английски Canton Fair. Сегодня первая фаза, 15–19 октября. Повторные разговоры, образцы, кого оставить. Комплекс: 382 Yuejiang Zhong Road, район Хайчжу. Отсюда до городских терм YOMA пятнадцать минут пешком.</p>
+        <p class="day-sum">единственный полный день на стенде</p>
+        <button class="peek" type="button" data-sheet="s-gz">Фаза 1 и что смотреть</button>
+      </div>
+    </section>
+
+    <section class="slide" id="yoma" data-chapter="work" data-rail="gz">
+      <div class="bg ken zoomable" style="background-image:url('photos/steam.jpg')" data-full="photos/steam.jpg"></div>
+      <div class="card">
+        <p class="kicker">16 октября · пт · после 18:00</p>
+        <h2>Соседний дом, уже без бейджа</h2>
+        <p>Ярмарка закроется в шесть. Через четверть часа пешком YOMA Space. На два-три часа этого хватит: несколько бассейнов, сауны, душ, полежать, потом ужин из пакета. Кино и ночёвку не берите, вы не за этим. Это торговый центр, не гора и не горячий источник. Если ждать «природу в воде», разочаруетесь. Если смыть зал и поесть не выходя — будет в самый раз.</p>
+        <p class="day-sum">два-три часа · пакет с ужином · к 21:30 уже в номере</p>
+        <button class="peek" type="button" data-sheet="s-yoma">Что это за место и где билет</button>
+      </div>
+    </section>
+
+    <section class="slide pair" id="gzb" data-chapter="work" data-rail="gz">
+      <button class="pic zoomable" type="button" style="background-image:url('photos/pazhou2.jpg')" data-full="photos/pazhou2.jpg" aria-label="Пачжоу"></button>
+      <button class="pic zoomable" type="button" style="background-image:url('photos/tower.jpg')" data-full="photos/tower.jpg" aria-label="Башня Гуанчжоу"></button>
+      <div class="strip">Слева волна крыши, под которой вы весь день. Справа город, который начинается после 18:00.</div>
+    </section>
+
+    <section class="slide" id="baiyun" data-chapter="work" data-rail="gz">
+      <div class="bg ken zoomable" style="background-image:url('photos/tower.jpg')" data-full="photos/tower.jpg"></div>
+      <div class="card">
+        <p class="kicker">17 октября · сб · север города</p>
+        <h2>Север города, уже без ярмарки</h2>
+        <p>Утро на заводе Huikang в посёлке Тайхэ, район Байюнь, север Гуанчжоу. Они делают аппараты PEMF: импульсное магнитное поле, не иглы и не термы. День у Вити, если он подтвердит. До YOMA отсюда час, не ехать. Если Витя спадёт, в 15:30 больница на Zhuji Road, 珠玑路, «чжуцзи лу».</p>
+        <p class="day-sum">09:30–13:00 · 15:00–17:30</p>
+        <button class="peek" type="button" data-sheet="s-gz">Суббота на севере</button>
+      </div>
+    </section>
+
+    <section class="slide" id="sz" data-chapter="work" data-rail="sz">
+      <div class="bg ken zoomable" style="background-image:url('photos/train.jpg')" data-full="photos/train.jpg"></div>
+      <div class="card">
+        <p class="kicker">18 октября · вс · 10:00–14:00</p>
+        <h2>Воскресенье на поезде</h2>
+        <p>Guangzhou South → Shenzhen North. Гостиница ещё без адреса. День оставлен под переезд и сон. TENZ не сегодня: лучше в понедельник, когда день кончается в 17:00, не в Лунхуа.</p>
+        <p class="day-sum">переезд и отдых</p>
+      </div>
+    </section>
+
+    <section class="slide" id="sz-week" data-chapter="work" data-rail="sz">
+      <div class="bg ken zoomable" style="background-image:url('photos/sz-sky.jpg')" data-full="photos/sz-sky.jpg"></div>
+      <div class="card">
+        <p class="kicker">19–22 октября · Наньшань, Баоань, Лунхуа</p>
+        <h2>Четыре дня по промзонам</h2>
+        <p>Это не набережная и не старый город. Наньшань, Баоань, Лунхуа: корпуса, пропуск, чай в переговорке. Hypershell и PhantomChess в понедельник. ChessNut и Correxon во вторник. Среда самая тяжёлая, Лунхуа до шести. JWD и Ellipal едут в четверг только если их не было в Гонконге.</p>
+        <p class="day-sum">Шэньчжэнь с высоты выглядит иначе, чем из Баоаня</p>
+        <button class="peek" type="button" data-sheet="s-sz">Встречи по дням</button>
+      </div>
+    </section>
+
+    <section class="slide" id="tenz" data-chapter="work" data-rail="sz">
+      <div class="bg ken zoomable" style="background-image:url('photos/pool.jpg')" data-full="photos/pool.jpg"></div>
+      <div class="card">
+        <p class="kicker">19 октября · пн · 18:00–23:00</p>
+        <h2>Пять этажей после Наньшаня</h2>
+        <p>TENZ, по-китайски 汤崎, «танци». Пять этажей городских терм у пограничного пункта Футянь. Метро Futian Checkpoint, 福田口岸, «футянь коуань», выход A. Бассейны, сауны, ужин, кино, VR. Билет примерно 300–400 юаней, платят Alipay. В среду не ехать: 21-го вы до шести в Лунхуа, оттуда ещё час.</p>
+        <p class="day-sum">запасной вечер — четверг после Ellipal</p>
+        <button class="peek" type="button" data-sheet="s-tenz">Что такое TENZ и где билет</button>
+      </div>
+    </section>
+
+    <section class="slide pair" id="szb" data-chapter="work" data-rail="sz">
+      <button class="pic zoomable" type="button" style="background-image:url('photos/sz-sky.jpg')" data-full="photos/sz-sky.jpg" aria-label="Шэньчжэнь"></button>
+      <button class="pic zoomable" type="button" style="background-image:url('photos/pool.jpg')" data-full="photos/pool.jpg" aria-label="Сауна"></button>
+      <div class="strip">Днём стекло и парк. Вечером дерево и камни. Оба Шэньчжэнь.</div>
+    </section>
+
+    <section class="slide light" id="hard" data-chapter="work" data-rail="sz">
+      <div class="inner">
+        <p class="kicker dark">Самый тяжёлый день</p>
+        <h2>Среда. Лунхуа до шести.</h2>
+        <div class="two">
+          <div>
+            <h3>21 октября</h3>
+            <p>Mega в Синьцяо с девяти до половины второго. Потом «красные панели» в Лунхуа, корпус B, Huahui Road 73, «хуахуэй лу». Переводчик нужен. В TENZ из Лунхуа не ехать. Только сон.</p>
+          </div>
+          <div>
+            <h3>20 и 22-е</h3>
+            <p>Вторник — ChessNut и Correxon, оба Баоань, конец в 16:30. Четверг: если JWD и Ellipal закрыли в Гонконге, день короткий. Вечером Shenzhen North → Guangzhou South. Ночь в Гуанчжоу: завтра мебель, не иглы.</p>
+          </div>
+        </div>
+        <button class="peek" type="button" data-sheet="s-sz">Адреса заводов</button>
+      </div>
+    </section>
+
+    <section class="slide" id="phase2" data-chapter="work" data-rail="phase2">
+      <div class="bg ken" style="background-image:url('photos/pazhou.jpg')"></div>
+      <div class="card">
+        <p class="kicker">23 октября · пт · 09:30–18:00</p>
+        <h2>Один день, только мебель</h2>
+        <p>Вторая фаза уже идёт, 23–27 октября. Вам нужен один проход по мебели, не по всему дому. Четыре зала, все в зоне B, корпуса рядом: 9.3, 10.2, 10.3, 11.3. Номер зала — это корпус и этаж. С вечера 22-го вы уже в Гуанчжоу. Иглы сегодня не ставим: их переносим на утро 2 ноября.</p>
+        <p class="day-sum">зона B · четыре зала · день хватит</p>
+        <button class="peek" type="button" data-sheet="s-phase2">Какие залы и как идти</button>
+      </div>
+    </section>
+
+    <section class="slide light" id="bye" data-chapter="work" data-rail="bye">
+      <div class="inner">
+        <p class="kicker dark">24 октября</p>
+        <h2>Он летит. Вы сразу на рельсы.</h2>
+        <div class="two">
+          <div>
+            <h3>Утро · Байюнь</h3>
+            <p>Сотрудник — аэропорт CAN, выехать за три часа. Проводите. Рюкзак уже собран со вчера: после мебели некогда возиться.</p>
+          </div>
+          <div>
+            <h3>День · поезд в горы</h3>
+            <p>Южный вокзал и скоростной в Чжанцзяцзе, пять с половиной часов, иногда семь. К ночи вы у ворот парка. Если его рейс поздний, берите вечерний поезд.</p>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:1.2rem">
+          <button class="peek" type="button" data-sheet="s-needles">Иглы перенесены на 2 ноября</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide place" id="pillars" data-chapter="nature" data-rail="pillars">
+      <div class="bg ken album-stage" style="background-image:url('photos/pillars.jpg')"></div>
+      <div class="card">
+        <p class="kicker">25–26 октября · Улинъюань</p>
+        <h2>Столбы</h2>
+        <p>Юаньцзяцзе, те самые скалы из «Аватара». Лифт Байлун везёт внутрь горы. Между площадками ходите сами — это и есть десять километров. Пешком наверх вместо лифта не идём.</p>
+        <p class="day-sum">листайте фото внизу · нажмите — на весь экран</p>
+        <button class="peek" type="button" data-sheet="s-mtn">Семь дней коротко</button>
+      </div>
+      <p class="strip album-cap"><b>1 / 4</b> <span>Юаньцзяцзе. Столбы из «Аватара».</span></p>
+      <div class="film" role="list">
+        <button type="button" class="on" style="background-image:url('photos/pillars.jpg')" data-src="photos/pillars.jpg" data-cap="Юаньцзяцзе. Столбы из «Аватара»." aria-label="Столбы"></button>
+        <button type="button" style="background-image:url('photos/mist.jpg')" data-src="photos/mist.jpg" data-cap="Туман между скал. Улинъюань." aria-label="Туман"></button>
+        <button type="button" style="background-image:url('photos/clouds.jpg')" data-src="photos/clouds.jpg" data-cap="Площадки над облаками." aria-label="Облака"></button>
+        <button type="button" style="background-image:url('photos/bailong.jpg')" data-src="photos/bailong.jpg" data-cap="Лифт Байлун. Вас везут внутрь горы." aria-label="Лифт Байлун"></button>
+      </div>
+    </section>
+
+    <section class="slide place" id="tianmen" data-chapter="nature" data-rail="tianmen">
+      <div class="bg ken album-stage" style="background-image:url('photos/tianmen-road.jpg')"></div>
+      <div class="card">
+        <p class="kicker">27 октября · Тяньмэнь</p>
+        <h2>Дыра в горе</h2>
+        <p>Это она. Небесные врата: сквозное отверстие в скале, 131 метр в высоту. Снизу — 999 ступеней. Эскалатор есть, если не хотите набирать лишние километры. Потом тропа Гуйгу и стекло вдоль обрыва.</p>
+        <p class="day-sum">пять фото этого дня · листайте внизу</p>
+        <a class="out" href="тур/index.html#d4">День целиком в горном туре</a>
+      </div>
+      <p class="strip album-cap"><b>1 / 5</b> <span>Дыра снизу. 999 ступеней наверх.</span></p>
+      <div class="film" role="list">
+        <button type="button" class="on" style="background-image:url('photos/tianmen-road.jpg')" data-src="photos/tianmen-road.jpg" data-cap="Дыра снизу. 999 ступеней наверх." aria-label="Дыра снизу"></button>
+        <button type="button" style="background-image:url('photos/tianmen-gate.jpg')" data-src="photos/tianmen-gate.jpg" data-cap="Та же дыра с серпантина, издалека." aria-label="Дыра издалека"></button>
+        <button type="button" style="background-image:url('photos/tianmen-peak.jpg')" data-src="photos/tianmen-peak.jpg" data-cap="С канатки. Дыра в гребне горы." aria-label="С канатки"></button>
+        <button type="button" style="background-image:url('photos/guigu.jpg')" data-src="photos/guigu.jpg" data-cap="Тропа Гуйгу: доски вбиты в обрыв." aria-label="Тропа Гуйгу"></button>
+        <button type="button" style="background-image:url('photos/tianmen-glass.jpg')" data-src="photos/tianmen-glass.jpg" data-cap="Стекло вдоль скалы. Не мост через каньон." aria-label="Стекло"></button>
+      </div>
+    </section>
+
+    <section class="slide place" id="river" data-chapter="nature" data-rail="river">
+      <div class="bg ken album-stage" style="background-image:url('photos/liriver.jpg')"></div>
+      <div class="card">
+        <p class="kicker">28–30 октября · Синпин</p>
+        <h2>Река с купюры</h2>
+        <p>Смотровая 20 юаней, плот по Лицзян, днём Юйлун. Ночуете в Синпине, не на Западной улице. 30-го утром ещё вода, днём два часа до Гуанчжоу. Поэтому горы были первыми.</p>
+        <p class="day-sum">четыре фото реки · листайте внизу</p>
+        <a class="out" href="тур/index.html#d6">Речной день в горном туре</a>
+      </div>
+      <p class="strip album-cap"><b>1 / 4</b> <span>Река Ли. Вид с купюры 20 юаней.</span></p>
+      <div class="film" role="list">
+        <button type="button" class="on" style="background-image:url('photos/liriver.jpg')" data-src="photos/liriver.jpg" data-cap="Река Ли. Вид с купюры 20 юаней." aria-label="Река Ли"></button>
+        <button type="button" style="background-image:url('photos/yangshuo-raft.jpg')" data-src="photos/yangshuo-raft.jpg" data-cap="Плот. Вас несут водой." aria-label="Плот"></button>
+        <button type="button" style="background-image:url('photos/xingping.jpg')" data-src="photos/xingping.jpg" data-cap="Синпин. Ночь у реки, не на Западной улице." aria-label="Синпин"></button>
+        <button type="button" style="background-image:url('photos/yulong.jpg')" data-src="photos/yulong.jpg" data-cap="Юйлун. Поля и второй плот." aria-label="Юйлун"></button>
+      </div>
+    </section>
+
+    <section class="slide" id="phase3" data-chapter="work" data-rail="phase3">
+      <div class="bg ken" style="background-image:url('photos/pazhou.jpg')"></div>
+      <div class="card">
+        <p class="kicker">31 октября · сб · 09:30–18:00</p>
+        <h2>Только wellness, не вся ярмарка</h2>
+        <p>Вы вернулись 30-го. Сегодня открытие третьей фазы. Вам нужна не одежда и не игрушки, а залы под Ice Tribe: медицина, здоровье, приборы. Два соседних зала в зоне B: 9.2 и 10.2. Плюс Friendship Hall 21.2, зона D: Intelligent Healthcare, реабилитация и умное здоровье. Эти три зала — один спокойный день.</p>
+        <p class="day-sum">9.2, 10.2 и 21.2 · остальное не открывать</p>
+        <button class="peek" type="button" data-sheet="s-phase3">Залы Ice Tribe и сколько идти</button>
+      </div>
+    </section>
+
+    <section class="slide" id="phase3b" data-chapter="work" data-rail="phase3">
+      <div class="bg ken" style="background-image:url('photos/pazhou2.jpg')"></div>
+      <div class="card">
+        <p class="kicker">1 ноября · вс · 09:30–18:00</p>
+        <h2>Если вчера не хватило</h2>
+        <p>Вчера три зала. Сегодня только если нашли слишком много стендов или хотите ещё personal care: залы 10.1 и 11.1, зона B, косметика и уход. Одежду, текстиль и игрушки не открывайте: это другие этажи и другой день в ногах. Бейдж тот же, что на первой фазе.</p>
+        <p class="day-sum">не обязательный день · иначе отдых</p>
+        <button class="peek" type="button" data-sheet="s-phase3">Что в третьей фазе</button>
+      </div>
+    </section>
+
+    <section class="slide" id="springs" data-chapter="work" data-rail="springs">
+      <div class="bg ken" style="background-image:url('photos/resort.jpg')"></div>
+      <div class="card">
+        <p class="kicker">2 и 3 ноября · уже без стенда</p>
+        <h2>Два тихих дня</h2>
+        <p>Утром 2-го иглы: их сняли с пятницы ради мебели. Потом можно в Бишуйвань, полтора часа на машине, сорок бассейнов у реки в Цунхуа. Если после игл не поедете, день пустой. Третьего сборы. Ярмарка ещё до четвёртого.</p>
+        <p class="day-sum">утро иглы · день вода или сон</p>
+        <button class="peek" type="button" data-sheet="s-hot">Бишуйвань, как доехать</button>
+      </div>
+    </section>
+
+    <section class="slide light" id="body" data-chapter="work" data-rail="springs">
+      <div class="inner">
+        <p class="kicker dark">Когда не источники</p>
+        <h2>Ноги вечером. Иглы — днём.</h2>
+        <div class="two">
+          <div>
+            <h3>Массаж ног</h3>
+            <p>На вывеске 足疗 или 足浴, «цзуляо» / «цзуюй», по-английски foot massage. Час у отеля, 80–180 юаней. 15-го в Гуанчжоу, 17-го если ноги, в горах на улице Улин.</p>
+            <ul class="plain">
+              <li>Ищите эти два слова. Не заходите, где на английском sensual или escort</li>
+              <li>16-го вместо ног — YOMA Space у ярмарки</li>
+              <li>21-го после Лунхуа только сон</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Иглоукалывание</h3>
+            <p>На ресепшн одно слово: 针灸, «чжэньцзю», acupuncture. Больница, паспорт. Час–полтора. Талон 4–50, процедура 50–200. Не в спа и не в отеле.</p>
+            <ul class="plain">
+              <li>2 ноября утром — Zhuji Road или Пачжоу</li>
+              <li>23-го мебель, иглы не в тот день</li>
+              <li>В горах — день 3 к 15:00, Улинъюань</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="end" data-chapter="all" data-rail="end">
+      <div class="bg ken zoomable" style="background-image:url('photos/yangshuo-raft.jpg')" data-full="photos/yangshuo-raft.jpg"></div>
+      <div class="card">
+        <p class="kicker">Октябрь ещё впереди</p>
+        <h2>Теперь вы прошли это один раз</h2>
+        <p>График встреч лежит в таблице. Горы — в соседнем туре. Китайский — десять минут в номере, не поездка. Фото городов и залов — Wikimedia. Сауна и вода — Unsplash.</p>
+        <div class="btn-row">
+          <a class="out" href="тур/index.html">Горный тур</a>
+          <a class="out" href="китайский.html">10 минут китайского</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="sheet" id="s-hk" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">12 октября</p>
+    <h3>Байюнь, потом West Kowloon</h3>
+    <p>Самолёт в 14:50 в аэропорту Байюнь, 广州白云国际机场, Guangzhou Baiyun, код CAN. Это Гуанчжоу. Дальше граница и чемодан, час-полтора. Потом Южный вокзал, 广州南, Guangzhou South: аэроэкспресс плюс метро или такси 45–70 минут. Оттуда скоростной до 香港西九龙, Hong Kong West Kowloon, около часа. К 19–20 вы на острове.</p>
+    <table>
+      <tr><td>12 · CAN 14:50, поезд в ГК</td><td>вечер, гавань</td></tr>
+      <tr><td>13 · Electronics Fair, день 1</td><td>HKCEC · 10–18</td></tr>
+      <tr><td>14 · Electronics Fair, день 2</td><td>тот же зал · 10–18</td></tr>
+      <tr><td>15 · поезд на материк</td><td>West Kowloon 07:30</td></tr>
+    </table>
+    <p>Три ночи, 12–14 октября: Elysion Place Hotel Causeway Bay, 7 Moreton Terrace. Метро Tin Hau около восьми минут пешком, Causeway Bay около десяти. До HKCEC одна станция Island Line до Wan Chai и ещё десять минут пешком, либо такси 10–15 минут вдоль Harbour Road. 15-го поезд в 7:30 с West Kowloon: такси в 6:00–6:15, с чемоданом надёжнее метро.</p>
+    <p>Билет на поезд лучше взять заранее в 12306 или на Trip.com. Кабинеты YubiKey и PLAUD в среду не ставим.</p>
+    <div class="links">
+      <a href="https://www.trip.com/hotels/hong-kong-hotel-detail-5895303/elysion-place-hotel-causeway-bay/" target="_blank" rel="noopener">Elysion Place на Trip.com</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Elysion+Place+Hotel+7+Moreton+Terrace+Causeway+Bay" target="_blank" rel="noopener">Карта отеля</a>
+      <a href="https://www.trip.com/trains/" target="_blank" rel="noopener">Поезда на Trip.com</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+West+Kowloon+Station" target="_blank" rel="noopener">West Kowloon</a>
+    </div>
+  </aside>
+
+  <aside class="sheet" id="s-fair" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">13 и 14 октября</p>
+    <h3>Electronics Fair</h3>
+    <p>Hong Kong Electronics Fair, Autumn Edition. Осенняя выставка электроники, 13–16 октября 2026, но вы уезжаете утром 15-го. Адрес зала: HKCEC, 1 Expo Drive / Harbour Road, Wan Chai.</p>
+    <p>Оба дня, с десяти до шести. JWD искать здесь. Ellipal, если подтвердят стенд. Иначе оба едут в слоты 22-го в Шэньчжэне. Бейдж, визитки, пауэрбанк, обувь, в которой можно стоять.</p>
+    <p>Вечером 14-го не затягивать: в 7:30 уже поезд.</p>
+    <div class="links">
+      <a href="https://www.hktdc.com/event/hkelectronicsfairae/en" target="_blank" rel="noopener">Сайт выставки</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+Convention+and+Exhibition+Centre" target="_blank" rel="noopener">Карта HKCEC</a>
+    </div>
+  </aside>
+
+  <aside class="sheet" id="s-gz" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">Гуанчжоу</p>
+    <h3>15–17 октября</h3>
+    <table>
+      <tr><td>15 утро</td><td>West Kowloon → Guangzhou South</td></tr>
+      <tr><td>15 день</td><td>Canton Fair, фаза 1, половина дня · 382 Yuejiang Zhong</td></tr>
+      <tr><td>15 вечер</td><td>массаж ног у отеля</td></tr>
+      <tr><td>16</td><td>полный день на Пачжоу, затем YOMA Space</td></tr>
+      <tr><td>17 утро</td><td>завод Huikang, No. 6 Dongnan Road, Milong, Taihe, район Байюнь</td></tr>
+      <tr><td>17 день</td><td>Витя — если подтвердит</td></tr>
+    </table>
+    <p>Huikang — завод на севере города. PEMF здесь не процедура для вас, а то, что они производят: аппараты импульсного магнитного поля. Суббота: уточнить, что корпус открыт. С севера в Пачжоу за халатом не гоняться.</p>
+  </aside>
+
+  <aside class="sheet" id="s-yoma" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">16 октября · вечер</p>
+    <h3>YOMA Space, городские термы у ярмарки</h3>
+    <p>Это обычное место, куда после Кантонской ярмарки ходят отмокнуть. Не горячий источник за городом и не «мероприятие» с билетом на дату. Открыто круглосуточно. Купальник или одноразовое бельё, которое выдают. Телефон в пакет или в шкафчик.</p>
+
+    <dl class="names">
+      <dt>YOMA Space · 有马空间</dt>
+      <dd>По-китайски «ёума кунцзянь» (Yǒumǎ Kōngjiān). На английском сеть пишет YOMA Space, на Klook иногда Arima Space. Одно и то же. Название отсылает к японским термам Арима. Внутри: бассейны, сауны, шведский стол, кино, игры. Несколько часов после стенда, не ночь в горах.</dd>
+      <dt>The Place · 南丰汇</dt>
+      <dd>«Наньфэн Хуэй», Nánfēng Huì. По-английски The Place или Nanfung Place. Это торговый центр и офисы гонконгской группы Nan Fung, не название терм. YOMA занимает 2–3 этаж. Адрес: 618 Xingang East Road, Haizhu, Guangzhou.</dd>
+      <dt>Xingangdong · 新港东</dt>
+      <dd>«Синьган дун», Xīngǎng Dōng, станция метро «Восточный Синьган», линии 8 и 18. Выход D, два минуты до входа. От павильонов ярмарки пешком около пятнадцати минут.</dd>
+      <dt>Meituan · 美团</dt>
+      <dd>«Мэйтуань». Китайское приложение, где берут такие билеты дешевле кассы. Если не хотите ставить его, тот же пакет есть на Klook и на Trip.com.</dd>
+    </dl>
+
+    <table>
+      <tr><td>Только вход, будни</td><td>от ~198 ¥</td></tr>
+      <tr><td>Пакет с ужином</td><td>примерно 300–600 ¥, на месте с едой выходит 700–1100</td></tr>
+      <tr><td>Когда покупать</td><td>днём 16-го, не в кассе в 18:30</td></tr>
+      <tr><td>Телефон зала</td><td>+86 20 3839 2588</td></tr>
+    </table>
+
+    <div class="links">
+      <a href="https://www.klook.com/activity/118849-guangzhou-arima-space-spa-pazhou-store/" target="_blank" rel="noopener">Билет на Klook</a>
+      <a href="https://www.trip.com/moments/poi-yoma-space-145055339/" target="_blank" rel="noopener">Страница на Trip.com</a>
+      <a href="https://www.yomaspace.com/contact" target="_blank" rel="noopener">Официальный сайт YOMA</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=YOMA+Space+618+Xingang+East+Road+Guangzhou" target="_blank" rel="noopener">Карта зала</a>
+      <a href="https://www.nanfung.com/en/property/china/guangzhou-the-place/" target="_blank" rel="noopener">Что такое The Place</a>
+    </div>
+    <p>На два-три часа берите пакет с ужином, не голый вход и не 12 часов. Схема простая: 18:20 душ и вода, 19:30 еда, 21:00 уже одеваетесь. Игры, кино и кровать на этаже оставьте местным, которые сидят до утра. Если пятница сорвётся, 23-го не идите: там мебель, а 24-го утром проводы и поезд.</p>
+  </aside>
+
+  <aside class="sheet" id="s-gifts" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">Подарки из России</p>
+    <h3>Что везти и чего не класть</h3>
+    <p>На завод один общий пакет на чайный стол и одна вещь руководителю. Не по брелоку каждому, кто пожал руку. Стоимость общего пакета примерно 3–8 тысяч рублей, «хозяину» 5–15, не дороже: слишком жирный подарок на южных заводах читается неловко.</p>
+    <table>
+      <tr><td>Кедр в банке, 300–500 г</td><td>едят сразу, редкий для них</td></tr>
+      <tr><td>Мёд Алтай / Башкирия, стекло</td><td>две банки, чётное число</td></tr>
+      <tr><td>Пряник или пастила</td><td>если шоколад уже возили</td></tr>
+      <tr><td>Янтарь Калининград</td><td>одна вещь, не набор витрин</td></tr>
+      <tr><td>Палех, гжель, хохлома</td><td>мелочь, которая стоит на полке</td></tr>
+      <tr><td>Облепиха: масло или джем</td><td>им нравится «полезно»</td></tr>
+    </table>
+    <p>Не везти: часы (проводы покойника), ножи и ножницы, зонты, зелёные кепки, груши, четыре одинаковые вещи, белую и чёрную упаковку. Платок и матрёшку можно одному новому человеку, не тем же, что в прошлый раз. Водку — только если уже пили вместе, маленькая бутылка, не ящик.</p>
+    <p>Напишите на карточке по-русски и по-английски: from Russia, with thanks. Китайскую фразу 一点心意, «идянь синьи», «небольшой знак внимания», положите в переводчик и покажите.</p>
+  </aside>
+
+  <aside class="sheet" id="s-sz" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">Шэньчжэнь</p>
+    <h3>19–22 октября</h3>
+    <table>
+      <tr><td>19 утро</td><td>Hypershell · Building A2, Chuangzhi Cloud City, Liuxian, Наньшань</td></tr>
+      <tr><td>19 день</td><td>PhantomChess · адрес запросить</td></tr>
+      <tr><td>19 вечер</td><td>TENZ, Футянь-порт</td></tr>
+      <tr><td>20 утро</td><td>ChessNut · 6F, Bldg 7, Suojia Park, Hangkong Rd, Баоань</td></tr>
+      <tr><td>20 день</td><td>Correxon · Баоань, корпус уточнить</td></tr>
+      <tr><td>21 утро</td><td>Mega · A1110, Goldman Sachs, 18 Center Rd, Синьцяо · 4,5 ч</td></tr>
+      <tr><td>21 день</td><td>Красные панели · Bldg B, 4F 402, 73 Huahui Rd, Лунхуа</td></tr>
+      <tr><td>22 утро</td><td>JWD · Jingwah, 187 Liangbai, Пинху — если не было в HK</td></tr>
+      <tr><td>22 день</td><td>Ellipal · 3301, A, Block 9, Shenzhen Bay Science Park — если не было в HK</td></tr>
+      <tr><td>22 вечер</td><td>Shenzhen North → Guangzhou South. Завтра Пачжоу, мебель</td></tr>
+    </table>
+  </aside>
+
+  <aside class="sheet" id="s-tenz" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">19 октября · вечер</p>
+    <h3>TENZ · 汤崎</h3>
+    <p>«Танци», Tāngqí. Городские термы на пять этажей у пункта Футянь. Адрес: Guohua Road, Gangcheng Huating, 1–5 этаж. Метро Futian Checkpoint / 福田口岸, «футянь коуань», выход A, 5–7 минут. Бани раздельно. Потом халат, ужин, кино, VR.</p>
+    <table>
+      <tr><td>8 / 24 часа</td><td>~300–400 ¥</td></tr>
+      <tr><td>С играми</td><td>~400–480 ¥</td></tr>
+      <tr><td>Оплата</td><td>Alipay / WeChat, не Visa</td></tr>
+    </table>
+    <div class="links">
+      <a href="https://www.google.com/maps/search/?api=1&query=TENZ+Futian+Checkpoint+Shenzhen" target="_blank" rel="noopener">Карта TENZ</a>
+    </div>
+    <p>Не 21-го из Лунхуа. Если понедельник не выйдет, четверг после Наньшаня.</p>
+  </aside>
+
+  <aside class="sheet" id="s-needles" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">2 ноября · утро</p>
+    <h3>Иглоукалывание</h3>
+    <p>На ресепшн: 针灸, «чжэньцзю», acupuncture. Паспорт. Не в термах и не в отеле. Записываться заранее не надо: в окошке 挂号, «гуахао», регистратура, берут талон на сегодня.</p>
+    <table>
+      <tr><td>Первый адрес</td><td>Guangzhou Acupuncture Hospital, Zhuji Road 16, «чжуцзи лу»</td></tr>
+      <tr><td>Ближе к Пачжоу</td><td>провинциальная больница китайской медицины, Pazhou Avenue 33, «пачжоу дадао» · 020-89636497</td></tr>
+      <tr><td>Если поезд поздно</td><td>главный корпус, Dade Road 111, «дадэ лу», слот 19:00, пн–пт</td></tr>
+      <tr><td>Деньги</td><td>талон 4–50 ¥ · процедура 50–200</td></tr>
+    </table>
+    <div class="links">
+      <a href="https://www.google.com/maps/search/?api=1&query=广州市针灸医院+珠玑路16号" target="_blank" rel="noopener">Карта на Zhuji Road</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=广东省中医院+琶洲大道33号" target="_blank" rel="noopener">Карта на Пачжоу</a>
+    </div>
+  </aside>
+
+  <aside class="sheet" id="s-mtn" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">24–30 октября</p>
+    <h3>Семь дней коротко</h3>
+    <table>
+      <tr><td>1 · 24-е</td><td>проводы в Байюне, поезд в Чжанцзяцзе, ночь у ворот</td></tr>
+      <tr><td>2 · 25-е</td><td>столбы, лифт Байлун, ~10 км</td></tr>
+      <tr><td>3 · 26-е</td><td>тропа «Золотой кнут», 7,5 км</td></tr>
+      <tr><td>4 · 27-е</td><td>Тяньмэнь: дыра в горе, 999 ступеней, Гуйгу, стекло</td></tr>
+      <tr><td>5 · 28-е</td><td>поезд в Синпин, закат с Лаочжай</td></tr>
+      <tr><td>6 · 29-е</td><td>купюра, плот, Юйлун</td></tr>
+      <tr><td>7 · 30-е</td><td>утро в Синпине, днём поезд ~2 часа. Ярмарка закрыта</td></tr>
+    </table>
+    <p>Подробности, смета и фото — в горном туре. Тридцать первого вы уже в Гуанчжоу: третья фаза с утра.</p>
+  </aside>
+
+  <aside class="sheet" id="s-hot" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">2 ноября</p>
+    <h3>Бишуйвань · 碧水湾</h3>
+    <p>«Бишуйвань», Bìshuǐwān, Bishuiwan Hot Spring. Настоящие источники в Цунхуа, не городские термы. Адрес: 353 Yuquan Avenue, Liangkou, Conghua. Купальник. 15–20 минут в горячем, потом чай. DiDi из Тяньхэ около полутора часов, 150–250 юаней в одну сторону.</p>
+    <table>
+      <tr><td>Билет</td><td>159–219 ¥, Meituan / Dianping</td></tr>
+      <tr><td>Открыто</td><td>~9:00–00:00, вход до 23:00</td></tr>
+      <tr><td>Вам хватит</td><td>5–6 часов</td></tr>
+    </table>
+    <p>Утром 2-го сначала иглы, потом источник, если хватит сил. 23-го вы на мебели, не здесь.</p>
+    <div class="links">
+      <a href="https://www.google.com/maps/search/?api=1&query=碧水湾温泉度假村+从化" target="_blank" rel="noopener">Карта Бишуйвань</a>
+    </div>
+  </aside>
+
+  <aside class="sheet" id="s-phase2" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">23 октября · фаза 2</p>
+    <h3>Мебель, зона B</h3>
+    <p>Официальная карта 140-й ярмарки. Мебель стоит в четырёх залах, все в зоне B, 区, «би цюй». Корпуса 9, 10 и 11 рядом, между ними 5–10 минут пешком.</p>
+    <table>
+      <tr><td>9.3</td><td>корпус 9, 3 этаж · Furniture</td></tr>
+      <tr><td>10.2</td><td>корпус 10, 2 этаж · Furniture</td></tr>
+      <tr><td>10.3</td><td>корпус 10, 3 этаж · Furniture</td></tr>
+      <tr><td>11.3</td><td>корпус 11, 3 этаж · Furniture</td></tr>
+    </table>
+    <p>Один зал при быстром проходе — 45–70 минут. Четыре зала плюс обед — полный день, 9:30–17:00. Если садиться на чай у каждого стенда, хватит двух залов. Вам нужен обход: фото, визитка, WeChat, дальше.</p>
+    <p>Двор и уличная мебель отдельно, на улице: 9.0, 12.0, 13.0. Это уже не обязательно. Сантехника 9.1, 10.1, 11.1 и стройка 11.2–13.2 — не мебель, не открывайте в этот день.</p>
+    <p>Бейдж с первой фазы обычно действует на все три фазы этой ярмарки. Карту залов откройте в приложении Canton Fair или на 365.cantonfair.org.cn, фаза 2.</p>
+    <div class="links">
+      <a href="https://365.cantonfair.org.cn/en-US/exhibition-hall-map?phase=second" target="_blank" rel="noopener">Карта залов, фаза 2</a>
+    </div>
+  </aside>
+
+  <aside class="sheet" id="s-phase3" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <p class="kicker dark">31 октября · wellness</p>
+    <h3>Ice Tribe: три зала, не вся фаза</h3>
+    <p>В третьей фазе десятки залов: одежда, игрушки, еда, текстиль. Вам это не нужно. Для приборов Ice Tribe официальная карта 140-й ярмарки даёт три точки. Номер зала — корпус и этаж.</p>
+    <table>
+      <tr><td>9.2 и 10.2 · зона B</td><td>Medicines, Health Products and Medical Devices. Медтехника, реабилитация, БАДы. В 10.2 ещё еда: не уходите в снеки</td></tr>
+      <tr><td>21.2 · Friendship Hall, зона D</td><td>Intelligent Healthcare. Умная физиотерапия и реабилитация. Ближе всего к PEMF</td></tr>
+      <tr><td>по желанию 11.1, 12.1, 13.1</td><td>Sports, Travel and Recreation. Если ищете лёд, восстановление, outdoor</td></tr>
+      <tr><td>не обязательно 10.1, 11.1</td><td>Personal Care. Косметика, не приборы</td></tr>
+    </table>
+    <p>Два зала 9.2 и 10.2 стоят рядом. Обход с остановками — 3–4 часа. Friendship Hall 21.2 в зоне D: 10–15 минут пешком или шаттл, ещё 1–1,5 часа. Три обязательных зала — один день, 5–7 часов с обедом. Всю третью фазу не открывайте: там больше тридцати этажей.</p>
+    <p>Первое ноября оставляйте только если вчера набрали слишком много карточек или хотите спортзалы. Иначе этот день пустой.</p>
+    <div class="links">
+      <a href="https://365.cantonfair.org.cn/en-US/exhibition-hall-map?phase=third" target="_blank" rel="noopener">Карта залов, фаза 3</a>
+      <a href="https://www.cantonfair.org.cn/en-US" target="_blank" rel="noopener">Сайт Canton Fair</a>
+    </div>
+  </aside>
+
+  <div class="lightbox" id="box" hidden>
+    <button class="sheet-x" type="button">Закрыть</button>
+    <button class="box-nav box-prev" type="button" hidden>Назад</button>
+    <figure>
+      <img alt="">
+      <figcaption class="box-cap"></figcaption>
+    </figure>
+    <button class="box-nav box-next" type="button" hidden>Дальше</button>
+  </div>
+
+  <script src="tour.js"></script>
+</body>
+</html>
