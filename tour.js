@@ -121,7 +121,13 @@ function setShot(place, index) {
   const src = btn.dataset.src;
   const cap = btn.dataset.cap || "";
   const stage = place.querySelector(".album-stage");
-  if (stage) stage.style.backgroundImage = `url('${src}')`;
+  if (stage) {
+    if (stage.tagName === "IMG") stage.src = src;
+    else stage.style.backgroundImage = `url('${src}')`;
+    stage.dataset.full = src;
+    const frame = stage.closest(".shot");
+    if (frame) frame.dataset.full = src;
+  }
   const label = place.querySelector(".album-cap");
   if (label) {
     const num = label.querySelector("b");
@@ -308,7 +314,7 @@ box.addEventListener("click", (e) => {
 });
 
 const hash = location.hash.replace("#", "");
-const natureIds = ["n-map", "pillars", "tianmen", "river", "mountains", "mtnb", "riverb"];
+const natureIds = ["n-map", "n-want", "pillars", "tianmen", "river", "mountains", "mtnb", "riverb"];
 if (natureIds.includes(hash)) {
   const jump = hash === "mountains" || hash === "mtnb" ? "tianmen" : hash === "riverb" ? "river" : hash;
   setMode("nature", jump);

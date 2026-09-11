@@ -114,6 +114,73 @@ body.on-paper .progress i { background: var(--cinnabar); }
     radial-gradient(ellipse at center, transparent 42%, rgba(12, 11, 9, 0.42) 100%),
     linear-gradient(180deg, rgba(12, 11, 9, 0.18), transparent 22%, transparent 70%, rgba(12, 11, 9, 0.28));
 }
+.slide.place::after { display: none; }
+.slide.place {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(21rem, 0.7fr);
+  background: #11100e;
+  overflow: auto;
+}
+.slide.place .shot {
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 3vh 2vw 7.8rem;
+  background: #11100e;
+  cursor: zoom-in;
+}
+.slide.place .shot img {
+  display: block;
+  max-width: 100%;
+  max-height: 78svh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+.slide.place .card {
+  position: relative;
+  margin: auto 3vw;
+  opacity: 1;
+  transform: none;
+}
+.wall-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin-top: 1.3rem;
+}
+.tile {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 0;
+  background: #11100e;
+  color: var(--dark);
+  font: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.tile-pic {
+  display: grid;
+  place-items: center;
+  height: 220px;
+  background: #11100e;
+}
+.tile-pic img {
+  max-width: 100%;
+  max-height: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.tile-cap {
+  display: block;
+  padding: 0.7rem 0.85rem 0.85rem;
+  background: var(--card);
+  font-size: 0.92rem;
+}
 
 .bg, .pic {
   position: absolute;
@@ -499,9 +566,9 @@ html.js .cards article, html.js .hotels article {
 .film {
   position: absolute;
   z-index: 3;
-  left: 50%;
-  bottom: 5.8rem;
-  transform: translateX(-50%);
+  left: 2vw;
+  bottom: 1.4rem;
+  transform: none;
   display: flex;
   gap: 8px;
   padding: 6px;
@@ -519,8 +586,9 @@ html.js .cards article, html.js .hotels article {
 .film button.on,
 .film button:hover { border-color: #f3ead8; }
 .album-cap {
-  left: 4vw;
-  bottom: 1.6rem;
+  left: 2vw;
+  top: 4.4rem;
+  bottom: auto;
 }
 .album-cap b {
   color: var(--cinnabar);
@@ -645,7 +713,14 @@ body[data-mode="nature"] [data-chapter="work"] {
   .doors { grid-template-columns: 1fr; }
   .chapters { left: 10px; right: 10px; width: auto; justify-content: stretch; }
   .chapters button { flex: 1; }
-  .film { bottom: 4.6rem; }
+  .slide.place { grid-template-columns: 1fr; }
+  .slide.place .shot { min-height: 56svh; padding: 2vh 4vw 5.5rem; }
+  .slide.place .shot img { max-height: 50svh; }
+  .slide.place .card { margin: 1.2rem 5vw 8vh; }
+  .wall-grid { grid-template-columns: 1fr; }
+  .tile-pic { height: 240px; }
+  .tile-pic img { max-height: 240px; }
+  .film { bottom: 1rem; }
   .film button { width: 54px; height: 38px; }
   .lightbox { grid-template-columns: 1fr; padding: 4rem 0.6rem 4.6rem; }
   .box-nav { position: absolute; bottom: 14px; }

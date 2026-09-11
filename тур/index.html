@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Семь дней · Чжанцзяцзе и Яншо</title>
+  <meta name="robots" content="noindex,nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="topbar hide" id="topbar" aria-hidden="true"><span id="tb-num"></span><i></i><span id="tb-title"></span></div>
+
   <nav class="rail" aria-label="Дни">
     <a class="rail-btn on" href="#cover">Начало</a>
+    <a class="rail-btn" href="#want">Куда</a>
+    <a class="rail-btn" href="#time">Время</a>
     <a class="rail-btn" href="#map">Карта</a>
     <a class="rail-btn" href="#d1">1</a>
     <a class="rail-btn" href="#d2">2</a>
@@ -26,106 +31,401 @@
     <a class="rail-btn" href="#body">Тело</a>
   </nav>
 
-  <div class="hint" id="hint">Колёсико или пробел. Нажмите на фото — оно на весь экран. Кнопка на карточке открывает день.</div>
+  <div class="hint" id="hint">Колёсико или пробел листает. Фото целиком, не обои: нажмите кадр — откроется крупно. Плюсы на тёмных страницах раскрывают загадки.</div>
   <div class="progress" aria-hidden="true"><i id="bar"></i></div>
   <div class="veil" id="veil"></div>
 
   <main id="deck">
 
-    <section class="slide" id="cover" data-rail="cover">
-      <div class="bg ken zoomable" style="background-image:url('photos/mist.jpg')" data-full="photos/mist.jpg"></div>
+    <!-- ============ обложка ============ -->
+    <section class="slide look" id="cover" data-rail="cover">
+      <figure class="shot zoomable" data-full="photos/zjj-sun.jpg" data-cap="Улинъюань. Столбы из кварцевого песчаника, ясный день.">
+        <img src="photos/zjj-sun.jpg" alt="Столбы Улинъюаня в ясный день">
+        <figcaption>Улинъюань · кварцевый песчаник · 380 млн лет</figcaption>
+      </figure>
       <div class="card in">
         <p class="kicker">Конец октября 2026 · соло · поезда, без перелётов</p>
         <h1>Семь дней,<br>которых ещё нет</h1>
-        <p>Чжанцзяцзе — столбы из «Аватара». Яншо — река с купюры. Улинъюань не другой город: район у ворот того же парка.</p>
-        <p class="soft">10 км в горный день. Первый класс на двух длинных поездах. ~10 800 ¥.</p>
+        <p>Столбы, где по легенде спрятался стратег, основавший династию Хань. Дыра в горе, которую открыл обвал в 263 году. Река, которую печатают на деньгах. Одна неделя, два длинных поезда.</p>
+        <p class="soft">10 км в горный день. Первый класс. ~10 800 ¥. Ниже — что вы увидите, по шагам, и что об этом рассказывают тысячу лет.</p>
       </div>
     </section>
 
-    <section class="slide light" id="map" data-rail="map">
+    <!-- ============ куда ============ -->
+    <section class="slide light" id="want" data-rail="want" data-ch="Куда именно">
       <div class="inner">
-        <p class="kicker dark">Один маршрут</p>
+        <p class="kicker">Куда именно</p>
+        <h2>Девять кадров мест</h2>
+        <p>Нажмите любое. Откроется целиком: столбы, дыра в горе, купюра, плот.</p>
+        <div class="wall-grid stagger">
+          <button class="tile zoomable rise" type="button" data-full="photos/zjj-wuling.jpg" data-cap="Тяньцзы. Лес столбов с площадки.">
+            <span class="tile-pic"><img src="photos/zjj-wuling.jpg" alt=""></span>
+            <span class="tile-cap">Тяньцзы. Лес каменных столбов.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/zjj-sun.jpg" data-cap="Те же столбы в ясный день.">
+            <span class="tile-pic"><img src="photos/zjj-sun.jpg" alt=""></span>
+            <span class="tile-cap">Те же столбы в ясный день.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/bailong.jpg" data-cap="Лифт Байлун: 326 метров по скале.">
+            <span class="tile-pic"><img src="photos/bailong.jpg" alt=""></span>
+            <span class="tile-cap">Лифт Байлун. Вас везут внутрь скалы.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-road.jpg" data-cap="Тяньмэнь снизу. 999 ступеней смотрят в дыру.">
+            <span class="tile-pic"><img src="photos/tianmen-road.jpg" alt=""></span>
+            <span class="tile-cap">Дыра в горе. 999 ступеней снизу.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-gate.jpg" data-cap="Та же дыра с серпантина 99 поворотов.">
+            <span class="tile-pic"><img src="photos/tianmen-gate.jpg" alt=""></span>
+            <span class="tile-cap">Та же дыра с серпантина.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/guigu.jpg" data-cap="Тропа Гуйгу на высоте 1 400 м.">
+            <span class="tile-pic"><img src="photos/guigu.jpg" alt=""></span>
+            <span class="tile-cap">Тропа Гуйгу. Доски в обрыве.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/xingping-town.jpg" data-cap="Синпин. Купюра 20 юаней и отмель Хуанбу за ней.">
+            <span class="tile-pic"><img src="photos/xingping-town.jpg" alt=""></span>
+            <span class="tile-cap">Купюра 20 юаней и та самая река.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/yulong.jpg" data-cap="Юйлун. Плот и шест.">
+            <span class="tile-pic"><img src="photos/yulong.jpg" alt=""></span>
+            <span class="tile-cap">Плот. Вас несут водой.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/yangshuo-air.jpg" data-cap="Яншо сверху: пики и излучина.">
+            <span class="tile-pic"><img src="photos/yangshuo-air.jpg" alt=""></span>
+            <span class="tile-cap">Яншо сверху. Пики и излучина.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ глубокое время ============ -->
+    <section class="slide night" id="time" data-rail="time" data-ch="Глубокое время">
+      <div class="inner wide">
+        <p class="kicker">Шкала</p>
+        <h2>Всё это делалось очень долго</h2>
+        <p class="lede">Море, песок, вода и одна записанная дата обвала. Потом люди: стратег в бегах, крестьянин, назвавший себя <em>Сыном Неба</em>, чиновник со стихом, японец с лестницей. И в конце — ваш поезд.</p>
+        <div class="tl stagger">
+          <div class="rise"><b>380 млн лет</b><p>Хунань — мелкое море. Песок ложится слоями. В нём уже лежат будущие столбы.</p></div>
+          <div class="rise"><b>2,6 млн лет</b><p>Земля поднимается. Реки режут песчаник по трещинам: плато, стены, столбы. Процесс идёт и сейчас.</p></div>
+          <div class="rise"><b>214 до н. э.</b><p>Канал Линцюй соединяет реки Сян и Ли. Армия Цинь Шихуана идёт на юг по воде. Река Ли становится дорогой.</p></div>
+          <div class="rise"><b>263</b><p>На горе Сунлян раскалывается скала — открывается дыра в 131 метр. Правитель царства У даёт горе имя Тяньмэнь, Небесные врата.</p></div>
+          <div class="rise"><b>265</b><p>Основан Синпин. К вашему приезду ему больше 1 700 лет.</p></div>
+          <div class="rise"><b>870</b><p>На вершине Тяньмэнь строят храм Линцюань. Сегодня это самый высокий буддийский храм Хунани.</p></div>
+          <div class="rise"><b>1201</b><p>Чиновник Ван Чжэнгун на пиру для выпускников пишет: «Пейзажи Гуйлиня — лучшие под небом». Строку найдут на скале в 1983-м.</p></div>
+          <div class="rise"><b>1385</b><p>Сян Дакунь, объявивший себя Сыном Неба, разбит войском Мин и падает в залив Шэньтан. Гора с тех пор — Тяньцзы.</p></div>
+          <div class="rise"><b>1412</b><p>На реке Аньлэ ставят каменный мост Юйлун. Река берёт имя моста: «Встреча с драконом».</p></div>
+          <div class="rise"><b>1982</b><p>Чжанцзяцзе — первый национальный лесопарк Китая.</p></div>
+          <div class="rise"><b>1992</b><p>Улинъюань в списке ЮНЕСКО: больше 3 000 столбов, 40 пещер, два природных моста.</p></div>
+          <div class="rise"><b>1998</b><p>Сталагмит в пещере Хуанлун страхуют на 100 миллионов юаней. Билл Клинтон задерживается на час в рыбацкой деревне у Синпина.</p></div>
+          <div class="rise"><b>1999</b><p>Сквозь дыру Тяньмэнь впервые пролетают самолёты. Синпин попадает на купюру 20 юаней. Японец Хаяси заканчивает лестницу на Лаочжай.</p></div>
+          <div class="rise"><b>2002</b><p>Открывается лифт Байлун: 326 метров за полторы минуты.</p></div>
+          <div class="rise"><b>2010</b><p>Столб «Опора Южного неба» переименован в «Аллилуйя» из «Аватара». Геологи семи стран утверждают термин «рельеф Чжанцзяцзе».</p></div>
+          <div class="rise you"><b>24 октября 2026</b><p>Ваш поезд с Южного вокзала Гуанчжоу. Всё выше — теперь ваше на неделю.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ карта ============ -->
+    <section class="slide light" id="map" data-rail="map" data-ch="Маршрут">
+      <div class="inner">
+        <p class="kicker">Один маршрут</p>
         <h2>Горы сначала. Река везёт домой.</h2>
         <div class="split">
           <div>
-            <div class="geo" style="background-image:url('photos/south-china.jpg')" role="img" aria-label="Карта Южного Китая">
+            <div class="geo" id="geo" style="background-image:url('photos/south-china.jpg')" role="img" aria-label="Карта Южного Китая">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+                <path pathLength="100" d="M252 231 C 200 200, 160 130, 136 63 L 136 183 C 170 210, 215 228, 252 231"/>
+              </svg>
               <i style="left:34%;top:21%"></i>
               <b style="left:42%;top:17%">Чжанцзяцзе<br>дни 1–4</b>
               <i style="left:34%;top:61%"></i>
-              <b style="left:44%;top:58%">Яншо<br>дни 5–7</b>
+              <b style="left:23%;top:58%">Яншо<br>дни 5–7</b>
               <i style="left:63%;top:77%"></i>
               <b style="left:72%;top:73%">Гуанчжоу<br>старт и финиш</b>
             </div>
-            <p class="geo-note">Рельеф. От Яншо до Гуанчжоу около двух часов. Из Чжанцзяцзе было бы семь.</p>
+            <p class="geo-note">Линия — ваш круг: вверх в Хунань, потом вниз к реке, потом два часа домой. Из Чжанцзяцзе обратно было бы семь.</p>
           </div>
           <div>
             <p>Обратная дорога из Яншо короткая, около двух часов. Если начать с реки, неделя кончится семью часами в кресле. Поэтому горы первые. Тридцатого днём уже поезд: тридцать первого ярмарка открывается с утра, и вы не с перрона.</p>
             <ul class="plain">
-              <li>3 ночи у восточных ворот парка</li>
+              <li>3 ночи у восточных ворот парка, Улинъюань</li>
               <li>1 ночь в городе, у канатки Тяньмэнь</li>
-              <li>2 ночи в Синпине, не на Западной улице</li>
+              <li>2 ночи в Синпине, у пиков с купюры, не на Западной улице</li>
             </ul>
+            <p class="soft">По дороге туда поезд пройдёт мимо Гуйлиня — тех самых пиков, к которым вы вернётесь на пятый день.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide" id="d1" data-rail="d1">
-      <div class="bg ken slow zoomable" style="background-image:url('photos/gz-south.jpg')" data-full="photos/gz-south.jpg"></div>
+    <!-- ============ день 1 ============ -->
+    <section class="slide look" id="d1" data-rail="d1" data-ch="День 1 · Дорога">
+      <figure class="shot zoomable" data-full="photos/gz-south.jpg" data-cap="Южный вокзал Гуанчжоу.">
+        <img src="photos/gz-south.jpg" alt="Южный вокзал Гуанчжоу">
+        <figcaption>Гуанчжоу Южный · 广州南 · первый класс, 2+2</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">День 1 · 24 октября · природа 0 ч</p>
         <h2>Шесть часов кресла</h2>
-        <p>Утром проводите сотрудника в Байюне. Потом Южный Гуанчжоу, вечером Западный Чжанцзяцзе. Пять с половиной часов, иногда семь, место в первом классе, как в «Сапсане». К парку вы подойдёте уже к ночи, и это хорошо. После проводов и такого сидения там всё равно нечего успеть.</p>
+        <p>Утром проводите сотрудника в Байюне. Потом Южный Гуанчжоу, вечером Западный Чжанцзяцзе. Пять с половиной часов, иногда семь, первый класс. К парку вы подойдёте уже к ночи, и это хорошо: после проводов и такого сидения там всё равно нечего успеть.</p>
         <p class="day-sum">день ~1 950 ¥</p>
         <button class="peek" type="button" data-sheet="s1">Что входит в день</button>
       </div>
     </section>
 
-    <section class="slide" id="d2" data-rail="d2">
-      <div class="bg ken zoomable" style="background-image:url('photos/pillars.jpg')" data-full="photos/pillars.jpg"></div>
+    <section class="slide light" id="d1w" data-rail="d1" data-ch="День 1 · По шагам">
+      <div class="inner">
+        <p class="kicker">День 1 · по шагам</p>
+        <h2>Как пройдёт дорога</h2>
+        <ol class="steps stagger">
+          <li class="step rise"><time>утро</time><span class="dot"></span><div><h4>Байюнь. Проводы</h4><p>Сотруднику — в терминал, вам — в метро. Дальше вы один; отсюда и начинается неделя.</p></div></li>
+          <li class="step rise"><time>к 11:00</time><span class="dot"></span><div><h4>Южный вокзал, 广州南</h4><p>Размером с аэропорт. Билет — это паспорт: на турникете сканируют документ. Первый класс — кресла 2+2, берите место у окна.</p></div></li>
+          <li class="step rise"><time>день</time><span class="dot"></span><div><h4>5,5–7 часов</h4><p>Первые часы — дельта и заводы. Потом Гуанси: за окном начнут расти «сахарные головы» — это уже карст, вы проедете рядом с Гуйлинем. Потом Хунань, и темнеет.</p></div></li>
+          <li class="step rise"><time>вечер</time><span class="dot"></span><div><h4>Чжанцзяцзе Западный, 张家界西</h4><p>Такси до Улинъюаня около 40 минут. Отель MEI CEN в пяти минутах от ворот парка.</p></div></li>
+          <li class="step rise"><time>ужин</time><span class="dot"></span><div><h4>Саньсягуо, 三下锅</h4><p>Сухой котёл из трёх мясных вещей, острый. Легенда: при Мин солдат туцзя срочно отправили воевать с японскими пиратами, и Новый год встретили на день раньше, свалив в один котёл всё, что было в доме. С тех пор туцзя празднуют «ганьнянь», досрочный Новый год. Просите 微辣, «вэйла» — не очень остро.</p></div></li>
+        </ol>
+        <p class="walk-foot">Запас, не план: ночной C4108 с Байюнь около 20:16, к утру на месте. Тогда этот день становится ночью в купе.</p>
+      </div>
+    </section>
+
+    <!-- ============ день 2 · столбы ============ -->
+    <section class="slide look" id="d2" data-rail="d2" data-ch="День 2 · Столбы">
+      <figure class="shot zoomable" data-full="photos/zjj-wuling.jpg" data-cap="Тяньцзы. Лес столбов с площадки.">
+        <img src="photos/zjj-wuling.jpg" alt="Лес столбов Улинъюаня">
+        <figcaption>Тяньцзы · песчаниковые столбы до 400 м · более 3 000</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">День 2 · 25 октября · 7–8 ч на природе · ~10 км</p>
         <h2>Вас везут в скалу</h2>
-        <p>Утром лифт Байлун поднимает внутрь горы. Дальше Юаньцзяцзе, «Первый мост под небом», автобус на Тяньцзы, вниз канаткой. Между площадками ходите сами: это и есть десять километров. Пешком наверх вместо лифта не идём, там двадцать километров ступеней.</p>
+        <p>Утром лифт Байлун поднимает внутрь горы. Дальше Юаньцзяцзе, «Первый мост под небом», автобус на Тяньцзы мимо запретного залива, вниз канаткой. Между площадками ходите сами: это и есть десять километров. Пешком наверх вместо лифта не идём, там двадцать километров ступеней.</p>
         <p class="day-sum">день ~1 290 ¥</p>
         <button class="peek" type="button" data-sheet="s2">Что входит в день</button>
       </div>
     </section>
 
-    <section class="slide pair" id="d2b" data-rail="d2">
-      <button class="pic zoomable" type="button" style="background-image:url('photos/bailong.jpg')" data-full="photos/bailong.jpg" aria-label="Лифт Байлун"></button>
-      <button class="pic zoomable" type="button" style="background-image:url('photos/clouds.jpg')" data-full="photos/clouds.jpg" aria-label="Туман над столбами"></button>
-      <div class="strip">Лифт в скале. Вас везут. Между площадками ходите сами — это и есть 10 км.</div>
+    <section class="slide night" id="d2n" data-rail="d2" data-ch="День 2 · Камень и легенда">
+      <div class="inner wide">
+        <p class="kicker">Камень и легенда</p>
+        <h2>Земля семьи Чжан</h2>
+        <p class="lede">«Аватар» здесь снимали не камерой: голливудский фотограф провёл четыре дня в 2008-м. Всё остальное сделала вода — <em>за два с половиной миллиона лет</em>.</p>
+        <div class="stats stagger">
+          <div class="stat rise"><b><span data-count="3000"></span>+</b><span>столбов и пиков</span></div>
+          <div class="stat rise"><b><span data-count="326"></span> м</b><span>лифт Байлун</span></div>
+          <div class="stat rise"><b><span data-count="357"></span> м</b><span>под Первым мостом</span></div>
+          <div class="stat rise"><b><span data-count="380"></span> млн</b><span>лет песчанику</span></div>
+        </div>
+        <div class="tales stagger">
+          <article class="tale rise">
+            <h3>Камень <small>геология</small></h3>
+            <p>Кварцевый песчаник, 75–95 % кварца. Он твёрже известняка, поэтому не растворяется, а ломается по вертикальным трещинам: сверху плато, потом стены, потом одиночные столбы — и в конце они тоже упадут. Вы смотрите на середину процесса. В 2010 году геологи из семи стран признали это отдельным типом рельефа и назвали его «рельеф Чжанцзяцзе».</p>
+          </article>
+          <article class="tale rise">
+            <h3>Стратег в бегах <small>легенда об имени</small></h3>
+            <p>Чжан Лян помог Лю Бану основать династию Хань — и увидел, как новый император казнит вчерашних соратников. По местному преданию, он ушёл сюда, на гору Цинъянь, стал отшельником и посадил семь гинкго. Потомки остались. «Чжан цзя цзе» — «земля семьи Чжан». Историки предание не подтверждают. Город получил имя парка только в 1994-м.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Сын Неба <small>1353–1385</small></h3>
+            <p>Крестьянин из народа туцзя Сян Дакунь поднимает восстание и зовёт себя Тяньцзы — Сыном Неба, как император. Тридцать лет держит горы. В 1385-м десять тысяч солдат Мин осаждают его сорок дней. Разбитый, он падает в залив Шэньтан. Цин запрещала слово «Тяньцзы» на картах. Туцзя звали гору так всё равно.</p>
+          </article>
+        </div>
+        <div class="riddles">
+          <h3>Три загадки</h3>
+          <details class="riddle">
+            <summary><b>01</b><span>Залив Шэньтан: откуда не возвращаются</span><i></i></summary>
+            <p>Каменная чаша среди скал, обрыв на полкилометра, дно всегда в тумане. Местные говорят: в непогоду снизу слышны гонги, барабаны и ржание лошадей — армия Сян Дакуня. В 1970-х ополченцы с собаками и винтовками пошли вниз; на трети пути собаки отказались идти. До дна, по преданию, не добирался никто. Учёные говорят о ветре в замкнутой котловине. Ваш автобус на Тяньцзы остановится у края: смотровая есть, пути вниз нет.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>02</b><span>Столб, который переименовали ради кино</span><i></i></summary>
+            <p>25 января 2010 года «Опору Южного неба», столб на 1 074 метра над морем, официально назвали «Аллилуйя» — в честь летающих гор Пандоры. Джеймс Кэмерон до этого говорил о Хуаншане. Чжанцзяцзе ответил лозунгом: «Пандора далеко, Чжанцзяцзе рядом». Спор не закрыт. Столб стоит, и вы пройдёте мимо него после лифта.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>03</b><span>Сталагмит за сто миллионов</span><i></i></summary>
+            <p>В пещере Хуанлун стоит «Игла, усмиряющая море»: 19,2 метра, в самом тонком месте десять сантиметров, возраст около двухсот тысяч лет. 18 апреля 1998 года его застраховали на сто миллионов юаней — первый застрахованный природный объект в Китае. Полис стоил двадцать тысяч; о пещере узнала вся страна. Это одна из опций «если тропа кончилась рано» в дне 3.</p>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section class="slide" id="d3" data-rail="d3">
-      <div class="bg ken zoomable" style="background-image:url('photos/park.jpg')" data-full="photos/park.jpg"></div>
+    <section class="slide light" id="d2w" data-rail="d2" data-ch="День 2 · По шагам">
+      <div class="inner">
+        <p class="kicker">День 2 · по шагам</p>
+        <h2>Пройдём день</h2>
+        <ol class="steps stagger">
+          <li class="step rise"><time>07:30</time><span class="dot"></span><div><h4>Ворота Улинъюань</h4><p>Билет действует несколько дней — завтра по нему же. Автобус парка к нижней станции Байлун, около 20 минут.</p></div></li>
+          <li class="step rise"><time>08:15</time><span class="dot"></span><div><h4>Лифт Байлун</h4><p>Первые 155 метров — шахта внутри скалы, темно. Потом стекло, и за 1 минуту 32 секунды вы на 326 метров выше. Три двухэтажные кабины, до 46 человек. Стойте у стекла.</p></div></li>
+          <li class="step rise"><time>08:40</time><span class="dot"></span><div><h4>Юаньцзяцзе</h4><p>Площадка Михуньтай, «где теряют душу». Столб «Аллилуйя». Первый мост под небом: два метра ширины, двадцать длины, 357 метров пустоты под ногами, перила в замках влюблённых. Между площадками — пешком. Это и есть ваши километры.</p></div></li>
+          <li class="step rise"><time>11:30</time><span class="dot"></span><div><h4>Обед</h4><p>Простая столовая у станции автобусов. Макаки открывают молнии и знают, где еда: рюкзак застёгнут, пакеты внутри.</p></div></li>
+          <li class="step rise"><time>12:30</time><span class="dot"></span><div><h4>Автобус на Тяньцзы</h4><p>Горная линия, 17,5 км. Остановка Шэньтанвань — край запретного залива, смотровая. Дальше Тяньцзы: «Императорские кисти», «Фея, рассыпающая цветы», парк маршала Хэ Луна — он родом из этих гор, из уезда Санчжи.</p></div></li>
+          <li class="step rise"><time>15:30</time><span class="dot"></span><div><h4>Канатка Тяньцзы вниз</h4><p>Потом автобус парка к воротам, около 40 минут. Пешком не спускаемся: колени завтра нужны.</p></div></li>
+          <li class="step rise"><time>17:00</time><span class="dot"></span><div><h4>У ворот</h4><p>Массаж ног на улице Улин: вывеска 足疗, «цзуляо». Ужин — копчёное мясо туцзя, 腊肉, «лажоу», и рис.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide pair" id="d2b" data-rail="d2" data-ch="День 2 · Два кадра">
+      <figure class="pic zoomable" data-full="photos/bailong.jpg" data-cap="Лифт Байлун снизу.">
+        <img src="photos/bailong.jpg" alt="Лифт Байлун">
+      </figure>
+      <figure class="pic zoomable" data-full="photos/zjj-sun.jpg" data-cap="Столбы в ясный день.">
+        <img src="photos/zjj-sun.jpg" alt="Столбы в ясный день">
+      </figure>
+      <div class="strip">Слева лифт в скале. Справа те же столбы без тумана. Между площадками ходите сами — это и есть 10 км.</div>
+    </section>
+
+    <section class="slide light" id="d2g" data-rail="d2" data-ch="День 2 · Ещё кадры">
+      <div class="inner">
+        <p class="kicker">День 2 · ещё кадры</p>
+        <h2>Парк столбов</h2>
+        <div class="wall-grid stagger">
+          <button class="tile zoomable rise" type="button" data-full="photos/zjj-wuling.jpg" data-cap="Тяньцзы. Лес столбов с площадки.">
+            <span class="tile-pic"><img src="photos/zjj-wuling.jpg" alt=""></span>
+            <span class="tile-cap">Тяньцзы. Лес столбов с площадки.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/zjj-sun.jpg" data-cap="Ближние столбы, синее небо.">
+            <span class="tile-pic"><img src="photos/zjj-sun.jpg" alt=""></span>
+            <span class="tile-cap">Ближние столбы, синее небо.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/bailong.jpg" data-cap="Байлун. Стеклянная шахта в скале.">
+            <span class="tile-pic"><img src="photos/bailong.jpg" alt=""></span>
+            <span class="tile-cap">Байлун. Стеклянная шахта в скале.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/bailong2.jpg" data-cap="Ворота парка. Столб уже над входом.">
+            <span class="tile-pic"><img src="photos/bailong2.jpg" alt=""></span>
+            <span class="tile-cap">Ворота парка. Столб уже над входом.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/pillars.jpg" data-cap="Если облака. Столбы всё равно читаются.">
+            <span class="tile-pic"><img src="photos/pillars.jpg" alt=""></span>
+            <span class="tile-cap">Если облака. Столбы всё равно читаются.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-glass.jpg" data-cap="Море облаков с гребня. Бывает и так.">
+            <span class="tile-pic"><img src="photos/tianmen-glass.jpg" alt=""></span>
+            <span class="tile-cap">Море облаков с гребня. Бывает и так.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="tujia" data-rail="d2" data-ch="Люди гор · туцзя">
+      <div class="inner wide">
+        <p class="kicker">Люди гор</p>
+        <h2>Бицзика — «местные»</h2>
+        <p>Больше двух третей жителей Чжанцзяцзе — туцзя. Сами себя они зовут бицзика, «местные». Письменности у народа нет; всё, что важно, живёт в танце, ткани и песне. Вот на что смотреть.</p>
+        <div class="folk stagger">
+          <article class="rise">
+            <h3>Байшоу <small>танец руками</small></h3>
+            <p>Пятьсот лет, семьдесят жестов: пахота, охота, война, сватовство. Танцуют кругом, всей деревней, под барабан. Раз в год — большое «жертвоприношение рук», главный праздник туцзя.</p>
+            <p class="how">Где: шоу «Прелестный Сянси» в Улинъюане, вечер дня 2 или 3, 80 минут.</p>
+          </article>
+          <article class="rise">
+            <h3>Маогусы <small>люди в соломе</small></h3>
+            <p>Танцоры с головы до ног в рисовой соломе, без слов, одни выкрики: так туцзя показывают предков, добывавших огонь и зверя. Этнографы называют это «живым ископаемым» китайского театра.</p>
+            <p class="how">Где: там же, и в парке туцзя в городе Чжанцзяцзе, вечер дня 4.</p>
+          </article>
+          <article class="rise">
+            <h3>Силанькапу <small>парча</small></h3>
+            <p>Ткань, которую туцзя когда-то возили в дань императорскому двору: геометрия, цветы и звери на тёмном фоне. В сувенирных лавках — машинная. Ручная стоит от тысячи юаней, и стоит этих денег.</p>
+            <p class="how">Где: лавки на улице Улин; спрашивайте 手工, «шоугун», ручная.</p>
+          </article>
+          <article class="rise">
+            <h3>Куцзя <small>плач невесты</small></h3>
+            <p>Невеста плачет песней от помолвки до порога дома мужа; чем ближе отъезд, тем горше. Учатся с детства, у матерей и тёток. Сегодня — в дальних деревнях и на сцене.</p>
+            <p class="how">Где: свадебная сцена в шоу и в парке туцзя. Это постановка, но песни настоящие.</p>
+          </article>
+          <article class="rise">
+            <h3>Дяоцзяолоу <small>дома на сваях</small></h3>
+            <p>Деревянные дома на столбах над склоном: внизу скот и инструмент, наверху люди, резные перила на веранде. Так строили, чтобы не отнимать землю у поля.</p>
+            <p class="how">Где: из окна автобуса парка и такси; в парке туцзя стоит девятиэтажный.</p>
+          </article>
+          <article class="rise">
+            <h3>Ганьнянь <small>досрочный Новый год</small></h3>
+            <p>Туцзя встречают Новый год на день раньше остального Китая. По преданию, при Мин солдат срочно отправили воевать с пиратами, и семьи сели за стол накануне. Из того спешного ужина вышло саньсягуо — котёл, который вы ели в первый вечер.</p>
+            <p class="how">Где: в тарелке. Ищите вывеску 三下锅.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ день 3 · ручей ============ -->
+    <section class="slide look" id="d3" data-rail="d3" data-ch="День 3 · Ручей">
+      <figure class="shot zoomable" data-full="photos/jinbian.jpg" data-cap="Ручей Цзиньбянь, «Золотой кнут». 7,5 км по дну каньона.">
+        <img src="photos/jinbian.jpg" alt="Ручей Золотой кнут">
+        <figcaption>Цзиньбянь · 金鞭溪 · 7,5 км по дну каньона</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">День 3 · 26 октября · 6–7 ч · ~10 км</p>
         <h2>Семь километров вдоль воды</h2>
-        <p>Тропа «Золотой кнут», семь с половиной километров в одну сторону, назад экоавтобус. Второй район сегодня не добавляем: иначе будет пятнадцать–восемнадцать километров, а вам хватает десяти.</p>
+        <p>Тропа «Золотой кнут»: утром такси к западным воротам, потом семь с половиной километров вниз по течению до места, где сходятся четыре ручья. Оттуда экоавтобус к вашим воротам. Второй район сегодня не добавляем: иначе будет пятнадцать–восемнадцать километров, а вам хватает десяти.</p>
         <p class="day-sum">день ~930 ¥ · без озера и игл</p>
         <button class="peek" type="button" data-sheet="s3">Что входит в день</button>
       </div>
     </section>
 
-    <section class="slide light" id="d3f" data-rail="d3">
+    <section class="slide night" id="d3n" data-rail="d3" data-ch="День 3 · Легенда">
+      <div class="inner wide">
+        <p class="kicker">Легенда</p>
+        <h2>Кнут императора</h2>
+        <p class="lede">У ручья имя от скалы, а у скалы — от Цинь Шихуана, того самого, что построил Стену и терракотовую армию. <em>Скала меняет цвет четыре раза в день.</em></p>
+        <div class="tales stagger">
+          <article class="tale rise">
+            <h3>Кнут <small>легенда</small></h3>
+            <p>У первого императора был волшебный кнут: он гнал им горы в море, чтобы расширить царство. Дракон-царь Восточного моря испугался за своё дно и подослал дочь; та подменила кнут подделкой. Заметив обман, император в ярости швырнул фальшивку — она упала здесь и обратилась в камень. Скала Цзиньбянь: 380 метров, четыре грани, «сегменты» кнута — горизонтальные трещины.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Как читать скалу <small>по часам</small></h3>
+            <p>Уездная хроника 1700-х: «пронзает небо, сияет как снег». На рассвете она бурая, в полдень золотая, на закате красная, в лунную ночь серебряная. Вы пройдёте под ней утром, когда она ещё тёмная. Обернитесь через час: солнце сдвинется, и вы поймёте, откуда имя.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Могила стратега <small>конец тропы</small></h3>
+            <p>Шуйжаосымэнь — «воды, обходящие четыре ворот»: здесь сходятся четыре ручья, и здесь показывают могилу Чжан Ляна, того, кто дал имя всему месту. Историки не подтверждают. Табличка стоит. Это конец вашей тропы и остановка вашего автобуса.</p>
+          </article>
+        </div>
+        <div class="riddles">
+          <h3>Две загадки попроще</h3>
+          <details class="riddle">
+            <summary><b>01</b><span>Кто хозяин тропы</span><i></i></summary>
+            <p>Макаки. Они знают, что в пакете еда, умеют открывать молнии и не боятся людей. Не кормить, не смотреть в глаза, пакеты в рюкзак. Это единственный конфликт, который ждёт вас у ручья, и он решается застёжкой.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>02</b><span>Почему вода прозрачная, а камень красный</span><i></i></summary>
+            <p>Песчаник здесь скреплён окислами железа — отсюда ржавые и красные полосы на стенах. Кварц воду не красит и не растворяется, поэтому ручей чистый до дна. Известняк Гуйлиня, куда вы едете на пятый день, ведёт себя ровно наоборот: растворяется, и река там мутнее после дождя.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="d3w" data-rail="d3" data-ch="День 3 · По шагам">
       <div class="inner">
-        <p class="kicker dark">Если тропа кончилась рано</p>
+        <p class="kicker">День 3 · по шагам</p>
+        <h2>Вниз по течению</h2>
+        <ol class="steps stagger">
+          <li class="step rise"><time>08:00</time><span class="dot"></span><div><h4>Такси к западным воротам</h4><p>Ворота лесопарка, 森林公园门票站, 35–40 минут вокруг гор. Вход по вчерашнему билету.</p></div></li>
+          <li class="step rise"><time>08:45</time><span class="dot"></span><div><h4>Начало тропы</h4><p>300 метров от ворот. Ручей слева, столбы над головой, дорожка мощёная, почти без набора высоты. Местная шутка: «кислородный бар». Дыхание после вчера восстановится само.</p></div></li>
+          <li class="step rise"><time>09:30</time><span class="dot"></span><div><h4>Скала Цзиньбянь</h4><p>380 метров, «Золотой кнут». Рядом «Орёл, охраняющий кнут» — ещё одна скала, если смотреть с нужной точки. Утром обе тёмные.</p></div></li>
+          <li class="step rise"><time>10:30</time><span class="dot"></span><div><h4>Цзыцао тань, «Пурпурная заводь»</h4><p>Место, где люди сидят у воды. В октябре воды мало и она тихая. Перекус здесь, из своего.</p></div></li>
+          <li class="step rise"><time>11:30</time><span class="dot"></span><div><h4>«Тысяча ли ради встречи», 千里相会</h4><p>Два столба, наклонённые друг к другу. Сюда сверху спускается тропа с Юаньцзяцзе: вчера вы стояли над этим местом.</p></div></li>
+          <li class="step rise"><time>12:30</time><span class="dot"></span><div><h4>Шуйжаосымэнь</h4><p>Четыре ручья, могила Чжан Ляна, станция экоавтобусов. До ворот Улинъюань 15–20 минут.</p></div></li>
+          <li class="step rise"><time>13:30</time><span class="dot"></span><div><h4>У ворот</h4><p>Обед и решение: озеро, пещера или иглы. Одно из трёх, не все. Или ничего — это тоже вариант.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide light" id="d3f" data-rail="d3" data-ch="День 3 · Если рано">
+      <div class="inner">
+        <p class="kicker">Если тропа кончилась рано</p>
         <h2>Одна вещь. Не три.</h2>
-        <div class="cards reveal">
-          <article>
-            <img src="photos/baofeng.jpg" alt="Озеро Баофэн" class="zoomable" data-full="photos/baofeng.jpg">
+        <div class="cards stagger">
+          <article class="rise">
+            <img src="photos/baofeng.jpg" alt="Озеро Баофэн" class="zoomable" data-full="photos/baofeng.jpg" data-cap="Озеро Баофэн.">
             <h3>Озеро Баофэн</h3>
-            <p>Лодка 1,5–2 часа, до 17:00. Такси 10–15 мин. +96–120 ¥ сверху сметы дня.</p>
+            <p>Водохранилище 1970-х между скалами. Лодка 1,5–2 часа, до 17:00; с берега из беседки поют девушки туцзя — это часть билета. Такси 10–15 мин. +96–120 ¥ сверху сметы.</p>
           </article>
-          <article>
-            <img src="photos/cave.jpg" alt="Пещера Хуанлун" class="zoomable" data-full="photos/cave.jpg">
+          <article class="rise">
+            <img src="photos/cave.jpg" alt="Пещера Хуанлун" class="zoomable" data-full="photos/cave.jpg" data-cap="Пещера Хуанлун.">
             <h3>Пещера Хуанлун</h3>
-            <p>Полдня. Не вместо столбов. Не вместе с Янцзяцзе.</p>
+            <p>Полдня, лодка по подземной реке, сталагмит за сто миллионов. Не вместо столбов. Не вместе с Янцзяцзе.</p>
           </article>
-          <article>
-            <img src="photos/mist.jpg" alt="Улинъюань" class="zoomable" data-full="photos/mist.jpg">
+          <article class="rise">
+            <img src="photos/pillars.jpg" alt="Улинъюань" class="zoomable" data-full="photos/pillars.jpg" data-cap="Улинъюань.">
             <h3>Иглы или ноги</h3>
             <p>К 15:00 больница Улинъюань, иглы. Вечером массаж ног на улице Улин: вывеска 足疗, «цзуляо». Не оба впритык к горам.</p>
           </article>
@@ -133,83 +433,421 @@
       </div>
     </section>
 
-    <section class="slide" id="d4" data-rail="d4">
-      <div class="bg ken zoomable" style="background-image:url('photos/tianmen-road.jpg')" data-full="photos/tianmen-road.jpg"></div>
+    <!-- ============ день 4 · Тяньмэнь ============ -->
+    <section class="slide look" id="d4" data-rail="d4" data-ch="День 4 · Тяньмэнь">
+      <figure class="shot zoomable" data-full="photos/tianmen-road.jpg" data-cap="Небесные врата снизу. 999 ступеней смотрят в дыру.">
+        <img src="photos/tianmen-road.jpg" alt="Небесные врата Тяньмэнь снизу">
+        <figcaption>Тяньмэнь · дыра 131,5 × 57 м · 1 300 м над морем</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">День 4 · 27 октября · 7–8 ч · 10–12 км</p>
         <h2>Дыра в горе</h2>
-        <p>Небесные врата, Тяньмэнь: сквозное отверстие 131 метр. Снизу 999 ступеней, эскалатор есть. Потом тропа Гуйгу — доски в обрыве — и стекло вдоль скалы. Картинка, где человек в поясе ползёт боком, это Хуашань, другая провинция.</p>
+        <p>Небесные врата, Тяньмэнь: сквозное отверстие 131 метр в отвесной скале. Снизу 999 ступеней, эскалатор есть. Потом тропа Гуйгу — доски в обрыве на высоте 1 400 метров — и стекло вдоль скалы. Картинка, где человек в поясе ползёт боком, это Хуашань, другая провинция.</p>
         <p class="day-sum">день ~1 240 ¥</p>
         <button class="peek" type="button" data-sheet="s4">Что входит в день</button>
       </div>
     </section>
 
-    <section class="slide pair" id="d4b" data-rail="d4">
-      <button class="pic zoomable" type="button" style="background-image:url('photos/tianmen-gate.jpg')" data-full="photos/tianmen-gate.jpg" aria-label="Дыра Тяньмэнь издалека"></button>
-      <button class="pic zoomable" type="button" style="background-image:url('photos/guigu.jpg')" data-full="photos/guigu.jpg" aria-label="Тропа Гуйгу по обрыву"></button>
+    <section class="slide night" id="d4n" data-rail="d4" data-ch="День 4 · Год 263">
+      <div class="inner wide">
+        <p class="kicker">История и загадки</p>
+        <h2>Единственная арка с датой рождения</h2>
+        <p class="lede">Все большие природные арки мира стары и безымянны по возрасту. У этой есть год: <em>263-й</em>. Хроники записали грохот, а правитель — новое имя горы.</p>
+        <div class="stats stagger">
+          <div class="stat rise"><b><span data-count="263" data-plain></span></b><span>год обвала</span></div>
+          <div class="stat rise"><b><span data-count="131.5" data-dec="1"></span> м</b><span>высота дыры</span></div>
+          <div class="stat rise"><b><span data-count="7455"></span> м</b><span>канатка из города</span></div>
+          <div class="stat rise"><b><span data-count="99"></span></b><span>поворота дороги</span></div>
+          <div class="stat rise"><b><span data-count="999"></span></b><span>ступеней к дыре</span></div>
+        </div>
+        <div class="tales stagger">
+          <article class="tale rise">
+            <h3>Обвал <small>263 год</small></h3>
+            <p>Шестой год эры Юнъань царства У. Пока префект Улина воюет с горцами, на горе Сунлян раскалывается скала — и сквозь гору видно небо. Правитель Сунь Сю объявляет это доброй приметой и переименовывает гору: Тяньмэнь, Небесные врата. У подножия учреждают округ Тяньмэнь, сегодняшний Чжанцзяцзе. Геологи: карстовая пещера, у которой обрушились северная и южная стенки. Дата — в хрониках.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Девятки <small>число неба</small></h3>
+            <p>Дорога наверх — 99 поворотов, лестница к дыре — 999 ступеней. Девять — высшее число ян, у неба девять слоёв, а «цзю» звучит как «долго». Дорога Тунтяньдадао, «путь к небу»: 10,77 километра и 1 100 метров подъёма. Канатка из центра города — 7 455 метров, 28 минут, набор 1 279 метров, самый крутой участок 37 градусов.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Храм <small>870 год</small></h3>
+            <p>На вершине с 870 года стоит храм Линцюань — теперь Тяньмэньшань сы, самый высокий буддийский храм Хунани. Паломники ходили сюда с эпохи Мин; здание отстроили заново в 2002-м. Дым благовоний на алтаре под дырой — не декорация: люди просят у Врат.</p>
+          </article>
+        </div>
+        <div class="riddles">
+          <h3>Шесть загадок Тяньмэнь</h3>
+          <details class="riddle">
+            <summary><b>01</b><span>Тяньмэнь фаньшуй — вода из скалы в засуху</span><i></i></summary>
+            <p>Из отвесной стены слева от дыры в самую сухую погоду вдруг бьёт поток: рёв, дрожь, водопад на сотню метров. Через недели уходит. Местные записывали годы — 1949, 1965, 1976, 1989, 1998 — и говорят, что каждый раз следом случалось большое. Геологи: на вершине карстовая воронка, копит воду и переливается. Почему в засуху — объяснения нет.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>02</b><span>Тяньмэнь чжуансян — дыра «поворачивается»</span><i></i></summary>
+            <p>Семьдесят лет назад дыру видели с южной пристани в центре города. Сегодня оттуда видна только гора; чтобы увидеть дыру, ехать четыре километра, в парк у моста Даюн. Дыра сдвинулась с севера на северо-запад? Официальное объяснение — новые дома и угол зрения. Старики не согласны.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>03</b><span>Гуйгу сяньин — лик в пещере Гуйгу</span><i></i></summary>
+            <p>На отвесной стене под вашей тропой, куда только по верёвке с вершины, — пещера Гуйгу. Внутри «каменный стол», «каменная кровать», знаки древнего письма. По преданию, здесь в эпоху Воюющих царств уединился Гуйгуцзы — учитель стратегов, чьи ученики стравливали и мирили царства — и читал «Книгу перемен». В 1980–90-х отставной военный спускался туда шесть раз, и на одном снимке стены проступил профиль старика. Пересъёмки ничего не дали. Тропа Гуйгу висит прямо над этой пещерой; отсюда её имя.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>04</b><span>Ефу цанбао — клад монаха</span><i></i></summary>
+            <p>1644-й: Ли Цзычэн берёт Пекин, теряет его и бежит с казной. Его генерал Ли Го, по хронике уезда, принял монашество под именем Ефу и «прилетел» в этот храм. Казна, говорят, ушла в гору. Ищут четыреста лет. Не нашли.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>05</b><span>Тяньмэнь дункай — почему открылось именно так</span><i></i></summary>
+            <p>Ровная арка на высоте 1 300 метров, сквозь которую можно пролететь на истребителе. Обвал записан, но почему пещера рухнула именно так — ответа нет. Люди проверяли дыру на прочность:</p>
+            <ul class="feats">
+              <li><b>1999</b><span>11 декабря спортивные самолёты впервые пролетают сквозь дыру; трансляцию смотрят 800 миллионов человек.</span></li>
+              <li><b>2006</b><span>17 марта — Су-27 «Русских витязей» проходят через Врата строем.</span></li>
+              <li><b>2007</b><span>Ален Робер поднимается по скале под дырой без верёвки. Табличка на месте.</span></li>
+              <li><b>2011</b><span>Джеб Корлисс пролетает сквозь дыру в вингсьюте, больше 200 км/ч.</span></li>
+              <li><b>с 2012</b><span>Здесь проходит чемпионат мира по вингсьюту; старт с пика Юйху, 1 458 м.</span></li>
+              <li><b>2016</b><span>Открывается стеклянная тропа Паньлунъя, 100 метров, по которой вы пройдёте.</span></li>
+            </ul>
+          </details>
+          <details class="riddle">
+            <summary><b>06</b><span>Тяньмэнь жуйшоу — зверь</span><i></i></summary>
+            <p>Самая туманная из шести: «благой зверь Тяньмэнь», которого видят на склонах и не могут поймать в кадр. Ни описаний, ни фотографий. Местные включают его в список для полноты — включаем и мы.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="d4w" data-rail="d4" data-ch="День 4 · По шагам">
+      <div class="inner">
+        <p class="kicker">День 4 · по шагам</p>
+        <h2>Снизу вверх, потом вниз по серпантину</h2>
+        <ol class="steps stagger">
+          <li class="step rise"><time>07:30</time><span class="dot"></span><div><h4>Улинъюань → город</h4><p>Такси около 40 минут. Рюкзак — на ресепшн Hampton by Hilton, 150 метров от нижней станции канатки.</p></div></li>
+          <li class="step rise"><time>08:30</time><span class="dot"></span><div><h4>Нижняя станция в городе</h4><p>С ноября 2025 верхний участок канатки перестраивают, поэтому на гору сейчас едут через дыру. Маршрут B: шаттл 15 минут к воротам горы, оттуда скорая канатка к площади под дырой. Очереди на нём короче.</p></div></li>
+          <li class="step rise"><time>09:15</time><span class="dot"></span><div><h4>Площадь под дырой</h4><p>Сначала просто стойте. 131,5 метра пустоты над вами, сквозь неё небо и облака. Люди на ступенях — точки.</p></div></li>
+          <li class="step rise"><time>09:30</time><span class="dot"></span><div><h4>999 ступеней вверх</h4><p>Круто, 20–40 минут. Эскалатор в обход стоит 32 ¥ вверх и бесплатен вниз. Наверх ногами — вы за этим ехали. В дыре ветер, за спиной весь город.</p></div></li>
+          <li class="step rise"><time>10:30</time><span class="dot"></span><div><h4>Эскалатор сквозь гору</h4><p>Семь секций внутри скалы, входит в билет. Выход на вершине.</p></div></li>
+          <li class="step rise"><time>11:00</time><span class="dot"></span><div><h4>Западная линия: Гуйгу</h4><p>1,6 километра на высоте 1 400 метров: бетон и доски вдоль стены, перила. Стекло 60 метров — выдают бахилы; Паньлунъя, 100 метров стекла. Внизу под вами — пещера Гуйгу из загадки 03.</p></div></li>
+          <li class="step rise"><time>13:00</time><span class="dot"></span><div><h4>Обед и храм</h4><p>Простая еда на вершине. Храм Тяньмэнь — южная линия, полтора километра туда-обратно, самый высокий храм Хунани.</p></div></li>
+          <li class="step rise"><time>14:30</time><span class="dot"></span><div><h4>Вниз по 99 поворотам</h4><p>Эскалатор к дыре, ступени вниз или бесплатный эскалатор. Автобус по серпантину, 25–30 минут: теперь вся дорога под вами. Средняя станция — канатка в город.</p></div></li>
+          <li class="step rise"><time>16:30</time><span class="dot"></span><div><h4>Отель</h4><p>Массаж ног Мяоцзя в комплексе Hampton. Вечер, если ноги: парк туцзя в городе, 10 минут на такси — байшоу, маогусы и девятиэтажный дом на сваях.</p></div></li>
+        </ol>
+        <p class="walk-foot"><span class="warn">Ветер закрывает стекло, лёд закрывает дорогу.</span> Тогда всё едет через скорую канатку, а Гуйгу остаётся деревянной. Утром проверьте статус на Trip.com или у ресепшн.</p>
+      </div>
+    </section>
+
+    <section class="slide pair" id="d4b" data-rail="d4" data-ch="День 4 · Два кадра">
+      <figure class="pic zoomable" data-full="photos/tianmen-gate.jpg" data-cap="Та же дыра с серпантина.">
+        <img src="photos/tianmen-gate.jpg" alt="Дыра Тяньмэнь с серпантина">
+      </figure>
+      <figure class="pic zoomable" data-full="photos/guigu.jpg" data-cap="Тропа Гуйгу по обрыву.">
+        <img src="photos/guigu.jpg" alt="Тропа Гуйгу по обрыву">
+      </figure>
       <div class="strip">Слева та же дыра с серпантина. Справа доски Гуйгу в обрыве. Пояс не выдают: держат перила.</div>
     </section>
 
-    <section class="slide" id="d5" data-rail="d5">
-      <div class="bg ken zoomable" style="background-image:url('photos/xingping.jpg')" data-full="photos/xingping.jpg"></div>
+    <section class="slide light" id="d4g" data-rail="d4" data-ch="День 4 · Ещё кадры">
+      <div class="inner">
+        <p class="kicker">День 4 · ещё кадры</p>
+        <h2>Тяньмэнь с разных сторон</h2>
+        <div class="wall-grid stagger">
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-road.jpg" data-cap="Снизу. Ступени смотрят в дыру.">
+            <span class="tile-pic"><img src="photos/tianmen-road.jpg" alt=""></span>
+            <span class="tile-cap">Снизу. Ступени смотрят в дыру.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-gate.jpg" data-cap="Издалека. Дорога на 99 поворотов.">
+            <span class="tile-pic"><img src="photos/tianmen-gate.jpg" alt=""></span>
+            <span class="tile-cap">Издалека. Дорога на 99 поворотов.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-cableway.jpg" data-cap="Канатка над серпантином. Внизу город.">
+            <span class="tile-pic"><img src="photos/tianmen-cableway.jpg" alt=""></span>
+            <span class="tile-cap">Канатка над серпантином. Внизу город.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-peak.jpg" data-cap="С канатки. Дыра в гребне.">
+            <span class="tile-pic"><img src="photos/tianmen-peak.jpg" alt=""></span>
+            <span class="tile-cap">С канатки. Дыра в гребне.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/guigu.jpg" data-cap="Гуйгу. Перила, не страховка Хуашаня.">
+            <span class="tile-pic"><img src="photos/guigu.jpg" alt=""></span>
+            <span class="tile-cap">Гуйгу. Перила, не страховка Хуашаня.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/tianmen-temple.jpg" data-cap="Ворота горы Тяньмэнь, 天门仙山. Отсюда уходит скорая канатка.">
+            <span class="tile-pic"><img src="photos/tianmen-temple.jpg" alt=""></span>
+            <span class="tile-cap">Ворота горы, 天门仙山. Старт маршрута B.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ день 5 · в Синпин ============ -->
+    <section class="slide look" id="d5" data-rail="d5" data-ch="День 5 · В Синпин">
+      <figure class="shot zoomable" data-full="photos/yangshuo-air.jpg" data-cap="Яншо сверху: известняковые пики и излучина.">
+        <img src="photos/yangshuo-air.jpg" alt="Яншо сверху, пики и река">
+        <figcaption>Яншо · известняковый карст · ~300 млн лет</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">День 5 · 28 октября · 1,5–2 ч вечером</p>
         <h2>Снова кресло, потом река</h2>
-        <p>Утром Чжанцзяцзе, вечером Гуйлинь: около семи часов, снова первый класс. Оттуда короткий поезд до Яншо. Ночуете не на Западной улице, а в посёлке Синпин, у самой купюры. Если свет ещё есть, закат с холма Лаочжай.</p>
+        <p>Утром Чжанцзяцзе, днём Гуйлинь: около семи часов, снова первый класс. Оттуда короткий поезд до станции Яншо — она стоит не в Яншо, а в самом Синпине. Ночуете не на Западной улице, а в посёлке у купюры. Если свет ещё есть — закат с холма Лаочжай, по лестнице, которую построил один японец.</p>
         <p class="day-sum">день ~2 390 ¥</p>
         <button class="peek" type="button" data-sheet="s5">Что входит в день</button>
       </div>
     </section>
 
-    <section class="slide" id="d6" data-rail="d6">
-      <div class="bg ken zoomable" style="background-image:url('photos/liriver.jpg')" data-full="photos/liriver.jpg"></div>
+    <section class="slide night" id="d5n" data-rail="d5" data-ch="День 5 · Лестница японца">
+      <div class="inner wide">
+        <p class="kicker">Люди реки</p>
+        <h2>Лестница японца</h2>
+        <p class="lede">В 1996 году 66-летний японец приехал в Синпин на конференцию, спросил, откуда лучший вид, — и ему показали гору, <em>на которую не было тропы</em>.</p>
+        <div class="tales stagger">
+          <article class="tale rise">
+            <h3>Хаяси Кацуюки <small>Линь Кэчжи, 林克之</small></h3>
+            <p>Поднялся на Лаочжай с верёвками и решил остаться. Купил книги по строительству, получил разрешение, нанял местных, сам таскал наверх кирпичи и порох — и за полгода на свои деньги вырубил 1 149 ступеней и павильон на вершине. Потом второй, на полпути, чтобы люди отдыхали. Потом гостиницу у подножия. Потом маленькую ГЭС для деревни, десять лет мотаясь за деньгами в Японию.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Два павильона <small>«Дружба» и «Мир»</small></h3>
+            <p>Верхний называется Павильон дружбы, нижний — Павильон мира. С верхнего видна вся излучина и купюра целиком, с нижнего можно отдышаться. Хаяси до сих пор считает своим делом раз в день подметать ступени. В 2002-м на нём женилась девушка из Синпина, увидевшая его по телевизору. Местные зовут его Линь Кэчжи.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Закат, который писали <small>Сюй Бэйхун</small></h3>
+            <p>Закат с этой горы писал Сюй Бэйхун, главный китайский живописец лошадей: в 1930-х он жил в Яншо. В конце октября солнце садится около 18:05. Подъём 40–50 минут, спуск в сумерках — фонарь в телефоне заряжен. По его ступеням вы и подниметесь.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="d5w" data-rail="d5" data-ch="День 5 · По шагам">
+      <div class="inner">
+        <p class="kicker">День 5 · по шагам</p>
+        <h2>Из песчаника в известняк</h2>
+        <ol class="steps stagger">
+          <li class="step rise"><time>08:00</time><span class="dot"></span><div><h4>Чжанцзяцзе Западный</h4><p>Первый класс до Гуйлиня, около семи часов. Книга, окно, сон. Самый дорогой день недели, и он весь в кресле.</p></div></li>
+          <li class="step rise"><time>~15:00</time><span class="dot"></span><div><h4>Гуйлинь, пересадка</h4><p>Короткий поезд до станции Яншо, 20–40 минут, второй класс.</p></div></li>
+          <li class="step rise"><time>~16:00</time><span class="dot"></span><div><h4>Станция Яншо стоит в Синпине</h4><p>До старого посёлка 9 километров: такси 20–30 ¥ или автобус за 5. До самого Яншо было бы 35 километров — туда вам и не надо.</p></div></li>
+          <li class="step rise"><time>16:30</time><span class="dot"></span><div><h4>Mochi, Синпин</h4><p>Окно на пики. Рюкзак на пол, кроссовки не снимать.</p></div></li>
+          <li class="step rise"><time>17:00</time><span class="dot"></span><div><h4>Лаочжай</h4><p>1 149 ступеней, 300 метров вверх, 40–50 минут. Закат около 18:05: вся излучина и купюра целиком. Спуск в сумерках, фонарь.</p></div></li>
+          <li class="step rise"><time>19:00</time><span class="dot"></span><div><h4>Ужин на набережной</h4><p>Пивная рыба, 啤酒鱼, «пицзю юй»: карп в местном пиве Лицюань, фирменное блюдо Яншо. Рано спать: завтра река с утра.</p></div></li>
+        </ol>
+        <p class="walk-foot">Если поезд опоздает и на Лаочжай не успеть — не беда: холм никуда не уйдёт, утро дня 7 свободно.</p>
+      </div>
+    </section>
+
+    <!-- ============ день 6 · река ============ -->
+    <section class="slide look" id="d6" data-rail="d6" data-ch="День 6 · Река">
+      <figure class="shot zoomable" data-full="photos/xingping-town.jpg" data-cap="Синпин. Купюра 20 юаней и отмель Хуанбу за ней.">
+        <img src="photos/xingping-town.jpg" alt="Купюра 20 юаней на фоне реки Ли">
+        <figcaption>Синпин · отмель Хуанбу · купюра 20 юаней, 1999</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">День 6 · 29 октября · 6–8 ч · 5–8 км</p>
         <h2>Купюра, потом поля</h2>
-        <p>Утром смотровая с двадцати юаней, та самая картинка. Потом короткий плот по реке Ли. Днём река Юйлун: вас несут водой, не автобусом по вершине, рядом можно взять велосипед. Западную улицу Яншо оставляем туристам.</p>
+        <p>Утром смотровая с двадцати юаней, та самая картинка, и плот к скале с девятью конями. Днём река Юйлун: вас несут водой мимо моста 1412 года. Западную улицу Яншо оставляем туристам; вечером, если захотите, шоу Чжан Имоу на воде.</p>
         <p class="day-sum">день ~2 270 ¥</p>
         <button class="peek" type="button" data-sheet="s6">Что входит в день</button>
       </div>
     </section>
 
-    <section class="slide pair" id="d6b" data-rail="d6">
-      <button class="pic zoomable" type="button" style="background-image:url('photos/yangshuo-air.jpg')" data-full="photos/yangshuo-air.jpg" aria-label="Яншо сверху"></button>
-      <button class="pic zoomable" type="button" style="background-image:url('photos/yulong.jpg')" data-full="photos/yulong.jpg" aria-label="Река Юйлун"></button>
-      <div class="strip">Слева пики сверху. Справа Юйлун: вас несут водой, не автобусом по вершине.</div>
+    <section class="slide night" id="d6n" data-rail="d6" data-ch="День 6 · Река в кошельке">
+      <div class="inner wide">
+        <p class="kicker">История и легенда</p>
+        <h2>Река, которую носят в кошельке</h2>
+        <p class="lede">«Гуйлинь шаньшуй цзя тянься» — «пейзажи Гуйлиня лучшие под небом». Строке 825 лет, её знает каждый школьник. Написана в 1201-м, найдена в 1983-м <em>под слоем известкового натёка</em> на скале.</p>
+        <div class="stats stagger">
+          <div class="stat rise"><b><span data-count="20"></span> ¥</b><span>купюра с Синпином</span></div>
+          <div class="stat rise"><b><span data-count="1149"></span></b><span>ступеней на Лаочжай</span></div>
+          <div class="stat rise"><b><span data-count="9"></span></b><span>коней в скале</span></div>
+          <div class="stat rise"><b><span data-count="1412" data-plain></span></b><span>год моста Юйлун</span></div>
+        </div>
+        <div class="tales stagger">
+          <article class="tale rise">
+            <h3>Купюра <small>отмель Хуанбу</small></h3>
+            <p>Пятая серия юаня, 1999 год. На обороте двадцатки — отмель Хуанбу, «Жёлтое полотно», чуть ниже Синпина: на дне лежит светлая каменная плита, и в безветрие пики отражаются в воде как в зеркале. Семь пиков вокруг — «семь фей», которые предпочли окаменеть, но не вернуться на небо. Смотровая наверху — 20 ¥ и пятнадцать минут ступеней. Ракурс с купюры снимают с воды: через пять минут после отхода плота от пирса, вверх по течению.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Девять коней <small>Хуашань, гора-картина</small></h3>
+            <p>В четырёх километрах вверх — стена в сто метров с пятнами охры, зелени и белого. В них спрятаны девять коней. Народная песенка: «Увидишь семь — станешь вторым на экзаменах, увидишь девять — первым». 15 мая 1960 года здесь плыли Чжоу Эньлай и маршал Чэнь И. Чэнь И насчитал семь. Чжоу — «намного больше твоего»: восемнадцать, вместе с отражением. Сюй Бэйхун, главный живописец коней, увидел восемь. Ваш плот пройдёт мимо — считайте.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Дракон, который остался <small>река Юйлун</small></h3>
+            <p>Речка раньше звалась Аньлэ, «Мир и радость». Дракон из Восточного моря заплыл сюда, посмотрел — и решил, что его море хуже. Спрятался, выходил любоваться ночами, потом и днём; крестьяне видели. Так река стала Юйлун, «Встреча с драконом». Каменный мост Юйлун стоит с 1412 года, перила с резьбой добавили в 1870-м. От него ваш плот и пойдёт вниз.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Лю Саньцзе <small>певица народа чжуан</small></h3>
+            <p>Третья дочь семьи Лю, которую не мог перепеть никто: землевладелец сватался, слал учёных на состязание — она отвечала песней и побеждала. По одной версии родилась в 703 году, по другой — улетела на карпе в небо. Фильм 1961 года о ней снимали здесь, его знает весь Китай. С 2004-го — «Впечатление: Лю Саньцзе» Чжан Имоу: шестьсот рыбаков и крестьян, сцена — два километра реки и двенадцать пиков в свете прожекторов.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Дорога Цинь <small>214 год до н. э.</small></h3>
+            <p>Инженер Ши Лу по приказу Цинь Шихуана прорыл канал Линцюй и соединил Сян, бассейн Янцзы, с Ли, бассейном Жемчужной. Первый в мире канал через водораздел. Армия пошла на юг по воде и в тот же год взяла Линнань — нынешние Гуандун и Гуанси. Всё, что вы увидите с плота, две тысячи лет было трассой: соль и рис вверх, войска вниз.</p>
+          </article>
+          <article class="tale rise">
+            <h3>Строка на скале <small>1201 год</small></h3>
+            <p>Ван Чжэнгун, 68-летний чиновник из Нинбо, управлял Гуйлинем и на пиру в честь одиннадцати выпускников экзаменов написал два стихотворения. Ученик высек их на пике Дусю. Натёк закрыл камень на восемь веков; в 1983-м реставраторы счистили его и прочли первую строку. Гуйлинь до сих пор считает её лучшей рекламой в своей истории и переводит на сорок языков.</p>
+          </article>
+        </div>
+        <div class="riddles">
+          <h3>Три вопроса перед рекой</h3>
+          <details class="riddle">
+            <summary><b>01</b><span>Бакланы: ремесло или спектакль</span><i></i></summary>
+            <p>Рыбак на бамбуковом плоту с фонарём и двумя чёрными птицами — тысячелетний способ: птице повязывают шнурок на шею, крупную рыбу она проглотить не может и отдаёт. Сегодня в Синпине это фотосессия за 20–50 ¥, а не заработок. Птицы настоящие, шнурок настоящий, рыба — не всегда. Смотреть — на закате у пирса; лучше знать заранее, чем разочароваться на месте.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>02</b><span>Синпин или Яншо</span><i></i></summary>
+            <p>Западная улица Яншо — 1 400 лет, с эпохи Суй, и последние сорок — главная тусовка бэкпекеров Китая. Вы ночуете в Синпине, в 30 километрах, у пиков с купюры: бары там, тишина здесь. Если хотите шоу Чжан Имоу — такси 40 минут, начало около 20:00, 70 минут, билеты 200–300 ¥, обратно к 22:30. Это сверху сметы и только если ноги согласны.</p>
+          </details>
+          <details class="riddle">
+            <summary><b>03</b><span>Почему в октябре</span><i></i></summary>
+            <p>Уровень Ли зависит от дождей. Летом река мутнеет и разливается, отражения пропадают. В октябре воды мало, она чистая, и пики ложатся в неё как на купюре. Ещё в октябре цветёт османтус — дерево, давшее имя Гуйлиню, «лесу османтуса»; запах стоит по всему посёлку. Вы едете в правильный месяц.</p>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <section class="slide" id="d7" data-rail="d7">
-      <div class="bg ken zoomable" style="background-image:url('photos/liriver2.jpg')" data-full="photos/liriver2.jpg"></div>
+    <section class="slide light" id="d6w" data-rail="d6" data-ch="День 6 · По шагам">
+      <div class="inner">
+        <p class="kicker">День 6 · по шагам</p>
+        <h2>Сначала Ли, потом Юйлун</h2>
+        <ol class="steps stagger">
+          <li class="step rise opt"><time>06:30</time><span class="dot"></span><div><h4>Необязательно: Сянгуншань</h4><p>20 минут на машине, 60 ¥ вход: рассвет над излучинами, точка всех календарей. Только если проснулись сами.</p></div></li>
+          <li class="step rise"><time>08:30</time><span class="dot"></span><div><h4>Смотровая 20 юаней</h4><p>15–20 минут вверх по ступеням, 20 ¥. Купюра в руке, солнце в спину. Отмель Хуанбу перед вами.</p></div></li>
+          <li class="step rise"><time>09:30</time><span class="dot"></span><div><h4>Плот от пирса Синпин</h4><p>30–60 минут вверх по течению: Хуанбу, потом «Девять коней». Здесь мотор, не шест — на Лицзян течение. Считайте коней; семь — уже хорошо.</p></div></li>
+          <li class="step rise"><time>11:30</time><span class="dot"></span><div><h4>Обед в старом посёлке</h4><p>Гуйлинь мифэнь, рисовая лапша за 10 ¥, или снова пивная рыба. Пиво Лицюань местное.</p></div></li>
+          <li class="step rise"><time>13:00</time><span class="dot"></span><div><h4>Такси к Юйлун</h4><p>Около 40 минут, к мосту Юйлун 1412 года. Плот на двоих — целиком ваш: плотовщик шестом, полтора часа вниз. Плотины-ступеньки: плот съезжает, брызги — ноги поднять, телефон в карман. Бамбук здесь часто пластиковый; вода настоящая.</p></div></li>
+          <li class="step rise"><time>15:30</time><span class="dot"></span><div><h4>Назад в Синпин</h4><p>Рядом с Юйлун дают велосипеды: если силы есть, час по дорожке между полями, потом такси.</p></div></li>
+          <li class="step rise"><time>17:30</time><span class="dot"></span><div><h4>Закат</h4><p>Пирс, бакланы и фонари на плотах — или снова Лаочжай, если ноги.</p></div></li>
+          <li class="step rise opt"><time>20:00</time><span class="dot"></span><div><h4>Необязательно: шоу на воде</h4><p>«Впечатление: Лю Саньцзе» в Яншо, 70 минут. Такси 40 минут туда и обратно, к 22:30 в отеле.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide pair" id="d6b" data-rail="d6" data-ch="День 6 · Два кадра">
+      <figure class="pic zoomable" data-full="photos/yulong.jpg" data-cap="Бамбуковый плот на Юйлун.">
+        <img src="photos/yulong.jpg" alt="Бамбуковый плот на Юйлун">
+      </figure>
+      <figure class="pic zoomable" data-full="photos/liriver2.jpg" data-cap="Река Ли утром.">
+        <img src="photos/liriver2.jpg" alt="Река Ли утром">
+      </figure>
+      <div class="strip">Слева Юйлун: вас несут водой. Справа Лицзян утром, туман над водой. Не автобус по вершине.</div>
+    </section>
+
+    <section class="slide light" id="d6g" data-rail="d6" data-ch="День 6 · Ещё кадры">
+      <div class="inner">
+        <p class="kicker">День 6 · ещё кадры</p>
+        <h2>Река, купюра, плот</h2>
+        <div class="wall-grid stagger">
+          <button class="tile zoomable rise" type="button" data-full="photos/xingping-town.jpg" data-cap="Смотровая 20 юаней. Та самая картинка.">
+            <span class="tile-pic"><img src="photos/xingping-town.jpg" alt=""></span>
+            <span class="tile-cap">Смотровая 20 юаней. Та самая картинка.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/yangshuo-air.jpg" data-cap="Пики Яншо и излучина сверху.">
+            <span class="tile-pic"><img src="photos/yangshuo-air.jpg" alt=""></span>
+            <span class="tile-cap">Пики Яншо и излучина сверху.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/yulong.jpg" data-cap="Юйлун. Бамбук и зонтик.">
+            <span class="tile-pic"><img src="photos/yulong.jpg" alt=""></span>
+            <span class="tile-cap">Юйлун. Бамбук и зонтик.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/li-rafts.jpg" data-cap="Плоты на Лицзян.">
+            <span class="tile-pic"><img src="photos/li-rafts.jpg" alt=""></span>
+            <span class="tile-cap">Плоты на Лицзян.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/liriver2.jpg" data-cap="Утро на реке. Низкий туман над водой.">
+            <span class="tile-pic"><img src="photos/liriver2.jpg" alt=""></span>
+            <span class="tile-cap">Утро на реке. Низкий туман над водой.</span>
+          </button>
+          <button class="tile zoomable rise" type="button" data-full="photos/xingping.jpg" data-cap="Синпин. Ночь у этих пиков.">
+            <span class="tile-pic"><img src="photos/xingping.jpg" alt=""></span>
+            <span class="tile-cap">Синпин. Ночь у этих пиков, не на Западной.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="zhuang" data-rail="d6" data-ch="Люди реки · чжуан">
+      <div class="inner wide">
+        <p class="kicker">Люди реки</p>
+        <h2>Кто здесь поёт</h2>
+        <p>Гуанси — автономный район народа чжуан, самого большого после хань: шестнадцать миллионов. Главное у них — песня. Вот что вы услышите и увидите между двумя плотами.</p>
+        <div class="folk stagger">
+          <article class="rise">
+            <h3>Шаньгэ <small>горные песни</small></h3>
+            <p>Деревни поют друг другу вопросами и ответами; проиграл тот, кто не нашёл строчку. Большой день — Саньюэсань, третий день третьего лунного месяца. Лю Саньцзе — их святая, и её статуя стоит на празднике.</p>
+            <p class="how">Где: в октябре праздника нет. Услышите от лодочника, если попросите, и на шоу Чжан Имоу.</p>
+          </article>
+          <article class="rise">
+            <h3>Рыбацкая деревня <small>Юйцунь, 1506</small></h3>
+            <p>Два километра берегом от Синпина: 48 домов эпох Мин и Цин, серый кирпич, чёрная черепица, стены «конская голова», резные окна. В 1921-м сюда заходил Сунь Ятсен, в 1998-м — Билл Клинтон, и задержался на час.</p>
+            <p class="how">Где: утро дня 7, полтора–два часа туда и обратно.</p>
+          </article>
+          <article class="rise">
+            <h3>Старая улица <small>Синпин</small></h3>
+            <p>Посёлок основан в 265 году, улица мощена камнем, дома Мин и Цин, храм Гуаньди времён Цяньлуна. Сверните с главной в переулки: там мастерские, где до сих пор вяжут бамбуковые снасти.</p>
+            <p class="how">Где: вечером дня 6 или утром дня 7, без билета.</p>
+          </article>
+          <article class="rise">
+            <h3>Кухня <small>Гуйлинь и Яншо</small></h3>
+            <p>Гуйлинь мифэнь — рисовая лапша на завтрак, 10 ¥, с маринованными овощами. Пивная рыба — карп в пиве Лицюань, фирменное блюдо Яншо. Османтус — сладкое вино и сахар из цветов, которые как раз опадают в октябре.</p>
+            <p class="how">Где: набережная Синпина; мифэнь — где очередь из местных с утра.</p>
+          </article>
+          <article class="rise">
+            <h3>Бакланы <small>лучи, 鸬鹚</small></h3>
+            <p>Тысячелетний способ ловли, сегодня — фотосессия на закате. Шнурок на шее не даёт птице проглотить крупную рыбу. Рыбаки в соломенных шляпах на плотах у пирса — настоящие рыбаки на пенсии, и это их заработок.</p>
+            <p class="how">Где: пирс Синпина на закате, 20–50 ¥ за кадры.</p>
+          </article>
+          <article class="rise">
+            <h3>Вода как календарь <small>почему сейчас</small></h3>
+            <p>В октябре Ли низкая и прозрачная, отражения лучшие в году; летом она мутная и высокая. Утренний туман над водой держится до девяти. Чем раньше вы на воде, тем ближе к купюре.</p>
+            <p class="how">Где: с первым плотом, 09:00–09:30.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ день 7 ============ -->
+    <section class="slide look" id="d7" data-rail="d7" data-ch="День 7 · Домой">
+      <figure class="shot zoomable" data-full="photos/liriver2.jpg" data-cap="Утро на реке Ли.">
+        <img src="photos/liriver2.jpg" alt="Утро на реке Ли">
+        <figcaption>Лицзян · утро · вокзал Яншо в 9 км, в Синпине</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">День 7 · 30 октября · поезд после обеда</p>
         <h2>Ещё утро у реки, и домой</h2>
-        <p>Утром Синпин можно не спеша: старый посёлок или повтор холма. После обеда поезд около двух часов, Южный Гуанчжоу. На Пачжоу сегодня не идти: между фазами зал закрыт. Тридцать первого третья фаза откроется уже с утра, и вы будете выспаны.</p>
+        <p>Утром Синпин не спеша: старая улица и рыбацкая деревня, куда заходили Сунь Ятсен и Клинтон, или повтор холма на рассвете. После обеда поезд около двух часов, Южный Гуанчжоу. На Пачжоу сегодня не идти: между фазами зал закрыт. Тридцать первого третья фаза откроется с утра, и вы будете выспаны.</p>
         <p class="day-sum">день ~720 ¥ · без ночёвки · ярмарка завтра</p>
         <button class="peek" type="button" data-sheet="s7">Что входит в день</button>
       </div>
     </section>
 
-    <section class="slide light" id="stay" data-rail="stay">
+    <section class="slide light" id="d7w" data-rail="d7" data-ch="День 7 · По шагам">
       <div class="inner">
-        <p class="kicker dark">Где спать</p>
+        <p class="kicker">День 7 · по шагам</p>
+        <h2>Медленное утро, быстрый поезд</h2>
+        <ol class="steps stagger">
+          <li class="step rise opt"><time>06:15</time><span class="dot"></span><div><h4>Необязательно: рассвет на Лаочжай</h4><p>Если закат дня 5 не случился. Наверх 45 минут, туман в излучине держится до девяти.</p></div></li>
+          <li class="step rise"><time>08:00</time><span class="dot"></span><div><h4>Старая улица</h4><p>Мифэнь на завтрак, потом камень Мин и Цин, храм Гуаньди, переулки с бамбуковыми снастями.</p></div></li>
+          <li class="step rise"><time>09:00</time><span class="dot"></span><div><h4>Рыбацкая деревня</h4><p>Два километра берегом, 48 домов 1506 года. Туда и обратно полтора–два часа. Чемодан ждёт на ресепшн.</p></div></li>
+          <li class="step rise"><time>11:30</time><span class="dot"></span><div><h4>На станцию</h4><p>Вокзал Яншо — 9 километров, такси 15 минут. Второй класс, около двух часов до Гуанчжоу Южного.</p></div></li>
+          <li class="step rise"><time>~15:00</time><span class="dot"></span><div><h4>Гуанчжоу</h4><p>Дельта за окном возвращается. Отель, душ, рано спать. Завтра третья фаза с 09:30 — залы 9.2, 10.2 и 21.2, и ничего больше.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ жильё ============ -->
+    <section class="slide light" id="stay" data-rail="stay" data-ch="Где спать">
+      <div class="inner">
+        <p class="kicker">Где спать</p>
         <h2>Три адреса</h2>
-        <div class="hotels reveal">
-          <article>
-            <img src="photos/mist.jpg" alt="Туман у ворот парка">
+        <div class="hotels stagger">
+          <article class="rise">
+            <img src="photos/bailong2.jpg" alt="Вход в парк у отеля" class="zoomable" data-full="photos/bailong2.jpg" data-cap="Ворота парка у отеля.">
             <p class="where">Ночи 1–3 · у ворот</p>
             <h3>MEI CEN</h3>
-            <p>9.7 · 5 минут до ворот. В смете 650 ¥/ночь.</p>
+            <p>9.7 · 5 минут до ворот Улинъюань. В смете 650 ¥/ночь.</p>
             <a href="https://www.trip.com/hotels/zhangjiajie-hotel-detail-134820748/mei-cen-resort-hotel/" target="_blank" rel="noopener">Trip.com</a>
           </article>
-          <article>
-            <img src="photos/tianmen-city.jpg" alt="Город у горы Тяньмэнь">
+          <article class="rise">
+            <img src="photos/tianmen-city.jpg" alt="Город у горы Тяньмэнь" class="zoomable" data-full="photos/tianmen-city.jpg" data-cap="Город Чжанцзяцзе под горой Тяньмэнь.">
             <p class="where">Ночь 4 · у канатки</p>
             <h3>Hampton by Hilton</h3>
             <p>9.7 · 150 м до канатки. Завтрак с 7:00. В смете 550 ¥.</p>
             <a href="https://www.trip.com/hotels/zhangjiajie-hotel-detail-63335949/tianmenshan-hilton-huanpeng-hotel/" target="_blank" rel="noopener">Trip.com</a>
           </article>
-          <article>
-            <img src="photos/xingping.jpg" alt="Река у Синпина">
+          <article class="rise">
+            <img src="photos/yangshuo-air.jpg" alt="Река у Синпина" class="zoomable" data-full="photos/yangshuo-air.jpg" data-cap="Излучина у Синпина.">
             <p class="where">Ночи 5–6 · Синпин</p>
             <h3>Mochi</h3>
             <p>9.6 · вид на купюру. В смете 1 300 ¥/ночь.</p>
@@ -219,11 +857,12 @@
       </div>
     </section>
 
-    <section class="slide light money-slide" id="money" data-rail="money">
+    <!-- ============ смета ============ -->
+    <section class="slide light money-slide" id="money" data-rail="money" data-ch="Смета">
       <div class="inner wide">
-        <p class="kicker dark">Смета соло · курс 12,92 ₽/¥ · 4.09.2026</p>
+        <p class="kicker">Смета соло · курс 12,92 ₽/¥ · 4.09.2026</p>
         <h2>~10 800 юаней · ~140 000 ₽</h2>
-        <p>Номер целиком. Плот на Юйлун целиком. Без шопинга, массажа и озера — они сверху, если возьмёте.</p>
+        <p>Номер целиком. Плот на Юйлун целиком. Без шопинга, массажа, шоу и озера — они сверху, если возьмёте.</p>
 
         <div class="bars">
           <div><b>Жильё</b><i style="--w:100%"></i><span>5 100 ¥</span></div>
@@ -244,7 +883,7 @@
             <tr data-sheet="s2"><td>2 · столбы</td><td>—</td><td>650</td><td>220</td><td>380</td><td>40</td><td>1 290</td></tr>
             <tr data-sheet="s3"><td>3 · ручей</td><td>—</td><td>650</td><td>220</td><td>—</td><td>60</td><td>930</td></tr>
             <tr data-sheet="s4"><td>4 · Тяньмэнь</td><td>—</td><td>550</td><td>220</td><td>288</td><td>180</td><td>1 238</td></tr>
-            <tr data-sheet="s5"><td>5 · в Яншо</td><td>590</td><td>1 300</td><td>220</td><td>—</td><td>280</td><td>2 390</td></tr>
+            <tr data-sheet="s5"><td>5 · в Синпин</td><td>590</td><td>1 300</td><td>220</td><td>—</td><td>280</td><td>2 390</td></tr>
             <tr data-sheet="s6"><td>6 · река</td><td>—</td><td>1 300</td><td>220</td><td>532</td><td>220</td><td>2 272</td></tr>
             <tr data-sheet="s7"><td>7 · домой</td><td>260</td><td>—</td><td>220</td><td>—</td><td>240</td><td>720</td></tr>
           </tbody>
@@ -253,16 +892,18 @@
           </tfoot>
         </table>
         </div>
-        <p class="fine">Цифры округлены, чтобы сойтись со сметой недели. Билеты на поезд скачут. Озеро, шоу, массаж, иглы — не внутри этих сумм.</p>
+        <p class="fine">Цифры округлены, чтобы сойтись со сметой недели. Билеты на поезд скачут. Озеро, шоу, массаж, иглы, смотровая за 20 ¥ и рассвет за 60 — не внутри этих сумм.</p>
       </div>
     </section>
 
-    <section class="slide light" id="why" data-rail="why">
+    <!-- ============ почему нет ============ -->
+    <section class="slide light" id="why" data-rail="why" data-ch="Не влезло">
       <div class="inner">
-        <p class="kicker dark">Это не забыли</p>
+        <p class="kicker">Это не забыли</p>
         <h2>Не влезло в семь дней</h2>
         <p>Неделя уже занята: два поезда, три горных дня под потолок 10–12 км, один речной. Тридцатого днём уже поезд. Ниже — что можно добавить только если выкинуть что-то из плана или появится восьмой день.</p>
-        <button class="why-pic zoomable" type="button" style="background-image:url('photos/glass-bridge.jpg')" data-full="photos/glass-bridge.jpg" aria-label="Стеклянный мост">
+        <button class="why-pic zoomable" type="button" data-full="photos/glass-bridge.jpg" data-cap="Стеклянный мост через каньон Чжанцзяцзе." aria-label="Стеклянный мост">
+          <img src="photos/glass-bridge.jpg" alt="Стеклянный мост через каньон">
           <span>Стеклянный мост через каньон. Не Тяньмэнь. Если будет 8-й день — его.</span>
         </button>
         <div class="why-list">
@@ -291,16 +932,17 @@
             <p>Успеть можно только ногами. Будет 15–18 км. Потолок 15. Узкая тропа по ребру и так будет на Тяньмэнь на следующий день.</p>
           </details>
           <details>
-            <summary>Шоу «Прелестный Сянси»</summary>
-            <p>Успеваем: вечер дня 2 или 3, 80 минут, +158–198 ¥. Не включил в обязательное, потому что это зал, не горы. Если захотите вечер не на улице — берите.</p>
+            <summary>Шоу «Прелестный Сянси» и «Лю Саньцзе»</summary>
+            <p>Оба успеваем: «Сянси» — вечер дня 2 или 3 в Улинъюане, 80 минут, +158–198 ¥, там байшоу, маогусы и плач невесты со сцены. «Лю Саньцзе» — вечер дня 6 в Яншо, 70 минут на воде, +200–300 ¥ и такси. Не включил в обязательное, потому что это зал и трибуна, не горы. Если захотите вечер не на улице — берите одно.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section class="slide light" id="body" data-rail="body">
+    <!-- ============ тело ============ -->
+    <section class="slide light" id="body" data-rail="body" data-ch="Тело">
       <div class="inner">
-        <p class="kicker dark">После километров</p>
+        <p class="kicker">После километров</p>
         <h2>Ноги вечером. Иглы — днём.</h2>
         <div class="two">
           <div>
@@ -324,19 +966,23 @@
       </div>
     </section>
 
-    <section class="slide" id="end" data-rail="body">
-      <div class="bg ken zoomable" style="background-image:url('photos/yangshuo-raft.jpg')" data-full="photos/yangshuo-raft.jpg"></div>
+    <section class="slide look" id="end" data-rail="body" data-ch="Конец">
+      <figure class="shot zoomable" data-full="photos/yangshuo-air.jpg" data-cap="Яншо сверху.">
+        <img src="photos/yangshuo-air.jpg" alt="Яншо сверху">
+        <figcaption>Яншо · 30 октября · два часа до Гуанчжоу</figcaption>
+      </figure>
       <div class="card">
         <p class="kicker">Октябрь ещё впереди</p>
         <h2>Теперь вы прошли это один раз</h2>
-        <p>Фото — Wikimedia Commons. План текстом лежит в той же папке. Стрелка вверх вернёт к туману.</p>
+        <p>Фото — Wikimedia Commons. Легенды — местные, как их рассказывают в Хунани и Гуанси; даты и цифры сверены с хрониками и парками. План текстом лежит в той же папке. Стрелка вверх вернёт к столбам.</p>
       </div>
     </section>
   </main>
 
+  <!-- ============ листы ============ -->
   <aside class="sheet" id="s1" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
-    <p class="kicker dark">День 1</p>
+    <p class="kicker">День 1</p>
     <h3>Поезд и первая ночь</h3>
     <p>Сначала Байюнь: проводите сотрудника. Потом Южный вокзал, первый класс, такси к воротам, ужин, сон. Парк закрыт к вашему приезду осмысленно: после проводов и семи часов в кресле там нечего успеть.</p>
     <p>Запас, не план: ночной C4108 с Байюнь ~20:16, к утру на месте. Тогда этот день становится ночью в купе.</p>
@@ -351,7 +997,7 @@
 
   <aside class="sheet" id="s2" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
-    <p class="kicker dark">День 2</p>
+    <p class="kicker">День 2</p>
     <h3>Столбы</h3>
     <p>К открытию. Лифт, площадки, мост, Тяньцзы, канатка вниз. Билет парка на несколько дней платится сегодня, завтра по нему же.</p>
     <p>380 ¥ = вход ~236 и канатки/лифт внутри. Пешком наверх вместо лифта не ходим: будет 20 км ступеней.</p>
@@ -366,10 +1012,10 @@
 
   <aside class="sheet" id="s3" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
-    <p class="kicker dark">День 3</p>
+    <p class="kicker">День 3</p>
     <h3>Ручей</h3>
-    <p>7,5 км в одну сторону, назад автобус. Вход уже оплачен вчера. Янцзяцзе не добавляем.</p>
-    <p>Сверху сметы, если захотите: озеро 96–120, иглы 60–180, массаж 80–180. Одно, не всё.</p>
+    <p>Такси к западным воротам, 7,5 км вниз по течению, назад экоавтобус. Вход уже оплачен вчера. Янцзяцзе не добавляем.</p>
+    <p>Сверху сметы, если захотите: озеро 96–120, пещера ~100, иглы 60–180, массаж 80–180. Одно, не всё.</p>
     <table>
       <tr><td>Ночь у парка</td><td>650 ¥</td></tr>
       <tr><td>Еда</td><td>220 ¥</td></tr>
@@ -380,10 +1026,10 @@
 
   <aside class="sheet" id="s4" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
-    <p class="kicker dark">День 4</p>
+    <p class="kicker">День 4</p>
     <h3>Тяньмэнь и тропа Гуйгу</h3>
-    <p>Утром вещи в город. Канатка, автобус на 99 поворотов. Главное дня: Гуйгу, 1,6 км досок в середине обрыва, и стеклянный настил вдоль скалы. 999 ступеней — эскалатор. Это не мост через каньон и не Хуашань со страховкой.</p>
-    <p>Верх канатки с ноября 2025 на ремонте — уточнить. Ветер может закрыть стекло. Тогда остаётся деревянная Гуйгу, не героизм.</p>
+    <p>Утром вещи в город. Маршрут B: скорая канатка к дыре, 999 ступеней, эскалатор сквозь гору, Гуйгу и стекло, храм, автобус вниз по 99 поворотам, канатка в город. Это не мост через каньон и не Хуашань со страховкой.</p>
+    <p>Верхний участок канатки с ноября 2025 перестраивают — поэтому такой порядок. Ветер может закрыть стекло. Тогда остаётся деревянная Гуйгу, не героизм.</p>
     <table>
       <tr><td>Ночь у канатки</td><td>550 ¥</td></tr>
       <tr><td>Еда</td><td>220 ¥</td></tr>
@@ -395,9 +1041,9 @@
 
   <aside class="sheet" id="s5" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
-    <p class="kicker dark">День 5</p>
+    <p class="kicker">День 5</p>
     <h3>Поезд в Синпин</h3>
-    <p>Первый класс до Гуйлиня ~7 часов, второй до Яншо 20–40 минут. Вечером Лаочжай, 2–3 км. Самый дорогой день: длинный поезд плюс ночь с видом на реку.</p>
+    <p>Первый класс до Гуйлиня ~7 часов, второй до станции Яншо 20–40 минут. Станция стоит в Синпине, 9 км до посёлка. Вечером Лаочжай, 1 149 ступеней. Самый дорогой день: длинный поезд плюс ночь с видом на реку.</p>
     <table>
       <tr><td>Поезд 1 кл. + до Яншо</td><td>590 ¥</td></tr>
       <tr><td>Ночь Mochi</td><td>1 300 ¥</td></tr>
@@ -409,9 +1055,9 @@
 
   <aside class="sheet" id="s6" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
-    <p class="kicker dark">День 6</p>
+    <p class="kicker">День 6</p>
     <h3>Река</h3>
-    <p>Купюра 20 юаней, короткий плот по Лицзян, днём Юйлун целиком на вас. Если мало — ещё велосипед или ночная рыбалка через отель, это сверху.</p>
+    <p>Купюра 20 юаней, плот по Лицзян к «Девяти коням», днём Юйлун целиком на вас от моста 1412 года. Если мало — велосипед, бакланы на закате или шоу на воде в Яншо, это сверху.</p>
     <table>
       <tr><td>Ночь Mochi</td><td>1 300 ¥</td></tr>
       <tr><td>Еда</td><td>220 ¥</td></tr>
@@ -423,9 +1069,9 @@
 
   <aside class="sheet" id="s7" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
-    <p class="kicker dark">День 7</p>
+    <p class="kicker">День 7</p>
     <h3>Утро у реки, днём домой</h3>
-    <p>Ночёвки больше нет. Утро свободное. После обеда второй класс, около двух часов. На ярмарку сегодня не идти: 30-го зал закрыт. Завтра, 31-го, третья фаза с утра.</p>
+    <p>Ночёвки больше нет. Утро свободное: старая улица и рыбацкая деревня. Вокзал в 9 км. После обеда второй класс, около двух часов. На ярмарку сегодня не идти: 30-го зал закрыт. Завтра, 31-го, третья фаза с утра.</p>
     <table>
       <tr><td>Поезд Яншо → Гуанчжоу</td><td>260 ¥</td></tr>
       <tr><td>Еда</td><td>220 ¥</td></tr>
@@ -437,6 +1083,7 @@
   <div class="lightbox" id="box" hidden>
     <button class="sheet-x" type="button">Закрыть</button>
     <img alt="">
+    <p class="box-cap" id="boxcap"></p>
   </div>
 
   <script src="tour.js"></script>

@@ -13,7 +13,7 @@
 <body data-mode="work">
   <div class="chapters" id="chapters">
     <button type="button" data-mode="work" data-jump="map" class="on">Работа</button>
-    <button type="button" data-mode="nature" data-jump="n-map">Горы</button>
+    <button type="button" data-mode="nature" data-jump="n-want">Горы</button>
   </div>
   <nav class="rail" data-for="work" aria-label="Работа">
     <a class="rail-btn on" href="#cover">Старт</a>
@@ -30,12 +30,13 @@
   <nav class="rail" data-for="nature" hidden aria-label="Горы">
     <a class="rail-btn" href="#cover">Старт</a>
     <a class="rail-btn" href="#n-map">Карта</a>
+    <a class="rail-btn" href="#n-want">Куда</a>
     <a class="rail-btn" href="#pillars">Столбы</a>
     <a class="rail-btn" href="#tianmen">Тяньмэнь</a>
     <a class="rail-btn" href="#river">Река</a>
   </nav>
 
-  <div class="hint" id="hint">Колёсико — дальше. На горах миниатюры внизу листают фото одного места.</div>
+  <div class="hint" id="hint">На горах фото целиком, не обои. Миниатюры внизу листают одно место.</div>
   <div class="progress" aria-hidden="true"><i id="bar"></i></div>
   <div class="veil" id="veil"></div>
 
@@ -52,7 +53,7 @@
             <b>Работа</b>
             <span>12–23 октября, и снова 31-го на Пачжоу</span>
           </button>
-          <button class="door" type="button" data-mode="nature" data-jump="n-map">
+          <button class="door" type="button" data-mode="nature" data-jump="n-want">
             <b>Горы</b>
             <span>24–30 октября. Столбы, дыра в горе, река</span>
           </button>
@@ -114,6 +115,52 @@
               <a class="out" href="тур/index.html">Открыть горный тур</a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide light" id="n-want" data-chapter="nature" data-rail="n-want">
+      <div class="inner">
+        <p class="kicker dark">Куда именно</p>
+        <h2>Девять кадров мест</h2>
+        <p>Не туман на весь экран. Нажмите кадр — откроется целиком. В горном туре таких фото ещё больше.</p>
+        <div class="wall-grid">
+          <button class="tile zoomable" type="button" data-full="photos/zjj-wuling.jpg">
+            <span class="tile-pic"><img src="photos/zjj-wuling.jpg" alt=""></span>
+            <span class="tile-cap">Улинъюань. Лес каменных столбов.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/zjj-sun.jpg">
+            <span class="tile-pic"><img src="photos/zjj-sun.jpg" alt=""></span>
+            <span class="tile-cap">Те же столбы в ясный день.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/bailong.jpg">
+            <span class="tile-pic"><img src="photos/bailong.jpg" alt=""></span>
+            <span class="tile-cap">Лифт Байлун. Вас везут внутрь скалы.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/tianmen-road.jpg">
+            <span class="tile-pic"><img src="photos/tianmen-road.jpg" alt=""></span>
+            <span class="tile-cap">Дыра в горе. 999 ступеней снизу.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/tianmen-gate.jpg">
+            <span class="tile-pic"><img src="photos/tianmen-gate.jpg" alt=""></span>
+            <span class="tile-cap">Та же дыра с серпантина.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/guigu.jpg">
+            <span class="tile-pic"><img src="photos/guigu.jpg" alt=""></span>
+            <span class="tile-cap">Тропа Гуйгу. Доски в обрыве.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/xingping-town.jpg">
+            <span class="tile-pic"><img src="photos/xingping-town.jpg" alt=""></span>
+            <span class="tile-cap">Купюра 20 юаней и та самая река.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/yulong.jpg">
+            <span class="tile-pic"><img src="photos/yulong.jpg" alt=""></span>
+            <span class="tile-cap">Плот. Вас несут водой.</span>
+          </button>
+          <button class="tile zoomable" type="button" data-full="photos/yangshuo-air.jpg">
+            <span class="tile-pic"><img src="photos/yangshuo-air.jpg" alt=""></span>
+            <span class="tile-cap">Яншо сверху. Пики и излучина.</span>
+          </button>
         </div>
       </div>
     </section>
@@ -315,30 +362,35 @@
     </section>
 
     <section class="slide place" id="pillars" data-chapter="nature" data-rail="pillars">
-      <div class="bg ken album-stage" style="background-image:url('photos/pillars.jpg')"></div>
+      <figure class="shot zoomable" data-full="photos/zjj-sun.jpg">
+        <img class="album-stage" src="photos/zjj-sun.jpg" alt="Столбы Улинъюаня">
+      </figure>
       <div class="card">
         <p class="kicker">25–26 октября · Улинъюань</p>
         <h2>Столбы</h2>
         <p>Юаньцзяцзе, те самые скалы из «Аватара». Лифт Байлун везёт внутрь горы. Между площадками ходите сами — это и есть десять километров. Пешком наверх вместо лифта не идём.</p>
-        <p class="day-sum">листайте фото внизу · нажмите — на весь экран</p>
+        <p class="day-sum">листайте фото внизу · нажмите — целиком, без обрезки</p>
         <button class="peek" type="button" data-sheet="s-mtn">Семь дней коротко</button>
       </div>
-      <p class="strip album-cap"><b>1 / 4</b> <span>Юаньцзяцзе. Столбы из «Аватара».</span></p>
+      <p class="strip album-cap"><b>1 / 5</b> <span>Столбы в ясный день.</span></p>
       <div class="film" role="list">
-        <button type="button" class="on" style="background-image:url('photos/pillars.jpg')" data-src="photos/pillars.jpg" data-cap="Юаньцзяцзе. Столбы из «Аватара»." aria-label="Столбы"></button>
-        <button type="button" style="background-image:url('photos/mist.jpg')" data-src="photos/mist.jpg" data-cap="Туман между скал. Улинъюань." aria-label="Туман"></button>
-        <button type="button" style="background-image:url('photos/clouds.jpg')" data-src="photos/clouds.jpg" data-cap="Площадки над облаками." aria-label="Облака"></button>
+        <button type="button" class="on" style="background-image:url('photos/zjj-sun.jpg')" data-src="photos/zjj-sun.jpg" data-cap="Столбы в ясный день." aria-label="Ясный день"></button>
+        <button type="button" style="background-image:url('photos/zjj-wuling.jpg')" data-src="photos/zjj-wuling.jpg" data-cap="Лес столбов. Юаньцзяцзе и Тяньцзы." aria-label="Лес столбов"></button>
         <button type="button" style="background-image:url('photos/bailong.jpg')" data-src="photos/bailong.jpg" data-cap="Лифт Байлун. Вас везут внутрь горы." aria-label="Лифт Байлун"></button>
+        <button type="button" style="background-image:url('photos/bailong2.jpg')" data-src="photos/bailong2.jpg" data-cap="Ворота парка. Столб уже над входом." aria-label="Ворота"></button>
+        <button type="button" style="background-image:url('photos/pillars.jpg')" data-src="photos/pillars.jpg" data-cap="Если облака. Столбы всё равно читаются." aria-label="Облака"></button>
       </div>
     </section>
 
     <section class="slide place" id="tianmen" data-chapter="nature" data-rail="tianmen">
-      <div class="bg ken album-stage" style="background-image:url('photos/tianmen-road.jpg')"></div>
+      <figure class="shot zoomable" data-full="photos/tianmen-road.jpg">
+        <img class="album-stage" src="photos/tianmen-road.jpg" alt="Дыра Тяньмэнь снизу">
+      </figure>
       <div class="card">
         <p class="kicker">27 октября · Тяньмэнь</p>
         <h2>Дыра в горе</h2>
         <p>Это она. Небесные врата: сквозное отверстие в скале, 131 метр в высоту. Снизу — 999 ступеней. Эскалатор есть, если не хотите набирать лишние километры. Потом тропа Гуйгу и стекло вдоль обрыва.</p>
-        <p class="day-sum">пять фото этого дня · листайте внизу</p>
+        <p class="day-sum">пять фото этого дня · дыра видна целиком</p>
         <a class="out" href="тур/index.html#d4">День целиком в горном туре</a>
       </div>
       <p class="strip album-cap"><b>1 / 5</b> <span>Дыра снизу. 999 ступеней наверх.</span></p>
@@ -347,25 +399,29 @@
         <button type="button" style="background-image:url('photos/tianmen-gate.jpg')" data-src="photos/tianmen-gate.jpg" data-cap="Та же дыра с серпантина, издалека." aria-label="Дыра издалека"></button>
         <button type="button" style="background-image:url('photos/tianmen-peak.jpg')" data-src="photos/tianmen-peak.jpg" data-cap="С канатки. Дыра в гребне горы." aria-label="С канатки"></button>
         <button type="button" style="background-image:url('photos/guigu.jpg')" data-src="photos/guigu.jpg" data-cap="Тропа Гуйгу: доски вбиты в обрыв." aria-label="Тропа Гуйгу"></button>
-        <button type="button" style="background-image:url('photos/tianmen-glass.jpg')" data-src="photos/tianmen-glass.jpg" data-cap="Стекло вдоль скалы. Не мост через каньон." aria-label="Стекло"></button>
+        <button type="button" style="background-image:url('photos/tianmen-glass.jpg')" data-src="photos/tianmen-glass.jpg" data-cap="С гребня. Облака внизу, небо чистое." aria-label="С гребня"></button>
       </div>
     </section>
 
     <section class="slide place" id="river" data-chapter="nature" data-rail="river">
-      <div class="bg ken album-stage" style="background-image:url('photos/liriver.jpg')"></div>
+      <figure class="shot zoomable" data-full="photos/xingping-town.jpg">
+        <img class="album-stage" src="photos/xingping-town.jpg" alt="Купюра 20 юаней на фоне реки Ли">
+      </figure>
       <div class="card">
         <p class="kicker">28–30 октября · Синпин</p>
         <h2>Река с купюры</h2>
         <p>Смотровая 20 юаней, плот по Лицзян, днём Юйлун. Ночуете в Синпине, не на Западной улице. 30-го утром ещё вода, днём два часа до Гуанчжоу. Поэтому горы были первыми.</p>
-        <p class="day-sum">четыре фото реки · листайте внизу</p>
+        <p class="day-sum">шесть фото реки · листайте внизу</p>
         <a class="out" href="тур/index.html#d6">Речной день в горном туре</a>
       </div>
-      <p class="strip album-cap"><b>1 / 4</b> <span>Река Ли. Вид с купюры 20 юаней.</span></p>
+      <p class="strip album-cap"><b>1 / 6</b> <span>Купюра 20 юаней и та самая река.</span></p>
       <div class="film" role="list">
-        <button type="button" class="on" style="background-image:url('photos/liriver.jpg')" data-src="photos/liriver.jpg" data-cap="Река Ли. Вид с купюры 20 юаней." aria-label="Река Ли"></button>
-        <button type="button" style="background-image:url('photos/yangshuo-raft.jpg')" data-src="photos/yangshuo-raft.jpg" data-cap="Плот. Вас несут водой." aria-label="Плот"></button>
-        <button type="button" style="background-image:url('photos/xingping.jpg')" data-src="photos/xingping.jpg" data-cap="Синпин. Ночь у реки, не на Западной улице." aria-label="Синпин"></button>
-        <button type="button" style="background-image:url('photos/yulong.jpg')" data-src="photos/yulong.jpg" data-cap="Юйлун. Поля и второй плот." aria-label="Юйлун"></button>
+        <button type="button" class="on" style="background-image:url('photos/xingping-town.jpg')" data-src="photos/xingping-town.jpg" data-cap="Купюра 20 юаней и та самая река." aria-label="Купюра"></button>
+        <button type="button" style="background-image:url('photos/yangshuo-air.jpg')" data-src="photos/yangshuo-air.jpg" data-cap="Яншо сверху. Пики и излучина." aria-label="Яншо сверху"></button>
+        <button type="button" style="background-image:url('photos/yulong.jpg')" data-src="photos/yulong.jpg" data-cap="Юйлун. Вас несут водой." aria-label="Юйлун"></button>
+        <button type="button" style="background-image:url('photos/li-rafts.jpg')" data-src="photos/li-rafts.jpg" data-cap="Плоты на Лицзян." aria-label="Плоты"></button>
+        <button type="button" style="background-image:url('photos/liriver2.jpg')" data-src="photos/liriver2.jpg" data-cap="Утро на реке. Низкий туман над водой." aria-label="Утро"></button>
+        <button type="button" style="background-image:url('photos/xingping.jpg')" data-src="photos/xingping.jpg" data-cap="Синпин. Ночь у этих пиков." aria-label="Синпин"></button>
       </div>
     </section>
 
