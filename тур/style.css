@@ -482,6 +482,27 @@ body.on-paper .progress i { background: var(--cinnabar); }
 .tl div.you { border-top-color: #d9604f; }
 .tl div.you::before { background: #d9604f; }
 .tl div.you b { color: #f1b3a8; }
+.tl div.p { border-top-color: rgba(143, 191, 169, 0.5); }
+.tl div.p::before { background: #8fbfa9; }
+.tl div.t::before { background: var(--gold); }
+.tl div.r { border-top-color: rgba(143, 182, 217, 0.5); }
+.tl div.r::before { background: #8fb6d9; }
+.tl .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: -0.1rem 0 0.55rem; }
+.tag {
+  display: inline-block;
+  font: 500 0.64rem/1 Outfit, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.45rem;
+  border: 1px solid currentColor;
+  color: rgba(243, 234, 216, 0.7);
+  white-space: nowrap;
+}
+.tag.p { color: #8fbfa9; }
+.tag.t { color: var(--gold); }
+.tag.r { color: #8fb6d9; }
+.tag.y { color: #f1b3a8; }
+.tl-key { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 0.4rem; }
 
 /* ---------- walk through the day ---------- */
 
