@@ -96,12 +96,17 @@
     .built .ru { color: var(--muted); }
 
     .show .top { position: absolute; top: calc(1rem + env(safe-area-inset-top)); left: 1rem; right: 7rem; text-align: left; font-size: .9rem; color: var(--muted); font-family: var(--zh); line-height: 1.3; }
-    .show .ans { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
-    .show .ans button { border: 1px solid var(--line); background: var(--card); border-radius: 12px; padding: .45rem .7rem; font: inherit; color: var(--ink); min-width: 4.3rem; cursor: pointer; }
+    .show .ans { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; margin-top: .4rem; }
+    .show .ans button { border: 1px solid var(--line); background: var(--card); border-radius: 12px; padding: .45rem .6rem; font: inherit; color: var(--ink); min-width: 4.6rem; cursor: pointer; }
     .show .ans button .zw { font-family: var(--zh); font-size: 1.5rem; display: block; line-height: 1.2; }
+    .show .ans button .s { font-size: .82rem; font-weight: 650; display: block; line-height: 1.25; }
     .show .ans button .d { font-size: .72rem; color: var(--muted); display: block; }
     .show .ans button.on { background: var(--ok-soft); border-color: var(--ok); }
     .show .got { margin-top: .4rem; font-size: 1.15rem; color: var(--ok); font-weight: 650; min-height: 1.6rem; }
+    @media (max-width: 640px) {
+      .show .ans { display: grid; grid-template-columns: repeat(4, 1fr); width: 100%; }
+      .show .ans button { min-width: 0; padding: .45rem .2rem; }
+    }
     .install { display: flex; gap: .7rem; align-items: flex-start; }
     .install .x { margin-left: auto; min-height: 36px; padding: .2rem .6rem; }
     .paste textarea { width: 100%; min-height: 3.2rem; resize: vertical; font: inherit; font-size: 1rem; padding: .5rem .8rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); font-family: var(--zh); }
@@ -467,8 +472,21 @@ const P = {
     memo:"Я + есть + Россия + человек. 人 в конце = житель."},
   shenme:{kind:"w",ru:"что?", py:"shénme", zh:"什么", say:"шэнь-мэ", img:"memo/w-shenme.jpg",
     memo:"ЩЕНок смотрит на МЕдведя: что это?! ЩЕН-МЕ ≈ ШЭНЬ-МЭ = что. Ткнуть пальцем и сказать одно слово."},
-  keyi:{kind:"w",ru:"можно?", py:"kěyǐ ma", zh:"可以吗？", say:"кэ-и ма", img:"memo/w-keyi.jpg",
-    memo:"«Можно?» — «оКЭЙ!» КЭ-И = можно. МА в хвосте = вопрос. Кивок в ответ = да."},
+  ky:{kind:"w",ru:"можно", py:"kěyǐ", zh:"可以", say:"кэ-и", img:"memo/w-keyi.jpg",
+    memo:"«Можно?» — «оКЭЙ!» КЭ-И = можно. Это и вопрос (с 吗), и ответ «да, можно»."},
+  keyi:{ru:"можно?", py:"kěyǐ ma", zh:"可以吗？", say:"кэ-и ма", parts:["ky","wma"], note:"Кивок или 可以 в ответ = да. 不可以 = нельзя."},
+
+  // ответы, которые вы услышите. Учить на слух: их говорят вам
+  shi:{kind:"w",ru:"да, так", py:"shì", zh:"是", say:"ши", img:"memo/w-shi.jpg",
+    memo:"Белка кивает с ШИшкой: да! ШИ = да, так и есть. Падает вниз; в 十 (десять) тот же «ши», но вверх."},
+  dui:{kind:"w",ru:"верно, да", py:"duì", zh:"对", say:"дуй", img:"memo/w-dui.jpg",
+    memo:"Судья ДУет в свисток и поднимает палец: верно! ДУЙ = верно. Самое частое «да» в ответ."},
+  zhidao:{kind:"w",ru:"знать", py:"zhīdào", zh:"知道", say:"чжи-дао", img:"memo/w-zhidao.jpg",
+    memo:"ЖИраф-мудрец знает ДАО. ЧЖИ-ДАО = знать."},
+  bushi:{ru:"нет, не так", py:"bú shì", zh:"不是", say:"бу ши", parts:["wbu","shi"], note:"Не + да = нет. Ответ на вопрос с 是 или 吗."},
+  meiyou:{ru:"нету, нет такого", py:"méiyǒu", zh:"没有", say:"мэй-ю", parts:["wmei","wyou"], note:"Нет + есть = нету. Ответ на 有…吗 и 有没有. Часто просто 没."},
+  bukeyi:{ru:"нельзя", py:"bù kěyǐ", zh:"不可以", say:"бу кэ-и", parts:["wbu","ky"]},
+  buzhidao:{ru:"не знаю", py:"bù zhīdào", zh:"不知道", say:"бу чжи-дао", parts:["wbu","zhidao"], note:"Так ответит прохожий на 在哪里. Спросите следующего."},
 
   // конструктор: слова-заполнители без картинки, только звук-крючок
   kafei:{kind:"w",ru:"кофе", py:"kāfēi", zh:"咖啡", say:"ка-фэй", memo:"КАФЕ — кофе. КА-ФЭЙ."},
@@ -597,10 +615,11 @@ const LESSONS = [
   {iso:"2026-09-14",id:5,title:"Собрать число",
     blocks:[
       {title:"Слова",ids:["wbai","wliang","wzhang","wyou","wmei"]},
-      {title:"Соберите",ids:["n20","n100","liang","youmei"]}
+      {title:"Соберите",ids:["n20","n100","liang","youmei"]},
+      {title:"Что ответят — узнать на слух",ids:["shi","dui","bushi","meiyou"]}
     ],
-    can:"Сложить 20 и 100. Спросить «есть?». Сказать «два билета».",
-    gram:"Двузначное = десяток + единица: 二十 = 2 и 10. Для штук «два» = 两. 有没有 = есть-нет, вопрос без 吗."},
+    can:"Сложить 20 и 100. Спросить «есть?». Сказать «два билета». Узнать на слух «да / верно / нет / нету».",
+    gram:"Двузначное = десяток + единица: 二十 = 2 и 10. Для штук «два» = 两. 有没有 = есть-нет, вопрос без 吗. Ответы — из тех же кубиков: 不 + 是 = нет, 没 + 有 = нету."},
   {iso:"2026-09-16",id:6,title:"Ехать",
     blocks:[
       {title:"Слова",ids:["qu","wdao","wzher","wting"]},{title:"Соберите",ids:["woqu","ting"]},
@@ -609,9 +628,12 @@ const LESSONS = [
     can:"Сказать водителю: ехать в…, стоп здесь, налево / направо.",
     gram:"去 + место. Куда — последний кубик. Адрес всё равно картинкой, рот — запасной парашют."},
   {iso:"2026-09-18",id:7,title:"Вокзал",
-    blocks:[{title:"Слова",ids:["ditie","gaotie","zhan","piao","chukou","gzs"]}],
-    can:"Прочитать на стене: метро, выход, южный вокзал. Сказать «билет».",
-    gram:"口 = отверстие: 出口 выход, 入口 вход. 铁 = железо: в земле — метро, высокое — скоростной. Имя вокзала показывают экраном."},
+    blocks:[
+      {title:"Слова",ids:["ditie","gaotie","zhan","piao","chukou","gzs"]},
+      {title:"Что ответят — узнать на слух",ids:["ky","bukeyi","zhidao","buzhidao"]}
+    ],
+    can:"Прочитать на стене: метро, выход, южный вокзал. Сказать «билет». Узнать на слух «можно / нельзя / не знаю».",
+    gram:"口 = отверстие: 出口 выход, 入口 вход. 铁 = железо: в земле — метро, высокое — скоростной. Имя вокзала показывают экраном. 不 перед 可以 и 知道 — те же кубики, что в 不要."},
   {iso:"2026-09-20",id:8,title:"Отель",
     blocks:[
       {title:"Слова",ids:["wyou","wyuding","huzhao","mima"]},{title:"Соберите",ids:["yuding"]},
@@ -703,6 +725,7 @@ const BOOK = [
   {id:"build",title:"Собрать",ids:[]},
   {id:"show",title:"Экран собеседнику",ids:["s_nozh","s_write","s_digits","s_point","s_again","s_wait","s_what","s_engmenu","s_here","s_taxi","s_wifi","s_photo","s_card","s_nothanks","s_doctor","s_allergy","ru"]},
   {id:"first",title:"Первые слова",ids:["nihao","xiexie","haode","duibuqi","tbd","slow","eng","ru","woaini","shenme","keyi"]},
+  {id:"answers",title:"Что ответят",ids:["shi","dui","bushi","wyou","meiyou","ky","bukeyi","buzhidao","haode","s_wait"]},
   {id:"food",title:"Еда",ids:["caidan","woyao","zhege","nage","mifan","shui","reshui","cha","pijiu","kafei","pijiuyu","buyaola","yidianla","haochi","kuaizi","maidan","wc","s_engmenu","s_what"]},
   {id:"money",title:"Деньги",ids:["duoshao","kuai","taigui","pianyi","youmei","liang","weixin","alipay","saoma","xianjin","s_card","fapiao"]},
   {id:"road",title:"Такси, дорога",ids:["woqu","qu","s_here","ting","zuo","you","jichang","jiudian","gzs","baiyun","s_taxi"]},
@@ -1354,8 +1377,12 @@ function micNote() {
 }
 
 // ---------- показать на весь экран ----------
-// Ответы, которые собеседник может ткнуть сам: иероглиф крупно, перевод мелко для вас.
-const ANSWERS = [["是","да"],["不是","нет"],["有","есть"],["没有","нету"],["可以","можно"],["不可以","нельзя"],["不知道","не знаю"]];
+// Ответы, которые собеседник может ткнуть сам. Нажатие озвучивает слово — так вы учитесь узнавать их на слух.
+const ANSWERS = ["shi","dui","bushi","wyou","meiyou","ky","bukeyi","buzhidao"];
+function answersRow() {
+  return `<div class="tag" style="margin-top:1.1rem">его ответ — пусть ткнёт, вы услышите и прочитаете</div>
+    <div class="ans">${ANSWERS.map(id => { const p = P[id]; return `<button data-ans="${id}"><span class="zw">${p.zh}</span><span class="s">${esc(displaySay(p.say))}</span><span class="d">${esc(p.ru.split(",")[0])}</span></button>`; }).join("")}</div>`;
+}
 let wake = null;
 async function keepAwake(on) {
   try {
@@ -1380,9 +1407,9 @@ function showBig(zh, say, ru, py, opts) {
       <div class="row" style="justify-content:center;margin-top:.4rem">
         <button class="btn primary big" ${playAttr}>слушать</button>
       </div>
-      ${o.noAnswers ? "" : `<div class="ans">${ANSWERS.map(a => `<button data-ans="${a[1]}" data-anszh="${a[0]}"><span class="zw">${a[0]}</span><span class="d">${a[1]}</span></button>`).join("")}</div>
+      ${o.noAnswers ? "" : `${answersRow()}
       <div class="got" id="got"></div>
-      <div class="hint">Собеседник может ткнуть ответ. Закрывается только кнопкой сверху.</div>`}
+      <div class="hint">Закрывается только кнопкой сверху.</div>`}
     </div>
   </div>`;
   keepAwake(true);
@@ -1573,7 +1600,7 @@ function renderLive() {
       <ol class="plan">
         <li>Покажите первый экран из «Фразы → Быстро»: <b>我不会说中文，请看屏幕</b>. Дальше он ждёт экран, а не речь.</li>
         <li>Ваш ход — плитка или фраза → «показать». Нажмите «слушать», чтобы телефон сказал за вас.</li>
-        <li>Его ход — «слушать китайца» и телефон ближе к нему. Или он тыкает ответ прямо на вашем экране: 是 / 不是 / 有 / 没有.</li>
+        <li>Его ход — «слушать китайца» и телефон ближе к нему. Или он тыкает ответ прямо под вашей фразой: 是 / 对 / 不是 / 没有 / 可以 — телефон озвучит, вы прочитаете. Эти же ответы учите на слух в «Фразы → Что ответят».</li>
         <li>Цена — всегда просите цифрами: <b>请写数字</b>, или калькулятор в телефоне.</li>
       </ol>
     </div>
@@ -1888,7 +1915,7 @@ document.body.addEventListener("click", (e) => {
   if (d.show) { showId(d.show); return; }
   if (d.showb) { const b = builtById(d.showb); if (b) showBig(b.zh, b.say, b.ru, "", { playId: b.id }); return; }
   if (d.showzh) { const r = readParts(d.showzh); showBig(d.showzh, r.say, d.showru || r.ru, "", { noAnswers: !!d.showru }); return; }
-  if (d.ans) { document.querySelectorAll(".show .ans button").forEach(b => b.classList.toggle("on", b === t)); const g = $("#got"); if (g) g.textContent = "Ответ: " + d.ans + " (" + d.anszh + ")"; return; }
+  if (d.ans) { const p = P[d.ans]; document.querySelectorAll(".show .ans button").forEach(b => b.classList.toggle("on", b === t)); const g = $("#got"); if (g && p) g.textContent = "Ответ: " + p.ru + " — " + p.zh + " " + displaySay(p.say); playId(d.ans); return; }
   if (d.close) { closeShow(); return; }
   if (d.frame || d.word) {
     if (d.frame) bFrame = d.frame; else bWord = d.word;
