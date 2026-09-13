@@ -287,13 +287,110 @@ const P = {
   ma4:{kind:"w",ru:"ругать", py:"mà", zh:"骂", say:"ма",
     memo:"«Ма!» как короткое «нет!». Четвёртый тон = резко вниз."},
 
-  nihao:{kind:"w",ru:"привет", py:"nǐ hǎo", zh:"你好", say:"ни хао", img:"memo/memo-nihao.jpg",
+  wxie:{kind:"w",ru:"благодарить", py:"xiè", zh:"谢", say:"се",
+    memo:"СЕстра кланяется. СЕ = благодарить. Два раза подряд — 谢谢."},
+  wde:{kind:"w",ru:"служебное (хвост)", py:"de", zh:"的", say:"дэ",
+    memo:"ДЭньги в кармане — ленивый хвост. В 好的 = ладно."},
+  wqi:{kind:"w",ru:"поднять", py:"qǐ", zh:"起", say:"ци",
+    memo:"ЦИстерна встаёт, поднимается. ЦИ = поднять. 对不起: не поднять обиду = извините."},
+  wzhe:{kind:"w",ru:"этот", py:"zhè", zh:"这", say:"джэ",
+    memo:"ДЖЭконда — вот этот. zh = «дж». В 这个 и 这儿."},
+  wge:{kind:"w",ru:"штука (счёт)", py:"ge", zh:"个", say:"гэ",
+    memo:"ГЭна считает штуки. ГЭ = штука. Хвост в 这个 / 那个."},
+  wna:{kind:"w",ru:"тот", py:"nà", zh:"那", say:"на",
+    memo:"НА, вон тот. Пара к 这 этот."},
+  wdian:{kind:"w",ru:"точка, чуть, час", py:"diǎn", zh:"点", say:"дянь",
+    memo:"ДЯтел стукнул точку. ДЯНЬ = точка / чуть / час. В 一点 и 几点."},
+  wyong:{kind:"w",ru:"нужно, использовать", py:"yòng", zh:"用", say:"юн",
+    memo:"ЮНга пользуется верёвкой. ЮН = использовать / нужно. 不用 = не нужно."},
+  zhongwen:{kind:"w",ru:"китайский (язык)", py:"Zhōngwén", zh:"中文", say:"чжун-вэнь",
+    memo:"ЧЖУНго + ВЭНь = китайская письменность. 中文 = китайский язык."},
+  kan:{kind:"w",ru:"смотреть", py:"kàn", zh:"看", say:"кань",
+    memo:"КАНитель: смотрит не отрываясь. КАНЬ = смотреть."},
+  pingmu:{kind:"w",ru:"экран", py:"píngmù", zh:"屏幕", say:"пин-му",
+    memo:"ПИНгвин смотрит МУльт на экране. ПИН-МУ = экран."},
+  wxiezi:{kind:"w",ru:"писать", py:"xiě", zh:"写", say:"се",
+    memo:"СЕстра пишет. Тот же звук, что 谢, другой знак: 写."},
+  xialai:{kind:"w",ru:"вниз, до конца", py:"xiàlái", zh:"下来", say:"ся-лай",
+    memo:"СЯдь и ЛАЙ — запиши до конца. 写下来 = напишите."},
+  shuzi:{kind:"w",ru:"цифры", py:"shùzì", zh:"数字", say:"шу-цзы",
+    memo:"ШУстрые ЦЫфры. ШУ-ЦЗЫ = цифры."},
+  wzhi:{kind:"w",ru:"указать пальцем", py:"zhǐ", zh:"指", say:"чжи",
+    memo:"ЖИраф тычет пальцем. ЧЖИ = указать."},
+  wgei:{kind:"w",ru:"дать", py:"gěi", zh:"给", say:"гэй",
+    memo:"ГЕЙзер даёт воду. ГЭЙ = дать. 给我 = дайте мне / для меня."},
+  wzai2:{kind:"w",ru:"ещё раз", py:"zài", zh:"再", say:"цзай",
+    memo:"ЦЗАЙ ещё раз! Не путать с 在 «находится» — тот же звук, другой знак."},
+  yibian:{kind:"w",ru:"один раз", py:"yí biàn", zh:"一遍", say:"и-бянь",
+    memo:"И один БЯНь — один проход. 再说一遍 = повторите ещё раз."},
+  wdeng:{kind:"w",ru:"ждать", py:"děng", zh:"等", say:"дэн",
+    memo:"ДЭНь ждёт лифт. ДЭН = ждать."},
+  wyixia:{kind:"w",ru:"разок, минутку", py:"yíxià", zh:"一下", say:"и-ся",
+    memo:"И СЯдь на секунду. И-СЯ = разок. 等一下 = подождите."},
+  yingwen:{kind:"w",ru:"английский (текст)", py:"Yīngwén", zh:"英文", say:"ин-вэнь",
+    memo:"ИНдюк пишет ВЭНь. ИН-ВЭНЬ = английский текст. 英语 — устная речь, 英文 — на бумаге."},
+  wjiao:{kind:"w",ru:"звать, вызвать", py:"jiào", zh:"叫", say:"цзяо",
+    memo:"ЦЗЯвкает, зовёт. ЦЗЯО = звать. 叫出租车 = вызвать такси."},
+  chuzuche:{kind:"w",ru:"такси", py:"chūzūchē", zh:"出租车", say:"чу-цзу-чэ",
+    memo:"ЧУжая ЦУЦик ЧЕшет — арендованная машина. ЧУ-ЦЗУ-ЧЭ = такси."},
+  xuyao:{kind:"w",ru:"нужно (надо)", py:"xūyào", zh:"需要", say:"сюй-яо",
+    memo:"СЮЙчас ЯОчется — нужно. СЮЙ-ЯО. Сильнее, чем 要: нужда, не хотение."},
+  yisheng:{kind:"w",ru:"врач", py:"yīshēng", zh:"医生", say:"и-шэн",
+    memo:"Иголка ШЬёт рану. И-ШЭН = врач. Тот же 医, что в 医院."},
+  guomin:{kind:"w",ru:"аллергия", py:"guòmǐn", zh:"过敏", say:"го-мин",
+    memo:"ГО МИМО — аллергия. ГО-МИН. 我对…过敏 = у меня аллергия на…"},
+  wnan:{kind:"w",ru:"юг", py:"nán", zh:"南", say:"нань",
+    memo:"НАНька смотрит на юг. НАНЬ = юг. 广州南 = Гуанчжоу Южный."},
+  wxi:{kind:"w",ru:"запад", py:"xī", zh:"西", say:"си",
+    memo:"СИнее солнце садится на западе. СИ = запад. 张家界西."},
+  wbei:{kind:"w",ru:"север", py:"běi", zh:"北", say:"бэй",
+    memo:"БЕлый север. БЭЙ = север. 贵阳北, 深圳北."},
+  wzhan2:{kind:"w",ru:"станция", py:"zhàn", zh:"站", say:"чжань",
+    memo:"ЖАНдарм стоит на станции. ЧЖАНЬ = станция / стоять. На знаке часто одно 站."},
+  wbaiyun:{kind:"w",ru:"Байюнь (белое облако)", py:"Báiyún", zh:"白云", say:"бай-юнь", screen:true,
+    memo:"Белое облако. Аэропорт Гуанчжоу."},
+  wguiyang:{kind:"w",ru:"Гуйян", py:"Guìyáng", zh:"贵阳", say:"гуй-ян", screen:true,
+    memo:"Пересадка, если через Гуйян."},
+  wmai:{kind:"w",ru:"покупать, платить", py:"mǎi", zh:"买", say:"май",
+    memo:"МАЙский базар: покупаю. МАЙ = покупать. 买单 = платить по списку."},
+  wdan:{kind:"w",ru:"список, бланк", py:"dān", zh:"单", say:"дань",
+    memo:"ДАННЫЕ в списке. ДАНЬ = бланк. 买单 счёт, 菜单 меню."},
+  wcai:{kind:"w",ru:"блюдо", py:"cài", zh:"菜", say:"цай",
+    memo:"ЦАпля несёт блюдо. ЦАЙ = блюдо. 菜单 = блюда + список."},
+  wna3:{kind:"w",ru:"какой, который", py:"nǎ", zh:"哪", say:"на",
+    memo:"НА каком? НА = какой. 哪里 = какой + внутри = где."},
+  wli:{kind:"w",ru:"внутри, место", py:"lǐ", zh:"里", say:"ли",
+    memo:"ЛИния внутри. ЛИ = внутри. Хвост в 哪里 / 这里."},
+  wduo:{kind:"w",ru:"много", py:"duō", zh:"多", say:"до",
+    memo:"ДО фига — много. ДО = много."},
+  wshao:{kind:"w",ru:"мало", py:"shǎo", zh:"少", say:"шао",
+    memo:"ШАО? мало осталось. ШАО = мало. 多少 = много-мало = сколько."},
+  wfang:{kind:"w",ru:"дом, комната", py:"fáng", zh:"房", say:"фан",
+    memo:"ФАНат своего дома. ФАН = дом. 房间 = дом + комната."},
+  wjian:{kind:"w",ru:"комната", py:"jiān", zh:"间", say:"цзянь",
+    memo:"ЦЗЯНЬ — промежуток, комната. 房间 номер, 洗手间 туалет."},
+  wxi3:{kind:"w",ru:"мыть", py:"xǐ", zh:"洗", say:"си",
+    memo:"СИто моют. СИ = мыть. 洗手间 = мыть + руки + комната."},
+  wshou:{kind:"w",ru:"рука", py:"shǒu", zh:"手", say:"шоу",
+    memo:"ШОУ рук. ШОУ = рука."},
+  wchu:{kind:"w",ru:"выходить", py:"chū", zh:"出", say:"чу",
+    memo:"ЧУдак выходит. ЧУ = выйти. 出口 выход."},
+  wkou:{kind:"w",ru:"рот, отверстие", py:"kǒu", zh:"口", say:"коу",
+    memo:"КОУ — рот как дырка. КОУ = отверстие. 出口 / 入口."},
+  wru2:{kind:"w",ru:"входить", py:"rù", zh:"入", say:"жу",
+    memo:"ЖУк вползает внутрь. ЖУ = входить. 入口 вход."},
+  wyin:{kind:"w",ru:"серебро", py:"yín", zh:"银", say:"инь",
+    memo:"ИНЬ — серебро. 银行 серебро + ряд = банк."},
+  whang:{kind:"w",ru:"ряд, контора", py:"háng", zh:"行", say:"хан",
+    memo:"ХАН — ряд. Не путать с 行 син «годится». 银行 банк."},
+
+  nihao:{ru:"привет", py:"nǐ hǎo", zh:"你好", say:"ни хао", img:"memo/memo-nihao.jpg", parts:["wni","whao"],
     memo:"НИщий ХАвает у дверей и орёт «привет». НИ-ХАО = привет."},
-  xiexie:{kind:"w",ru:"спасибо", py:"xièxie", zh:"谢谢", say:"се-се", img:"memo/memo-xiexie.jpg",
+  xiexie:{ru:"спасибо", py:"xièxie", zh:"谢谢", say:"се-се", img:"memo/memo-xiexie.jpg", parts:["wxie","wxie"],
     memo:"Две СЕстры кланяются разом. СЕ-СЕ = спасибо. x — мягкое «сь», не «кс»."},
-  duibuqi:{kind:"w",ru:"извините", py:"duìbuqǐ", zh:"对不起", say:"дуй-бу-ци", img:"memo/memo-duibuqi.jpg",
+  duibuqi:{ru:"извините", py:"duìbuqǐ", zh:"对不起", say:"дуй-бу-ци", img:"memo/memo-duibuqi.jpg", parts:["dui","wbu","wqi"],
     memo:"ДУЙнул так, что БУтылка и ЦИстерна упали. Извиняется. ДУЙ-БУ-ЦИ."},
-  haode:{kind:"w",ru:"хорошо, ладно", py:"hǎo de", zh:"好的", say:"хао дэ", img:"memo/memo-haode.jpg",
+  haode:{ru:"хорошо, ладно", py:"hǎo de", zh:"好的", say:"хао дэ", img:"memo/memo-haode.jpg", parts:["whao","wde"],
     memo:"В ХАОСе мужик поднимает палец: «ДЭ, ладно». ХАО-ДЭ = ок."},
 
   wni:{kind:"w",ru:"ты", py:"nǐ", zh:"你", say:"ни", img:"memo/w-ni-2.jpg",
@@ -314,7 +411,7 @@ const P = {
     memo:"ШОпот у уха. ШО = говорить."},
   wman:{kind:"w",ru:"медленно", py:"màn", zh:"慢", say:"мань", img:"memo/w-man-2.jpg",
     memo:"МАНя плетётся. МАНЬ = медленно."},
-  wyidian:{kind:"w",ru:"чуть, немного", py:"yìdiǎn", zh:"一点", say:"и-дянь", img:"memo/w-yidian-2.jpg",
+  wyidian:{ru:"чуть, немного", py:"yìdiǎn", zh:"一点", say:"и-дянь", img:"memo/w-yidian-2.jpg", parts:["n1","wdian"],
     memo:"Иголка и ДЯтел: чуть стукнул. И-ДЯНЬ = чуть."},
   whui:{kind:"w",ru:"уметь", py:"huì", zh:"会", say:"хуэй", img:"memo/w-hui-4.jpg",
     memo:"Боксёр бьёт ХУК — умеет. ХУЭЙ = уметь."},
@@ -322,16 +419,16 @@ const P = {
     memo:"ИНдюк крутит ЮЛу. ИН-ЮЙ = английский."},
   wma:{kind:"w",ru:"вопрос (хвост)", py:"ma", zh:"吗", say:"ма", img:"memo/w-ma-2.jpg",
     memo:"МАма спрашивает. МА в конце = вопрос. Слова не переставляете."},
-  zhege:{kind:"w",ru:"это", py:"zhège", zh:"这个", say:"джэ-гэ", img:"memo/memo-zhege.jpg",
+  zhege:{ru:"это", py:"zhège", zh:"这个", say:"джэ-гэ", img:"memo/memo-zhege.jpg", parts:["wzhe","wge"],
     memo:"ДЖЭконда ГЭния — вот ЭТО. Тычете пальцем. zh = «дж»."},
-  nage:{kind:"w",ru:"вон то", py:"nàge", zh:"那个", say:"на-гэ", img:"memo/w-nage.jpg",
+  nage:{ru:"вон то", py:"nàge", zh:"那个", say:"на-гэ", img:"memo/w-nage.jpg", parts:["wna","wge"],
     memo:"Крокодил ГЕНа: «НА, вон то!» — показывает вдаль. НА-ГЭ = вон то. Тот же 个, что в 这个."},
   wyao:{kind:"w",ru:"хотеть", py:"yào", zh:"要", say:"яо", img:"memo/w-yao.jpg",
     memo:"«Я хОчу!» — ребёнок тянется к торту. ЯО = хотеть."},
   wzai:{kind:"w",ru:"находится, в", py:"zài", zh:"在", say:"цзай", img:"memo/w-zai.jpg",
     memo:"ЗАЙЦ сидит вот здесь, под флажком. ЦЗАЙ = находится."},
-  wnali:{kind:"w",ru:"где", py:"nǎlǐ", zh:"哪里", say:"на-ли", img:"memo/w-nali.jpg",
-    memo:"Стоит НА ЛИнии, руки в стороны: где? НА-ЛИ = где."},
+  wnali:{ru:"где", py:"nǎlǐ", zh:"哪里", say:"на-ли", img:"memo/w-nali.jpg", parts:["wna3","wli"],
+    memo:"Стоит НА ЛИнии, руки в стороны: где? НА-ЛИ = где. 哪 какой + 里 внутри."},
 
   n1:{kind:"w",ru:"1", py:"yī", zh:"一", say:"и", img:"memo/n1.jpg", memo:"Одна ИГОЛКА. И = 1."},
   n2:{kind:"w",ru:"2", py:"èr", zh:"二", say:"эр", img:"memo/n2.jpg", memo:"Два ЭРудита в очках спорят. ЭР = 2. Для «две штуки» — 两 лян."},
@@ -343,8 +440,8 @@ const P = {
   n8:{kind:"w",ru:"8", py:"bā", zh:"八", say:"ба", img:"memo/n8.jpg", memo:"Восемь БАНАНОВ. БА = 8."},
   n9:{kind:"w",ru:"9", py:"jiǔ", zh:"九", say:"цзю", img:"memo/n9.jpg", memo:"Девять ДЗЮДОистов. ЦЗЮ = 9."},
   n10:{kind:"w",ru:"10", py:"shí", zh:"十", say:"ши", img:"memo/n10.jpg", memo:"Десять ШИН стопкой. ШИ = 10. Дальше: десяток + цифра."},
-  wduoshao:{kind:"w",ru:"сколько", py:"duōshao", zh:"多少", say:"до-шао", img:"memo/w-duoshao.jpg",
-    memo:"ДОШИрак: сколько стоит? ДО-ШАО = сколько."},
+  wduoshao:{ru:"сколько", py:"duōshao", zh:"多少", say:"до-шао", img:"memo/w-duoshao.jpg", parts:["wduo","wshao"],
+    memo:"ДОШИрак: сколько стоит? ДО-ШАО = сколько. 多 много + 少 мало."},
   wqian:{kind:"w",ru:"деньги", py:"qián", zh:"钱", say:"цянь", img:"memo/w-qian.jpg",
     memo:"ЦЕНник с монетами. ЦЯНЬ = деньги."},
   kuai:{kind:"w",ru:"юань (в речи)", py:"kuài", zh:"块", say:"куай", img:"memo/w-kuai.jpg",
@@ -368,9 +465,15 @@ const P = {
     memo:"Мышонок ДЖЕРри тычет себе под ноги: здесь. ДЖЭР = здесь."},
   wting:{kind:"w",ru:"остановиться", py:"tíng", zh:"停", say:"тин", img:"memo/w-ting.jpg",
     memo:"Машина застряла в ТИНе — стоп. ТИН = остановиться."},
-  zuo:{kind:"w",ru:"налево", py:"zuǒbian", zh:"左边", say:"цзо-бянь", img:"memo/w-zuo.jpg",
+  wzuo:{kind:"w",ru:"лево", py:"zuǒ", zh:"左", say:"цзо",
+    memo:"ЗОнт в левой. ЦЗО = лево."},
+  wyou2:{kind:"w",ru:"право", py:"yòu", zh:"右", say:"ю",
+    memo:"ЮНга — правая рука. Ю = право. Не путать с 有 «есть»."},
+  wbian:{kind:"w",ru:"сторона", py:"biān", zh:"边", say:"бянь",
+    memo:"БЯНьк — край, сторона. Хвост в 左边 / 右边."},
+  zuo:{ru:"налево", py:"zuǒbian", zh:"左边", say:"цзо-бянь", img:"memo/w-zuo.jpg", parts:["wzuo","wbian"],
     memo:"ЗОнт в левой руке, стрелка влево. ЦЗО = лево. 边 бянь = сторона."},
-  you:{kind:"w",ru:"направо", py:"yòubian", zh:"右边", say:"ю-бянь", img:"memo/w-you2.jpg",
+  you:{ru:"направо", py:"yòubian", zh:"右边", say:"ю-бянь", img:"memo/w-you2.jpg", parts:["wyou2","wbian"],
     memo:"ЮНга салютует правой, стрелка вправо. Ю = право. Тот же хвост 边."},
   jichang:{kind:"w",ru:"аэропорт", py:"jīchǎng", zh:"机场", say:"цзи-чан", img:"memo/w-jichang.jpg",
     memo:"ДЖИнн вылетает из ЧАНа, как самолёт. ЦЗИ-ЧАН = аэропорт."},
@@ -381,22 +484,26 @@ const P = {
     memo:"ГАВкает ТЕрьер на скоростной поезд. ГАО-ТЕ = скоростной. 高 высокий + 铁 железо, на табло буква G."},
   ditie:{kind:"w",ru:"метро", py:"dìtiě", zh:"地铁", say:"ди-те", img:"memo/w-ditie.jpg",
     memo:"ДИТЯ едет в метро. ДИ-ТЕ = метро. Тот же 铁, что в 高铁."},
-  zhan:{kind:"w",ru:"вокзал", py:"huǒchēzhàn", zh:"火车站", say:"хо-чэ-чжань", img:"memo/w-zhan.jpg",
+  huoche:{kind:"w",ru:"поезд", py:"huǒchē", zh:"火车", say:"хо-чэ",
+    memo:"ХОЧЕшь поезд? 火 огонь + 车 машина = поезд."},
+  wtai2:{kind:"w",ru:"площадка, стойка", py:"tái", zh:"台", say:"тай",
+    memo:"ТАЙная площадка. ТАЙ = площадка. 站台 платформа, 前台 ресепшен. Не путать с 太 «слишком»."},
+  zhan:{ru:"вокзал", py:"huǒchēzhàn", zh:"火车站", say:"хо-чэ-чжань", img:"memo/w-zhan.jpg", parts:["huoche","wzhan2"],
     memo:"ХОЧЕшь? ЖАНдарм стоит на вокзале. ХО-ЧЭ-ЧЖАНЬ = вокзал. На знаке часто просто 站."},
   piao:{kind:"w",ru:"билет", py:"piào", zh:"票", say:"пяо", img:"memo/w-piao.jpg",
     memo:"Билет за ПЯтак. ПЯО = билет. p с выдохом на ладонь."},
-  zhantai:{kind:"w",ru:"платформа", py:"zhàntái", zh:"站台", say:"чжань-тай",
+  zhantai:{ru:"платформа", py:"zhàntái", zh:"站台", say:"чжань-тай", parts:["wzhan2","wtai2"],
     memo:"站 станция + 台 площадка. Читать на табло."},
-  chukou:{kind:"w",ru:"выход", py:"chūkǒu", zh:"出口", say:"чу-коу", img:"memo/w-chukou.jpg",
-    memo:"ЧУдак выскакивает из двери-РТА. ЧУ-КОУ = выход. 口 = рот, отверстие."},
-  gzs:{kind:"w",ru:"Гуанчжоу Южный", py:"Guǎngzhōu Nán", zh:"广州南", say:"гуан-чжоу нань", screen:true,
+  chukou:{ru:"выход", py:"chūkǒu", zh:"出口", say:"чу-коу", img:"memo/w-chukou.jpg", parts:["wchu","wkou"],
+    memo:"ЧУдак выскакивает из двери-РТА. ЧУ-КОУ = выход. 出 выйти + 口 отверстие."},
+  gzs:{ru:"Гуанчжоу Южный", py:"Guǎngzhōu Nán", zh:"广州南", say:"гуан-чжоу нань", screen:true, parts:["gz","wnan"],
     memo:"Южный вокзал. Показывать экраном, не выговаривать."},
 
   wyuding:{kind:"w",ru:"бронь", py:"yùdìng", zh:"预订", say:"юй-дин", img:"memo/w-yuding.jpg",
     memo:"ДИНЬ — звонок на стойке, карточка брони. ЮЙ-ДИН = бронь."},
   huzhao:{kind:"w",ru:"паспорт", py:"hùzhào", zh:"护照", say:"ху-чжао", img:"memo/w-huzhao.jpg",
     memo:"ХУдая ЖАБа на фото в паспорте. ХУ-ЧЖАО = паспорт."},
-  fangjian:{kind:"w",ru:"номер (комната)", py:"fángjiān", zh:"房间", say:"фан-цзянь",
+  fangjian:{ru:"номер (комната)", py:"fángjiān", zh:"房间", say:"фан-цзянь", parts:["wfang","wjian"],
     memo:"房 дом + 间 комната. Номер в отеле."},
   mima:{kind:"w",ru:"пароль", py:"mìmǎ", zh:"密码", say:"ми-ма", img:"memo/w-mima.jpg",
     memo:"МИМ показывает МАме пароль жестами. МИ-МА = пароль. WiFi ми-ма."},
@@ -407,18 +514,18 @@ const P = {
   wle:{kind:"w",ru:"уже (случилось)", py:"le", zh:"了", say:"лэ", img:"memo/w-le.jpg",
     memo:"Финишная ЛЕнта — уже, готово. ЛЭ = уже. Хвост фразы."},
 
-  caidan:{kind:"w",ru:"меню", py:"càidān", zh:"菜单", say:"цай-дань", img:"memo/w-caidan.jpg",
-    memo:"ЦАпля подаёт ДАНе меню. ЦАЙ-ДАНЬ = меню. c = «ц»."},
+  caidan:{ru:"меню", py:"càidān", zh:"菜单", say:"цай-дань", img:"memo/w-caidan.jpg", parts:["wcai","wdan"],
+    memo:"ЦАпля подаёт ДАНе меню. ЦАЙ-ДАНЬ = меню. 菜 блюдо + 单 список."},
   mifan:{kind:"w",ru:"рис", py:"mǐfàn", zh:"米饭", say:"ми-фань", img:"memo/w-mifan.jpg",
     memo:"МИска риса и ФАНат риса. МИ-ФАНЬ = рис."},
   shui:{kind:"w",ru:"вода", py:"shuǐ", zh:"水", say:"шуй", img:"memo/w-shui.jpg",
     memo:"ШУмит вода из крана: шшшуй. ШУЙ = вода."},
   wla:{kind:"w",ru:"острый", py:"là", zh:"辣", say:"ла", img:"memo/w-la.jpg",
     memo:"ЛАва во рту от перца. ЛА = острый."},
-  maidan:{kind:"w",ru:"счёт", py:"mǎidān", zh:"买单", say:"май-дань", img:"memo/memo-maidan.jpg",
-    memo:"МАЙ-ДАНЬ: поднял руку — платим по списку. Одно слово официанту."},
-  wxishoujian:{kind:"w",ru:"туалет", py:"xǐshǒujiān", zh:"洗手间", say:"си-шоу-цзянь", img:"memo/w-wc.jpg",
-    memo:"СИдят на ШОУ, где моют руки. СИ-ШОУ-ЦЗЯНЬ = комната мыть руки = туалет."},
+  maidan:{ru:"счёт", py:"mǎidān", zh:"买单", say:"май-дань", img:"memo/memo-maidan.jpg", parts:["wmai","wdan"],
+    memo:"МАЙ-ДАНЬ: поднял руку — платим по списку. 买 купить + 单 список."},
+  wxishoujian:{ru:"туалет", py:"xǐshǒujiān", zh:"洗手间", say:"си-шоу-цзянь", img:"memo/w-wc.jpg", parts:["wxi3","wshou","wjian"],
+    memo:"СИдят на ШОУ, где моют руки. 洗 мыть + 手 рука + 间 комната."},
 
   cha:{kind:"w",ru:"чай", py:"chá", zh:"茶", say:"ча", img:"memo/w-cha.jpg",
     memo:"ЧА = ЧАй. Один слог вверх."},
@@ -439,8 +546,8 @@ const P = {
     memo:"МЕНт стоит в дверях. МЭНЬ = дверь."},
   suodao:{kind:"w",ru:"канатка", py:"suǒdào", zh:"索道", say:"со-дао", img:"memo/w-suodao.jpg",
     memo:"Бутылка СОДовой едет в кабинке канатки. СО-ДАО = канатка."},
-  rukou:{kind:"w",ru:"вход", py:"rùkǒu", zh:"入口", say:"жу-коу", img:"memo/w-rukou.jpg",
-    memo:"ЖУк вползает в дверь-РОТ. ЖУ-КОУ = вход. Пара к 出口."},
+  rukou:{ru:"вход", py:"rùkǒu", zh:"入口", say:"жу-коу", img:"memo/w-rukou.jpg", parts:["wru2","wkou"],
+    memo:"ЖУк вползает в дверь-РОТ. ЖУ-КОУ = вход. 入 войти + 口 отверстие."},
   cesuo:{kind:"w",ru:"туалет (знак)", py:"cèsuǒ", zh:"厕所", say:"цэ-со", img:"memo/w-cesuo.jpg",
     memo:"ЦЕСарка сидит на унитазе. ЦЭ-СО = туалет на знаках."},
 
@@ -500,55 +607,71 @@ const P = {
   paizhao:{kind:"w",ru:"фотографировать", py:"pāizhào", zh:"拍照", say:"пай-чжао", memo:"ПАЙ ЖАБе — фото на память. ПАЙ-ЧЖАО = снимать."},
   fapiao:{kind:"w",ru:"чек", py:"fāpiào", zh:"发票", say:"фа-пяо", memo:"ФАнат просит билет-ПЯО: чек. ФА-ПЯО = официальный чек."},
   daizi:{kind:"w",ru:"пакет", py:"dàizi", zh:"袋子", say:"дай-цзы", memo:"«ДАЙ пакет!» ДАЙ-ЦЗЫ = пакет. На кассе спросят 要袋子吗."},
-  ditiezhan:{kind:"w",ru:"станция метро", py:"dìtiězhàn", zh:"地铁站", say:"ди-те-чжань", memo:"地铁 метро + 站 станция."},
+  ditiezhan:{ru:"станция метро", py:"dìtiězhàn", zh:"地铁站", say:"ди-те-чжань", parts:["ditie","wzhan2"], memo:"地铁 метро + 站 станция."},
   chaoshi:{kind:"w",ru:"супермаркет", py:"chāoshì", zh:"超市", say:"чао-ши", memo:"«ЧАО!» — ШИны в супермаркете. ЧАО-ШИ = супермаркет."},
-  yinhang:{kind:"w",ru:"банк", py:"yínháng", zh:"银行", say:"инь-хан", memo:"ИНЬ-ХАН: серебро 银 + ряд 行 = банк."},
-  zheli:{kind:"w",ru:"здесь, сюда", py:"zhèlǐ", zh:"这里", say:"джэ-ли", memo:"Как 这儿. ДЖЭ-ЛИ = здесь. Таксисту: 我要去这里 + карта."},
+  yinhang:{ru:"банк", py:"yínháng", zh:"银行", say:"инь-хан", parts:["wyin","whang"], memo:"ИНЬ-ХАН: серебро 银 + ряд 行 = банк."},
+  zheli:{ru:"здесь, сюда", py:"zhèlǐ", zh:"这里", say:"джэ-ли", parts:["wzhe","wli"], memo:"Как 这儿. 这 этот + 里 внутри. Таксисту: 我要去这里 + карта."},
   liangpiao:{ru:"два билета", py:"liǎng zhāng piào", zh:"两张票", say:"лян чжан пяо", parts:["wliang","wzhang","piao"]},
 
   // экран собеседнику: показывать, не выговаривать
-  s_nozh:{kind:"w",ru:"я не говорю по-китайски, посмотрите на экран", py:"wǒ bú huì shuō Zhōngwén, qǐng kàn píngmù", zh:"我不会说中文，请看屏幕", say:"во бу хуэй шо чжун-вэнь, цин кань пин-му", screen:true,
+  s_nozh:{ru:"я не говорю по-китайски, посмотрите на экран", py:"wǒ bú huì shuō Zhōngwén, qǐng kàn píngmù", zh:"我不会说中文，请看屏幕", say:"во бу хуэй шо чжун-вэнь, цин кань пин-му", screen:true,
+    parts:["wwo","wbu","whui","wshuo","zhongwen","wqing","kan","pingmu"],
     memo:"Первый экран любого разговора. Потом листаете фразы."},
-  s_write:{kind:"w",ru:"напишите, пожалуйста", py:"qǐng xiě xiàlái", zh:"请写下来", say:"цин се ся-лай", screen:true,
+  s_write:{ru:"напишите, пожалуйста", py:"qǐng xiě xiàlái", zh:"请写下来", say:"цин се ся-лай", screen:true,
+    parts:["wqing","wxiezi","xialai"],
     memo:"Если не разобрали на слух. Дайте телефон с открытыми заметками."},
-  s_digits:{kind:"w",ru:"напишите цифрами", py:"qǐng xiě shùzì", zh:"请写数字", say:"цин се шу-цзы", screen:true,
+  s_digits:{ru:"напишите цифрами", py:"qǐng xiě shùzì", zh:"请写数字", say:"цин се шу-цзы", screen:true,
+    parts:["wqing","wxiezi","shuzi"],
     memo:"Цена, номер, время — цифры понятны обоим."},
-  s_point:{kind:"w",ru:"покажите пальцем", py:"qǐng zhǐ gěi wǒ kàn", zh:"请指给我看", say:"цин чжи гэй во кань", screen:true,
+  s_point:{ru:"покажите пальцем", py:"qǐng zhǐ gěi wǒ kàn", zh:"请指给我看", say:"цин чжи гэй во кань", screen:true,
+    parts:["wqing","wzhi","wgei","wwo","kan"],
     memo:"На карте, в меню, на витрине."},
-  s_again:{kind:"w",ru:"повторите ещё раз", py:"qǐng zài shuō yí biàn", zh:"请再说一遍", say:"цин цзай шо и бянь", screen:true,
+  s_again:{ru:"повторите ещё раз", py:"qǐng zài shuō yí biàn", zh:"请再说一遍", say:"цин цзай шо и бянь", screen:true,
+    parts:["wqing","wzai2","wshuo","yibian"],
     memo:"再 ещё + 一遍 один раз. Можно и вслух."},
-  s_wait:{kind:"w",ru:"подождите минуту", py:"qǐng děng yíxià", zh:"请等一下", say:"цин дэн и-ся", screen:true,
+  s_wait:{ru:"подождите минуту", py:"qǐng děng yíxià", zh:"请等一下", say:"цин дэн и-ся", screen:true,
+    parts:["wqing","wdeng","wyixia"],
     memo:"等 ждать + 一下 разок. Пока ищете фразу."},
-  s_what:{kind:"w",ru:"что это?", py:"zhè shì shénme", zh:"这是什么？", say:"джэ ши шэнь-мэ", screen:true,
+  s_what:{ru:"что это?", py:"zhè shì shénme", zh:"这是什么？", say:"джэ ши шэнь-мэ", screen:true,
+    parts:["wzhe","shi","shenme"],
     memo:"Палец в блюдо + этот экран."},
-  s_engmenu:{kind:"w",ru:"есть меню на английском?", py:"yǒu Yīngwén càidān ma", zh:"有英文菜单吗？", say:"ю ин-вэнь цай-дань ма", screen:true,
+  s_engmenu:{ru:"есть меню на английском?", py:"yǒu Yīngwén càidān ma", zh:"有英文菜单吗？", say:"ю ин-вэнь цай-дань ма", screen:true,
+    parts:["wyou","yingwen","caidan","wma"],
     memo:"有 + вещь + 吗. Меню с картинками: 有图片的菜单吗."},
-  s_here:{kind:"w",ru:"мне сюда (адрес на экране)", py:"wǒ yào qù zhèlǐ", zh:"我要去这里", say:"во яо цюй джэ-ли", screen:true,
+  s_here:{ru:"мне сюда (адрес на экране)", py:"wǒ yào qù zhèlǐ", zh:"我要去这里", say:"во яо цюй джэ-ли", screen:true,
+    parts:["wwo","wyao","qu","zheli"],
     memo:"Таксисту вместе с точкой на карте. Та же машина 我要去."},
-  s_taxi:{kind:"w",ru:"вызовите мне такси", py:"qǐng bāng wǒ jiào chūzūchē", zh:"请帮我叫出租车", say:"цин бан во цзяо чу-цзу-чэ", screen:true,
+  s_taxi:{ru:"вызовите мне такси", py:"qǐng bāng wǒ jiào chūzūchē", zh:"请帮我叫出租车", say:"цин бан во цзяо чу-цзу-чэ", screen:true,
+    parts:["wqing","wbang","wwo","wjiao","chuzuche"],
     memo:"На ресепшене. 帮我 помогите мне + 叫 вызвать + 出租车 такси."},
-  s_wifi:{kind:"w",ru:"есть Wi-Fi? какой пароль?", py:"yǒu WiFi ma? mìmǎ shì shénme", zh:"有WiFi吗？密码是什么？", say:"ю вай-фай ма? ми-ма ши шэнь-мэ", screen:true,
+  s_wifi:{ru:"есть Wi-Fi? какой пароль?", py:"yǒu WiFi ma? mìmǎ shì shénme", zh:"有WiFi吗？密码是什么？", say:"ю вай-фай ма? ми-ма ши шэнь-мэ", screen:true,
+    parts:["wyou","wifi","wma","mima","shi","shenme"],
     memo:"密码 пароль уже знаете. 是什么 = какой."},
-  s_photo:{kind:"w",ru:"можно сфотографировать?", py:"kěyǐ pāizhào ma", zh:"可以拍照吗？", say:"кэ-и пай-чжао ма", screen:true,
+  s_photo:{ru:"можно сфотографировать?", py:"kěyǐ pāizhào ma", zh:"可以拍照吗？", say:"кэ-и пай-чжао ма", screen:true,
+    parts:["ky","paizhao","wma"],
     memo:"可以 можно + 拍照 фото + 吗."},
-  s_card:{kind:"w",ru:"можно картой?", py:"kěyǐ shuākǎ ma", zh:"可以刷卡吗？", say:"кэ-и шуа-ка ма", screen:true,
+  s_card:{ru:"можно картой?", py:"kěyǐ shuākǎ ma", zh:"可以刷卡吗？", say:"кэ-и шуа-ка ма", screen:true,
+    parts:["ky","shuaka","wma"],
     memo:"Часто ответ 没有 — тогда 微信 / 支付宝 / 现金."},
-  s_nothanks:{kind:"w",ru:"спасибо, не нужно", py:"xièxie, bú yòng le", zh:"谢谢，不用了", say:"се-се, бу юн лэ", screen:true,
+  s_nothanks:{ru:"спасибо, не нужно", py:"xièxie, bú yòng le", zh:"谢谢，不用了", say:"се-се, бу юн лэ", screen:true,
+    parts:["xiexie","wbu","wyong","wle"],
     memo:"Вежливый отказ зазывалам. 不用 не нужно + 了."},
-  s_doctor:{kind:"w",ru:"мне нужен врач", py:"wǒ xūyào yīshēng", zh:"我需要医生", say:"во сюй-яо и-шэн", screen:true,
+  s_doctor:{ru:"мне нужен врач", py:"wǒ xūyào yīshēng", zh:"我需要医生", say:"во сюй-яо и-шэн", screen:true,
+    parts:["wwo","xuyao","yisheng"],
     memo:"需要 нужно + 医生 врач. Тот же 医, что в 医院."},
-  s_allergy:{kind:"w",ru:"у меня аллергия на…", py:"wǒ duì … guòmǐn", zh:"我对…过敏", say:"во дуй … го-мин", screen:true,
+  s_allergy:{ru:"у меня аллергия на…", py:"wǒ duì … guòmǐn", zh:"我对…过敏", say:"во дуй … го-мин", screen:true,
+    parts:["wwo","dui","guomin"],
     memo:"Вместо …: 海鲜 морепродукты, 花生 арахис, 牛奶 молоко. Показать экраном."},
 
   gz:{kind:"w",ru:"Гуанчжоу", py:"Guǎngzhōu", zh:"广州", say:"гуан-чжоу", screen:true, memo:"На экран."},
   yangshuo:{kind:"w",ru:"Яншо", py:"Yángshuò", zh:"阳朔", say:"ян-шо", screen:true, memo:"Картинка в телефоне важнее рта."},
   xingping:{kind:"w",ru:"Синпин", py:"Xīngpíng", zh:"兴坪", say:"син-пин", screen:true, memo:"Вокзал Яншо стоит здесь."},
   zjj:{kind:"w",ru:"Чжанцзяцзе", py:"Zhāngjiājiè", zh:"张家界", say:"джан-цзя-цзе", screen:true, memo:"Три слога, на кассе — иероглифы."},
-  zjjx:{kind:"w",ru:"Чжанцзяцзе Запад", py:"Zhāngjiājiè Xī", zh:"张家界西", say:"джан-цзя-цзе си", screen:true, memo:"Тот же город + 西 запад. Западный вокзал."},
+  zjjx:{ru:"Чжанцзяцзе Запад", py:"Zhāngjiājiè Xī", zh:"张家界西", say:"джан-цзя-цзе си", screen:true, parts:["zjj","wxi"], memo:"Тот же город + 西 запад. Западный вокзал."},
   libo:{kind:"w",ru:"Либо", py:"Lìbō", zh:"荔波", say:"ли-бо", screen:true, memo:"Запасной парк."},
   xqk:{kind:"w",ru:"Сяоцикун", py:"Xiǎoqīkǒng", zh:"小七孔", say:"сяо-ци-кун", screen:true, memo:"Маленькие семь дыр. Парк в Либо."},
-  gyb:{kind:"w",ru:"Гуйян Север", py:"Guìyáng Běi", zh:"贵阳北", say:"гуй-ян бэй", screen:true, memo:"Пересадка, если через Гуйян."},
-  baiyun:{kind:"w",ru:"аэропорт Байюнь", py:"Báiyún jīchǎng", zh:"白云机场", say:"бай-юнь цзи-чан", screen:true, memo:"Белое облако + аэропорт. Вылет 3 ноября."},
+  gyb:{ru:"Гуйян Север", py:"Guìyáng Běi", zh:"贵阳北", say:"гуй-ян бэй", screen:true, parts:["wguiyang","wbei"], memo:"Пересадка, если через Гуйян."},
+  baiyun:{ru:"аэропорт Байюнь", py:"Báiyún jīchǎng", zh:"白云机场", say:"бай-юнь цзи-чан", screen:true, parts:["wbaiyun","jichang"], memo:"Белое облако + аэропорт. Вылет 3 ноября."},
 
   tbd:{ru:"не понимаю", py:"tīng bu dǒng", zh:"听不懂", say:"тин бу дун", parts:["wtin","wbu","wdong"]},
   slow:{ru:"говорите медленнее", py:"qǐng shuō màn yìdiǎn", zh:"请说慢一点", say:"цин шо мань и-дянь", parts:["wqing","wshuo","wman","wyidian"]},
@@ -746,13 +869,13 @@ const PLACES = new Set(BOOK.find(c => c.id === "places").ids);
 // Конструктор: рамка + кубик. slot: t — вещь, p — место, c — способ («можно …?»).
 const BUILD = {
   frames:[
-    {id:"want", pre:"我要", post:"", say:"во яо …", ru:"мне …", slots:"t"},
-    {id:"nowant", pre:"不要", post:"", say:"бу яо …", ru:"не надо …", slots:"t"},
-    {id:"have", pre:"有", post:"吗？", say:"ю … ма", ru:"есть …?", slots:"t"},
-    {id:"where", pre:"", post:"在哪里？", say:"… цзай на-ли", ru:"где …?", slots:"p"},
-    {id:"go", pre:"我要去", post:"", say:"во яо цюй …", ru:"мне в …", slots:"p"},
-    {id:"can", pre:"可以", post:"吗？", say:"кэ-и … ма", ru:"можно …?", slots:"c"},
-    {id:"howmuch", pre:"", post:"多少钱？", say:"… до-шао цянь", ru:"сколько стоит …?", slots:"t"}
+    {id:"want", pre:"我要", post:"", say:"во яо …", ru:"мне …", slots:"t", partsPre:["wwo","wyao"], partsPost:[]},
+    {id:"nowant", pre:"不要", post:"", say:"бу яо …", ru:"не надо …", slots:"t", partsPre:["wbu","wyao"], partsPost:[]},
+    {id:"have", pre:"有", post:"吗？", say:"ю … ма", ru:"есть …?", slots:"t", partsPre:["wyou"], partsPost:["wma"]},
+    {id:"where", pre:"", post:"在哪里？", say:"… цзай на-ли", ru:"где …?", slots:"p", partsPre:[], partsPost:["wzai","wnali"]},
+    {id:"go", pre:"我要去", post:"", say:"во яо цюй …", ru:"мне в …", slots:"p", partsPre:["wwo","wyao","qu"], partsPost:[]},
+    {id:"can", pre:"可以", post:"吗？", say:"кэ-и … ма", ru:"можно …?", slots:"c", partsPre:["ky"], partsPost:["wma"]},
+    {id:"howmuch", pre:"", post:"多少钱？", say:"… до-шао цянь", ru:"сколько стоит …?", slots:"t", partsPre:[], partsPost:["wduoshao","wqian"]}
   ],
   fillers:[
     ["zhege","t"],["nage","t"],["mifan","t"],["shui","t"],["reshui","t"],["cha","t"],["pijiu","t"],["kafei","t"],["bing","t"],["wla","t"],
@@ -1003,15 +1126,15 @@ const LEX = {
   宝:["бао","сокровище"],现:["сянь","сейчас, наличный"],金:["цзинь","золото, деньги"],密:["ми","тайный"],预:["юй","заранее"],订:["дин","заказать"],
   护:["ху","защищать"],照:["чжао","снимок, свет"],单:["дань","список, бланк"],啤:["пи","пивной"],筷:["куай","палочки"],子:["цзы","суффикс «-штука»"],
   索:["со","канат"],道:["дао","путь"],厕:["цэ","уборная"],所:["со","место"],医:["и","лечить"],院:["юань","учреждение, двор"],警:["цзин","полиция"],
-  察:["ча","наблюдать"],救:["цзю","спасать"],命:["мин","жизнь"],迷:["ми","заблудиться"],便:["пянь","(в 便宜 дёшево)"],宜:["и","подходящий"],
+  察:["ча","наблюдать"],救:["цзю","спасать"],命:["мин","жизнь"],迷:["ми","заблудиться"],便:["пянь","дешёвый"],宜:["и","подходящий"],
   什:["шэнь","что"],么:["мэ","частица"],张:["чжан","лист"],广:["гуан","широкий"],州:["чжоу","область"],阳:["ян","солнце"],朔:["шо","новолуние"],
   兴:["син","процветать"],坪:["пин","площадка"],家:["цзя","дом, семья"],界:["цзе","граница"],白:["бай","белый"],云:["юнь","облако"],荔:["ли","личи"],
   波:["бо","волна"],孔:["кун","отверстие"],中:["чжун","середина, Китай"],文:["вэнь","письмо, язык"],屏:["пин","экран"],幕:["му","занавес"],
   数:["шу","число"],字:["цзы","знак"],遍:["бянь","раз"],拍:["пай","хлопать, снимать"],需:["сюй","нуждаться"],生:["шэн","жизнь, рождаться"],
   敏:["мин","чувствительный"],叫:["цзяо","звать"],租:["цзу","арендовать"],出租:["чу-цзу","аренда"],带:["дай","вести, брать с собой"],址:["чжи","адрес"],
   刷:["шуа","проводить (картой)"],发:["фа","выдавать"],袋:["дай","мешок"],超:["чао","сверх"],市:["ши","рынок, город"],银:["инь","серебро"],
-  咖:["ка","(кофе)"],啡:["фэй","(кофе)"],以:["и","(в 可以)"],知:["чжи","знать"],俄:["э","(Рос-)"],罗:["ло","(-си-)"],斯:["сы","(-я)"],
-  尔:["эр","(слог имени)"],英文菜单:["ин-вэнь-цай-дань","меню на английском"],儿:["эр","(хвост -р, север)"],台:["тай","площадка, стойка"]
+  咖:["ка","(кофе)"],啡:["фэй","(кофе)"],以:["и","чтобы"],知:["чжи","знать"],俄:["э","(Рос-)"],罗:["ло","(-си-)"],斯:["сы","(-я)"],
+  尔:["эр","(слог имени)"],英文菜单:["ин-вэнь-цай-дань","меню на английском"],儿:["эр","хвост -р"],台:["тай","площадка, стойка"]
 };
 
 // Признанные варианты записи для проверки речи
@@ -1177,11 +1300,54 @@ function charsLine(zh) {
   if (segs.length < 2) segs = [...clean].map(ch => { const r = LEX[ch]; return r ? [ch, r[0], r[1]] : [ch, "?", "?"]; });
   return `<div class="chars">${segs.map(s => `<span><b>${s[0]}</b> — ${s[1] === "?" ? "?" : esc(s[1]) + " — " + esc(s[2])}</span>`).join("")}</div>`;
 }
-function cubes(p) {
-  const parts = p.parts.map(id => P[id]).filter(Boolean);
+function cubeHtml(parts) {
   return `<div class="tag">из слов</div><div class="cubes">${parts.map((w, i) =>
     `${i ? '<span class="cube plus">+</span>' : ""}<span class="cube"><div class="zw">${w.zh}</div><div class="ps">${displaySay(w.say)}</div><div class="pr">${esc(w.ru)}</div></span>`
   ).join("")}</div>`;
+}
+function cubes(p) { return cubeHtml(p.parts.map(id => P[id]).filter(Boolean)); }
+function weakGloss(ru) { return !ru || ru === "?" || /^\(/.test(ru); }
+const NO_AUTO = new Set(["eluosi","kafei","weixin","alipay","wifi","wbaiyun","wguiyang"]);
+function resolveSegs(zh, selfId) {
+  const chars = [...stripZh(zh)];
+  const selfZh = selfId && P[selfId] ? stripZh(P[selfId].zh) : stripZh(zh);
+  const entries = Object.keys(P).map(id => ({ zh: stripZh(P[id].zh), p: P[id] }))
+    .filter(e => e.zh && e.zh !== selfZh && /[\u4e00-\u9fff]/.test(e.zh))
+    .sort((a, b) => b.zh.length - a.zh.length || (a.p.kind === "w" ? -1 : 1));
+  const lexMulti = Object.keys(LEX).filter(k => k.length >= 2 && k !== selfZh && !weakGloss(LEX[k][1]))
+    .sort((a, b) => b.length - a.length);
+  const segs = [];
+  let i = 0;
+  while (i < chars.length) {
+    if (/[A-Za-z0-9]/.test(chars[i])) {
+      let j = i; while (j < chars.length && /[A-Za-z0-9]/.test(chars[j])) j++;
+      const chunk = chars.slice(i, j).join("");
+      const lx = LEX[chunk];
+      segs.push({ zh: chunk, say: lx ? lx[0] : chunk, ru: lx ? lx[1] : chunk });
+      i = j; continue;
+    }
+    const rest = chars.slice(i).join("");
+    const pHit = entries.find(e => rest.startsWith(e.zh));
+    if (pHit) { segs.push(pHit.p); i += [...pHit.zh].length; continue; }
+    const lHit = lexMulti.find(k => rest.startsWith(k));
+    if (lHit) { segs.push({ zh: lHit, say: LEX[lHit][0], ru: LEX[lHit][1] }); i += [...lHit].length; continue; }
+    const ch = chars[i], lx = LEX[ch];
+    segs.push({ zh: ch, say: lx ? lx[0] : "?", ru: lx ? lx[1] : "?" });
+    i++;
+  }
+  return segs;
+}
+function faceSegs(id) {
+  const p = P[id];
+  if (p.parts && p.parts.length >= 2) {
+    const named = p.parts.map(x => P[x]).filter(Boolean);
+    if (named.length >= 2) return named;
+  }
+  if (PLACES.has(id) || NO_AUTO.has(id)) return [];
+  const han = [...stripZh(p.zh)].filter(ch => /[\u4e00-\u9fff]/.test(ch));
+  if (han.length < 2) return [];
+  const segs = resolveSegs(p.zh, id);
+  return segs.length >= 2 && segs.every(s => s && !weakGloss(s.ru)) ? segs : [];
 }
 function sylBlock(id) {
   const p = P[id]; if (!p) return "";
@@ -1197,19 +1363,21 @@ function memoBlock(p) {
 function imgBlock(p) { return p.img ? `<img src="${p.img}" alt="" loading="lazy">` : ""; }
 function face(id, opts) {
   const p = P[id]; const o = opts || {};
-  const isW = p.kind === "w";
-  const tag = isW ? (p.screen ? (PLACES.has(id) ? "место · на экран" : "фраза · на экран") : "слово") : "фраза";
+  const segs = faceSegs(id);
+  const hasParts = segs.length >= 2;
+  const tag = hasParts ? (p.screen ? "фраза · на экран" : "фраза")
+    : (p.screen ? (PLACES.has(id) ? "место · на экран" : "фраза · на экран") : "слово");
   return `<div class="tag">${tag}</div>
     <div class="zh">${p.zh}</div>
     <div class="say">${displaySay(p.say)}</div>
     <div class="ru">${esc(p.ru)}</div>
     <div class="py">${esc(p.py)}</div>
-    ${isW ? charsLine(p.zh) : cubes(p)}
+    ${hasParts ? cubeHtml(segs) : charsLine(p.zh)}
     ${p.note ? `<p class="small muted" style="margin:.4rem 0 0">${esc(p.note)}</p>` : ""}
     ${p.screen ? `<div class="screen">${PLACES.has(id) ? "Это имя показывают экраном. Произношение — запас." : "Показывайте экраном: нажмите «показать». Выговаривать не обязательно."}</div>` : ""}
     ${sylBlock(id)}
-    ${isW && !o.noMemo ? memoBlock(p) : ""}
-    ${isW && !o.noImg ? imgBlock(p) : ""}`;
+    ${!o.noMemo ? memoBlock(p) : ""}
+    ${!o.noImg ? imgBlock(p) : ""}`;
 }
 function itemButtons(id) {
   const p = P[id];
@@ -1656,6 +1824,7 @@ function bookBuild() {
       <div class="zh">${esc(b.zh)}</div>
       <div class="say">${esc(b.say)}</div>
       <div class="ru">${esc(b.ru)}</div>
+      ${cubeHtml([...(f.partsPre || []).map(x => P[x]), P[bWord], ...(f.partsPost || []).map(x => P[x])].filter(Boolean))}
       <div class="row" style="margin-top:.6rem">
         <button class="btn primary" data-play="${b.id}">слушать</button>
         <button class="btn soft" data-showb="${b.id}">показать</button>
