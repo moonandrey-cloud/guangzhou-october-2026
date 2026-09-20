@@ -150,7 +150,12 @@
       margin: .4rem 0 .35rem; font-size: 1.15rem; font-weight: 650;
       padding: .4rem .7rem; background: var(--memo); border-radius: 10px;
     }
-    .face-ru .lbl { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .1rem; }
+    .face-ru .lbl, .face-ex .lbl { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .1rem; }
+    .face-ex {
+      margin: .15rem 0 .4rem; padding: .5rem .7rem; background: var(--ok-soft); border-radius: 10px;
+    }
+    .face-ex .zh { font-size: 1.7rem; line-height: 1.2; }
+    .face-ex .ru { font-size: 1.1rem; font-weight: 650; margin-top: .1rem; }
     .item img, .card img, .sheet img {
       display: block; width: auto; max-width: 100%; max-height: 12.5rem;
       height: auto; object-fit: contain; object-position: left center;
@@ -318,8 +323,9 @@ const P = {
 
   wxie:{kind:"w",ru:"благодарить", py:"xiè", zh:"谢", say:"се",
     memo:"СЕстра кланяется. СЕ = благодарить. Два раза подряд — 谢谢."},
-  wde:{kind:"w",ru:"хвост (в 好的 — ладно)", py:"de", zh:"的", say:"дэ", img:"memo/w-de.jpg",
-    memo:"ДЭньги лежат в кармане — ленивый хвост. Сама по себе 的 почти ничего не значит. 好的 = ладно."},
+  wde:{kind:"w", glue:true, ru:"само не говорят", py:"de", zh:"的", say:"дэ", img:"memo/w-de.jpg",
+    ex:{zh:"好的", say:"хао дэ", ru:"ладно, ок", how:"好 хорошо + 的 сзади. Одно 的 никому не говорят."},
+    memo:"Звук как ДЭньги в кармане. Карман с хвостом: 的 само пустое, только висит сзади. Нужно в 好的 — ладно."},
   wqi:{kind:"w",ru:"поднять", py:"qǐ", zh:"起", say:"ци",
     memo:"ЦИстерна встаёт, поднимается. ЦИ = поднять. 对不起: не поднять обиду = извините."},
   wzhe:{kind:"w",ru:"этот", py:"zhè", zh:"这", say:"джэ",
@@ -1104,7 +1110,7 @@ const SYL = {
 
 // Словарь для живого разбора: иероглиф или слово → [чтение, смысл]. Сначала ищутся длинные куски.
 const LEX = {
-  你:["ни","ты"],您:["нин","вы"],好:["хао","хорошо"],的:["дэ","служебное"],谢:["се","благодарить"],谢谢:["се-се","спасибо"],
+  你:["ни","ты"],您:["нин","вы"],好:["хао","хорошо"],的:["дэ","хвост в 好的"],谢:["се","благодарить"],谢谢:["се-се","спасибо"],
   对:["дуй","верно"],对不起:["дуй-бу-ци","извините"],不:["бу","не"],起:["ци","поднять"],听:["тин","слышать"],懂:["дун","понимать"],
   听不懂:["тин-бу-дун","не понимаю"],请:["цин","прошу"],说:["шо","говорить"],慢:["мань","медленно"],一:["и","один"],点:["дянь","чуть / час"],
   一点:["и-дянь","чуть"],一下:["и-ся","разок"],会:["хуэй","уметь"],英:["ин","англ."],语:["юй","язык"],英语:["ин-юй","английский"],中文:["чжун-вэнь","китайский"],
@@ -1499,11 +1505,20 @@ function memoBlock(p) {
   return `<div class="memo"><div class="hook">чтобы запомнить</div>${esc(p.memo)}</div>`;
 }
 function imgBlock(p) { return p.img ? `<img src="${p.img}" alt="" loading="lazy">` : ""; }
+function exBlock(p) {
+  const x = p.ex; if (!x) return "";
+  return `<div class="face-ex"><span class="lbl">так говорят</span>
+    <div class="zh">${x.zh}</div>
+    <div class="ru">${esc(x.ru)}${x.say ? ` <span class="py">${esc(x.say)}</span>` : ""}</div>
+    ${x.how ? `<p class="small muted" style="margin:.25rem 0 0">${esc(x.how)}</p>` : ""}
+  </div>`;
+}
 function face(id, opts) {
   const p = P[id]; const o = opts || {};
   const segs = faceSegs(id);
   const hasParts = segs.length >= 2;
-  const tag = hasParts ? (p.screen ? "фраза · на экран" : "фраза")
+  const tag = p.glue ? "кубик · сам не говорят"
+    : hasParts ? (p.screen ? "фраза · на экран" : "фраза")
     : (p.screen ? (PLACES.has(id) ? "место · на экран" : "фраза · на экран") : "слово");
   return `<div class="head">
       <div class="word">
@@ -1514,6 +1529,7 @@ function face(id, opts) {
       ${o.buttons || ""}
     </div>
     <div class="face-ru"><span class="lbl">по-русски</span>${esc(p.ru)}</div>
+    ${exBlock(p)}
     ${!o.noImg ? imgBlock(p) : ""}
     ${hasParts ? cubeHtml(segs) : charsLine(p.zh)}
     ${p.note ? `<p class="small muted" style="margin:.4rem 0 0">${esc(p.note)}</p>` : ""}
@@ -2114,7 +2130,7 @@ function learnedIds() {
   const t = isoToday();
   const seen = new Set();
   const out = [];
-  const add = (id) => { if (id && P[id] && !seen.has(id)) { seen.add(id); out.push(id); } };
+  const add = (id) => { if (id && P[id] && !P[id].glue && !seen.has(id)) { seen.add(id); out.push(id); } };
   for (const d of schedule()) {
     if (d.iso > t) continue;
     for (const id of d.ids) {
@@ -2238,7 +2254,7 @@ function grammarCourse() {
     <div class="card">
       <h2>5. Три хвоста, не окончания</h2>
       <p><b>吗</b> в конце делает вопрос. Слова те же, что в утверждении. 你会说英语吗 — не переворот «говоришь ли ты».</p>
-      <p><b>的</b> — служебный хвост. 好的 = «ладно», не отдельное слово «да».</p>
+      <p><b>的</b> само не слово. Одно 的 не говорят. Липнет сзади к 好: 好的 = «ладно», не отдельное «да».</p>
       <p><b>了</b> — уже случилось или «хватит». 太贵了, 我迷路了, 不用了.</p>
       ${gramEx("taigui")}
       ${gramEx("milu")}
