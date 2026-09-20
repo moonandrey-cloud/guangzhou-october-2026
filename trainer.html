@@ -158,6 +158,19 @@
     .cube .ps { font-weight: 650; }
     .cube .pr { color: var(--muted); font-size: .85rem; }
     .cube.plus { background: none; border: none; min-width: 0; padding: .4rem .1rem; align-self: center; color: var(--muted); }
+    button.cube.tap {
+      cursor: pointer; font: inherit; color: inherit;
+      appearance: none; -webkit-appearance: none;
+    }
+    button.cube.tap:active, button.cube.tap:focus { border-color: var(--accent); background: var(--accent-soft); outline: none; }
+    button.cube.tap .more { display: block; font-size: .68rem; color: var(--accent); margin-top: .12rem; }
+    .sheet {
+      position: fixed; inset: 0; z-index: 55; background: var(--bg);
+      overflow-y: auto;
+      padding: calc(.7rem + env(safe-area-inset-top)) 1rem calc(5.8rem + env(safe-area-inset-bottom));
+    }
+    .sheet-bar { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: .2rem 0 .55rem; display: flex; gap: .4rem; align-items: center; }
+    .sheet-bar .path { color: var(--muted); font-size: .85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     details.syl { margin-top: .6rem; }
     details.syl summary { cursor: pointer; color: var(--muted); font-size: .9rem; }
     details.syl .box { margin-top: .4rem; padding: .6rem .8rem; background: #eef2ea; border-radius: 10px; }
@@ -274,6 +287,7 @@
     <section id="tab-how" class="hidden"></section>
   </main>
   <div id="overlay"></div>
+  <div id="sheet"></div>
 
 <script id="data">
 // kind:"w" — слово: один звук, одна картинка-крючок. parts — фраза из слов.
@@ -373,12 +387,38 @@ const P = {
     memo:"СИто моют. СИ = мыть. 洗手间 = мыть + руки + комната."},
   wshou:{kind:"w",ru:"рука", py:"shǒu", zh:"手", say:"шоу",
     memo:"ШОУ рук. ШОУ = рука."},
-  wchu:{kind:"w",ru:"выходить", py:"chū", zh:"出", say:"чу",
-    memo:"ЧУдак выходит. ЧУ = выйти. 出口 выход."},
-  wkou:{kind:"w",ru:"рот, отверстие", py:"kǒu", zh:"口", say:"коу",
-    memo:"КОУ — рот как дырка. КОУ = отверстие. 出口 / 入口."},
-  wru2:{kind:"w",ru:"входить", py:"rù", zh:"入", say:"жу",
-    memo:"ЖУк вползает внутрь. ЖУ = входить. 入口 вход."},
+  wchu:{kind:"w",ru:"выходить", py:"chū", zh:"出", say:"чу", img:"memo/w-chu.jpg",
+    memo:"ЧУдак выскакивает из двери. ЧУ = выйти. 出口 = выйти + отверстие."},
+  wkou:{kind:"w",ru:"рот, отверстие", py:"kǒu", zh:"口", say:"коу", img:"memo/w-kou.jpg",
+    memo:"КОУ — рот как дырка. КОУ = отверстие. 出口 выход, 入口 вход."},
+  wru2:{kind:"w",ru:"входить", py:"rù", zh:"入", say:"жу", img:"memo/w-ru.jpg",
+    memo:"ЖУк вползает в дырку. ЖУ = входить. 入口 = войти + отверстие."},
+  wdi:{kind:"w",ru:"земля", py:"dì", zh:"地", say:"ди", img:"memo/w-di.jpg",
+    memo:"ДИТЯ сидит на земле и копает. ДИ = земля. 地铁 = земля + железо."},
+  wtie:{kind:"w",ru:"железо", py:"tiě", zh:"铁", say:"те", img:"memo/w-tie.jpg",
+    memo:"ТЕрьер грызёт железный рельс. ТЕ = железо. 地铁 метро, 高铁 скоростной."},
+  wgao:{kind:"w",ru:"высокий", py:"gāo", zh:"高", say:"гао", img:"memo/w-gao.jpg",
+    memo:"С высокой башни всё мелко. ГАО = высокий. 高铁 = высокий + железо."},
+  wji:{kind:"w",ru:"машина, аппарат", py:"jī", zh:"机", say:"цзи", img:"memo/w-ji.jpg",
+    memo:"ДЖИнн вылезает из машины. ЦЗИ = аппарат. 机场 = машина + поле."},
+  wchang:{kind:"w",ru:"площадь, поле", py:"chǎng", zh:"场", say:"чан", img:"memo/w-chang.jpg",
+    memo:"ЧАН посреди пустого поля. ЧАН = поле. 机场 лётное поле."},
+  wjiu:{kind:"w",ru:"алкоголь", py:"jiǔ", zh:"酒", say:"цзю", img:"memo/w-jiu.jpg",
+    memo:"ДЗЮдоист с бутылкой. ЦЗЮ = алкоголь. 啤酒 пиво, 酒店 гостиница."},
+  wdian3:{kind:"w",ru:"лавка, заведение", py:"diàn", zh:"店", say:"дянь", img:"memo/w-dian3.jpg",
+    memo:"ДЯтел на вывеске лавки. ДЯНЬ = лавка. 酒店 отель, 药店 аптека."},
+  whuo:{kind:"w",ru:"огонь", py:"huǒ", zh:"火", say:"хо", img:"memo/w-huo.jpg",
+    memo:"ХО! костёр. ХО = огонь. 火车 = огонь + машина = поезд."},
+  wche:{kind:"w",ru:"машина, повозка", py:"chē", zh:"车", say:"чэ", img:"memo/w-che.jpg",
+    memo:"ЧЕмодан в машине. ЧЭ = машина. 火车 поезд, 出租车 такси."},
+  wpi:{kind:"w",ru:"пивной (слог)", py:"pí", zh:"啤", say:"пи",
+    memo:"ПИво. ПИ живёт только в 啤酒."},
+  wyao2:{kind:"w",ru:"лекарство", py:"yào", zh:"药", say:"яо",
+    memo:"ЯО — лекарство. Тот же звук, что 要 «хотеть», другой знак. 药店 аптека."},
+  wyi:{kind:"w",ru:"лечить", py:"yī", zh:"医", say:"и",
+    memo:"Иголка врача. И = лечить. 医院 больница, 医生 врач."},
+  wyuan:{kind:"w",ru:"учреждение, двор", py:"yuàn", zh:"院", say:"юань",
+    memo:"ЮАНЬ — двор, учреждение. 医院 = лечить + двор."},
   wyin:{kind:"w",ru:"серебро", py:"yín", zh:"银", say:"инь",
     memo:"ИНЬ — серебро. 银行 серебро + ряд = банк."},
   whang:{kind:"w",ru:"ряд, контора", py:"háng", zh:"行", say:"хан",
@@ -475,17 +515,17 @@ const P = {
     memo:"ЗОнт в левой руке, стрелка влево. ЦЗО = лево. 边 бянь = сторона."},
   you:{ru:"направо", py:"yòubian", zh:"右边", say:"ю-бянь", img:"memo/w-you2.jpg", parts:["wyou2","wbian"],
     memo:"ЮНга салютует правой, стрелка вправо. Ю = право. Тот же хвост 边."},
-  jichang:{kind:"w",ru:"аэропорт", py:"jīchǎng", zh:"机场", say:"цзи-чан", img:"memo/w-jichang.jpg",
-    memo:"ДЖИнн вылетает из ЧАНа, как самолёт. ЦЗИ-ЧАН = аэропорт."},
-  jiudian:{kind:"w",ru:"отель", py:"jiǔdiàn", zh:"酒店", say:"цзю-дянь", img:"memo/w-jiudian.jpg",
-    memo:"ДЗЮдоист с чемоданом входит, на вывеске ДЯтел. ЦЗЮ-ДЯНЬ = отель. 店 дянь = заведение."},
+  jichang:{ru:"аэропорт", py:"jīchǎng", zh:"机场", say:"цзи-чан", img:"memo/w-jichang.jpg", parts:["wji","wchang"],
+    memo:"ДЖИнн вылетает из ЧАНа, как самолёт. 机 машина + 场 поле."},
+  jiudian:{ru:"отель", py:"jiǔdiàn", zh:"酒店", say:"цзю-дянь", img:"memo/w-jiudian.jpg", parts:["wjiu","wdian3"],
+    memo:"ДЗЮдоист с чемоданом, на вывеске ДЯтел. 酒 алкоголь + 店 лавка = гостиница."},
 
-  gaotie:{kind:"w",ru:"скоростной поезд", py:"gāotiě", zh:"高铁", say:"гао-те", img:"memo/w-gaotie.jpg",
-    memo:"ГАВкает ТЕрьер на скоростной поезд. ГАО-ТЕ = скоростной. 高 высокий + 铁 железо, на табло буква G."},
-  ditie:{kind:"w",ru:"метро", py:"dìtiě", zh:"地铁", say:"ди-те", img:"memo/w-ditie.jpg",
-    memo:"ДИТЯ едет в метро. ДИ-ТЕ = метро. Тот же 铁, что в 高铁."},
-  huoche:{kind:"w",ru:"поезд", py:"huǒchē", zh:"火车", say:"хо-чэ",
-    memo:"ХОЧЕшь поезд? 火 огонь + 车 машина = поезд."},
+  gaotie:{ru:"скоростной поезд", py:"gāotiě", zh:"高铁", say:"гао-те", img:"memo/w-gaotie.jpg", parts:["wgao","wtie"],
+    memo:"ГАВкает ТЕрьер на скоростной. 高 высокий + 铁 железо. На табло буква G."},
+  ditie:{ru:"метро", py:"dìtiě", zh:"地铁", say:"ди-те", img:"memo/w-ditie.jpg", parts:["wdi","wtie"],
+    memo:"ДИТЯ едет в метро. 地 земля + 铁 железо. Тот же 铁, что в 高铁."},
+  huoche:{ru:"поезд", py:"huǒchē", zh:"火车", say:"хо-чэ", parts:["whuo","wche"],
+    memo:"ХОЧЕшь поезд? 火 огонь + 车 машина."},
   wtai2:{kind:"w",ru:"площадка, стойка", py:"tái", zh:"台", say:"тай",
     memo:"ТАЙная площадка. ТАЙ = площадка. 站台 платформа, 前台 ресепшен. Не путать с 太 «слишком»."},
   zhan:{ru:"вокзал", py:"huǒchēzhàn", zh:"火车站", say:"хо-чэ-чжань", img:"memo/w-zhan.jpg", parts:["huoche","wzhan2"],
@@ -529,8 +569,8 @@ const P = {
 
   cha:{kind:"w",ru:"чай", py:"chá", zh:"茶", say:"ча", img:"memo/w-cha.jpg",
     memo:"ЧА = ЧАй. Один слог вверх."},
-  pijiu:{kind:"w",ru:"пиво", py:"píjiǔ", zh:"啤酒", say:"пи-цзю", img:"memo/w-pijiu.jpg",
-    memo:"ДЗЮдоист с кружкой ПИва. ПИ-ЦЗЮ = пиво. 酒 = любой алкоголь."},
+  pijiu:{ru:"пиво", py:"píjiǔ", zh:"啤酒", say:"пи-цзю", img:"memo/w-pijiu.jpg", parts:["wpi","wjiu"],
+    memo:"ДЗЮдоист с кружкой ПИва. 啤 пивной + 酒 алкоголь."},
   wyu:{kind:"w",ru:"рыба", py:"yú", zh:"鱼", say:"юй", img:"memo/w-yu.jpg",
     memo:"Рыба в ЮБке. ЮЙ = рыба."},
   whao:{kind:"w",ru:"хороший, хорошо", py:"hǎo", zh:"好", say:"хао", img:"memo/w-hao.jpg",
@@ -566,10 +606,10 @@ const P = {
     memo:"МИЛый мальчик заблудился в лесу. МИ-ЛУ = заблудиться."},
   wbang:{kind:"w",ru:"помогать", py:"bāng", zh:"帮", say:"бан", img:"memo/w-bang.jpg",
     memo:"Помоги открыть БАНку. БАН = помогать."},
-  yaodian:{kind:"w",ru:"аптека", py:"yàodiàn", zh:"药店", say:"яо-дянь", img:"memo/w-yaodian.jpg",
-    memo:"«ЯОй, болит!» — хочет таблетку, на вывеске ДЯтел. ЯО-ДЯНЬ = аптека."},
-  yiyuan:{kind:"w",ru:"больница", py:"yīyuàn", zh:"医院", say:"и-юань", img:"memo/w-yiyuan.jpg",
-    memo:"Иголка за ЮАНЬ. И-ЮАНЬ = больница."},
+  yaodian:{ru:"аптека", py:"yàodiàn", zh:"药店", say:"яо-дянь", img:"memo/w-yaodian.jpg", parts:["wyao2","wdian3"],
+    memo:"«ЯОй, болит!» — таблетка и ДЯтел на вывеске. 药 лекарство + 店 лавка."},
+  yiyuan:{ru:"больница", py:"yīyuàn", zh:"医院", say:"и-юань", img:"memo/w-yiyuan.jpg", parts:["wyi","wyuan"],
+    memo:"Иголка за ЮАНЬ. 医 лечить + 院 двор."},
   jingcha:{kind:"w",ru:"полиция", py:"jǐngchá", zh:"警察", say:"цзин-ча",
     memo:"Учите глазами. Если дошло до этого — покажите адрес отеля."},
   jiuming:{kind:"w",ru:"на помощь!", py:"jiùmìng", zh:"救命", say:"цзю-мин",
@@ -1300,18 +1340,38 @@ function charsLine(zh) {
   if (segs.length < 2) segs = [...clean].map(ch => { const r = LEX[ch]; return r ? [ch, r[0], r[1]] : [ch, "?", "?"]; });
   return `<div class="chars">${segs.map(s => `<span><b>${s[0]}</b> — ${s[1] === "?" ? "?" : esc(s[1]) + " — " + esc(s[2])}</span>`).join("")}</div>`;
 }
-function cubeHtml(parts) {
-  return `<div class="tag">из слов</div><div class="cubes">${parts.map((w, i) =>
-    `${i ? '<span class="cube plus">+</span>' : ""}<span class="cube"><div class="zw">${w.zh}</div><div class="ps">${displaySay(w.say)}</div><div class="pr">${esc(w.ru)}</div></span>`
-  ).join("")}</div>`;
+function idByZh(zh, notId) {
+  const want = stripZh(zh);
+  if (!want) return "";
+  let best = "";
+  for (const id of Object.keys(P)) {
+    if (id === notId) continue;
+    if (stripZh(P[id].zh) !== want) continue;
+    if (!best) { best = id; continue; }
+    const a = P[id], b = P[best];
+    if (a.kind === "w" && b.kind !== "w") best = id;
+    else if (a.img && !b.img) best = id;
+  }
+  return best;
 }
-function cubes(p) { return cubeHtml(p.parts.map(id => P[id]).filter(Boolean)); }
+function withId(id, p) { return Object.assign({ _id: id }, p); }
+function cubeHtml(parts) {
+  return `<div class="tag">из слов · ткните кубик</div><div class="cubes">${parts.map((w, i) => {
+    const pid = w._id || idByZh(w.zh);
+    const inner = `<div class="zw">${w.zh}</div><div class="ps">${displaySay(w.say)}</div><div class="pr">${esc(w.ru)}</div>`;
+    const cube = pid
+      ? `<button type="button" class="cube tap" data-part="${pid}">${inner}<span class="more">открыть</span></button>`
+      : `<span class="cube">${inner}</span>`;
+    return `${i ? '<span class="cube plus">+</span>' : ""}${cube}`;
+  }).join("")}</div>`;
+}
+function cubes(p) { return cubeHtml(p.parts.map(id => P[id] && withId(id, P[id])).filter(Boolean)); }
 function weakGloss(ru) { return !ru || ru === "?" || /^\(/.test(ru); }
 const NO_AUTO = new Set(["eluosi","kafei","weixin","alipay","wifi","wbaiyun","wguiyang"]);
 function resolveSegs(zh, selfId) {
   const chars = [...stripZh(zh)];
   const selfZh = selfId && P[selfId] ? stripZh(P[selfId].zh) : stripZh(zh);
-  const entries = Object.keys(P).map(id => ({ zh: stripZh(P[id].zh), p: P[id] }))
+  const entries = Object.keys(P).map(id => ({ id, zh: stripZh(P[id].zh), p: P[id] }))
     .filter(e => e.zh && e.zh !== selfZh && /[\u4e00-\u9fff]/.test(e.zh))
     .sort((a, b) => b.zh.length - a.zh.length || (a.p.kind === "w" ? -1 : 1));
   const lexMulti = Object.keys(LEX).filter(k => k.length >= 2 && k !== selfZh && !weakGloss(LEX[k][1]))
@@ -1323,16 +1383,21 @@ function resolveSegs(zh, selfId) {
       let j = i; while (j < chars.length && /[A-Za-z0-9]/.test(chars[j])) j++;
       const chunk = chars.slice(i, j).join("");
       const lx = LEX[chunk];
-      segs.push({ zh: chunk, say: lx ? lx[0] : chunk, ru: lx ? lx[1] : chunk });
+      const pid = idByZh(chunk, selfId);
+      segs.push(pid ? withId(pid, P[pid]) : { zh: chunk, say: lx ? lx[0] : chunk, ru: lx ? lx[1] : chunk });
       i = j; continue;
     }
     const rest = chars.slice(i).join("");
     const pHit = entries.find(e => rest.startsWith(e.zh));
-    if (pHit) { segs.push(pHit.p); i += [...pHit.zh].length; continue; }
+    if (pHit) { segs.push(withId(pHit.id, pHit.p)); i += [...pHit.zh].length; continue; }
     const lHit = lexMulti.find(k => rest.startsWith(k));
-    if (lHit) { segs.push({ zh: lHit, say: LEX[lHit][0], ru: LEX[lHit][1] }); i += [...lHit].length; continue; }
-    const ch = chars[i], lx = LEX[ch];
-    segs.push({ zh: ch, say: lx ? lx[0] : "?", ru: lx ? lx[1] : "?" });
+    if (lHit) {
+      const pid = idByZh(lHit, selfId);
+      segs.push(pid ? withId(pid, P[pid]) : { zh: lHit, say: LEX[lHit][0], ru: LEX[lHit][1] });
+      i += [...lHit].length; continue;
+    }
+    const ch = chars[i], lx = LEX[ch], pid = idByZh(ch, selfId);
+    segs.push(pid ? withId(pid, P[pid]) : { zh: ch, say: lx ? lx[0] : "?", ru: lx ? lx[1] : "?" });
     i++;
   }
   return segs;
@@ -1340,7 +1405,7 @@ function resolveSegs(zh, selfId) {
 function faceSegs(id) {
   const p = P[id];
   if (p.parts && p.parts.length >= 2) {
-    const named = p.parts.map(x => P[x]).filter(Boolean);
+    const named = p.parts.map(x => P[x] && withId(x, P[x])).filter(Boolean);
     if (named.length >= 2) return named;
   }
   if (PLACES.has(id) || NO_AUTO.has(id)) return [];
@@ -1348,6 +1413,34 @@ function faceSegs(id) {
   if (han.length < 2) return [];
   const segs = resolveSegs(p.zh, id);
   return segs.length >= 2 && segs.every(s => s && !weakGloss(s.ru)) ? segs : [];
+}
+let partStack = [];
+function openPart(id) {
+  if (!P[id]) return;
+  if (partStack[partStack.length - 1] === id) return;
+  partStack.push(id);
+  renderSheet();
+}
+function closePart() {
+  partStack.pop();
+  if (!partStack.length) { $("#sheet").innerHTML = ""; return; }
+  renderSheet();
+}
+function renderSheet() {
+  const id = partStack[partStack.length - 1];
+  const p = P[id]; if (!p) return;
+  const path = partStack.map(x => P[x].zh).join(" → ");
+  $("#sheet").innerHTML = `<div class="sheet">
+    <div class="sheet-bar">
+      <button class="btn" data-partback="1">${partStack.length > 1 ? "назад" : "закрыть"}</button>
+      <span class="path">${esc(path)}</span>
+    </div>
+    <article class="item">
+      <div class="head"><div></div>${itemButtons(id)}</div>
+      ${face(id)}
+      <div data-chk="${id}">${takeInner(id)}</div>
+    </article>
+  </div>`;
 }
 function sylBlock(id) {
   const p = P[id]; if (!p) return "";
@@ -1933,6 +2026,7 @@ function renderToday() {
       <p class="muted">${fmt(activeIso)}${rest ? " — по календарю пусто, повтор прошлого урока" : ""}</p>
       <p><b>После сегодня:</b> ${esc(day.note)}</p>
       <ol class="plan">
+        <li><b>повтор</b> — <button class="btn primary" data-deck="all">все слова с начала · ${learnedIds().length}</button></li>
         <li><b>3 мин</b> — вчерашнее без подсказки: <button class="btn" data-deck="due" ${due ? "" : "disabled"}>карточки к повтору${due ? " · " + due : ""}</button></li>
         <li><b>6 мин</b> — новые слова: смотрите картинку, жмите <b>слушать</b>, потом <b>сказать</b>.</li>
         <li><b>4 мин</b> — соберите фразы из кубиков, скажите вслух каждую.</li>
@@ -1960,9 +2054,35 @@ function renderCal() {
         <div class="muted small">${d.kind === "china" ? "в Китае · " : ""}${d.ids.length} карточек</div>
       </button>`).join("")}`;
 }
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function learnedIds() {
+  const t = isoToday();
+  const seen = new Set();
+  const out = [];
+  const add = (id) => { if (id && P[id] && !seen.has(id)) { seen.add(id); out.push(id); } };
+  for (const d of schedule()) {
+    if (d.iso > t) continue;
+    for (const id of d.ids) {
+      add(id);
+      for (const s of faceSegs(id)) if (s._id) add(s._id);
+    }
+  }
+  return out;
+}
 function buildDeck(kind) {
   deckKind = kind;
-  const base = kind === "due" ? dueIds() : (kind === "must" ? MUST.slice() : day.ids.slice());
+  let base;
+  if (kind === "due") base = dueIds();
+  else if (kind === "must") base = MUST.slice();
+  else if (kind === "all") base = shuffle(learnedIds());
+  else base = day.ids.slice();
   const seen = new Set(); deck = base.filter(id => P[id] && !seen.has(id) && seen.add(id));
   if (kind === "due" && !deck.length) { deckKind = "today"; deck = day.ids.slice(); }
   cardI = 0; revealed = false;
@@ -1974,17 +2094,20 @@ function renderCards() {
   $("#tab-cards").innerHTML = `
     <div class="row between">
       <div class="chips" style="padding:0">
+        <button class="btn ${deckKind === "all" ? "on" : ""}" data-deck="all">всё с начала${learnedIds().length ? " · " + learnedIds().length : ""}</button>
         <button class="btn ${deckKind === "today" ? "on" : ""}" data-deck="today">урок дня</button>
         <button class="btn ${deckKind === "due" ? "on" : ""}" data-deck="due">к повтору${dueIds().length ? " · " + dueIds().length : ""}</button>
         <button class="btn ${deckKind === "must" ? "on" : ""}" data-deck="must">главные 15</button>
       </div>
     </div>
     <div class="prog"><i style="width:${Math.round((cardI) / total * 100)}%"></i></div>
+    ${deckKind === "all" ? `<p class="small muted" style="margin:.3rem 0 0">Русский → скажите вслух. Не помните — «открыть», смотрите картинку и кубики. «Дальше» — следующее, без оценок.</p>` : ""}
     <div class="card flash">
-      <div class="muted small">${cardI+1} / ${total}${pr ? ` · ступень ${pr.box + 1}` : ""}</div>
+      <div class="muted small">${cardI+1} / ${total}${pr && deckKind !== "all" ? ` · ступень ${pr.box + 1}` : ""}${deckKind === "all" ? " · все пройденные дни" : ""}</div>
       ${revealed ? face(id) : `<div class="big">${esc(p.ru)}</div><div class="muted">скажите по-китайски вслух, потом открывайте</div>`}
     </div>
-    ${revealed ? `<div class="grade"><button class="btn" data-grade="no" data-gid="${id}">ещё раз завтра</button><button class="btn ok" data-grade="yes" data-gid="${id}">знаю</button></div>` : ""}
+    ${revealed && deckKind !== "all" ? `<div class="grade"><button class="btn" data-grade="no" data-gid="${id}">ещё раз завтра</button><button class="btn ok" data-grade="yes" data-gid="${id}">знаю</button></div>` : ""}
+    ${revealed && deckKind === "all" ? `<p class="small muted" style="margin:.2rem 0 0">Ткните кубик — откроется его карточка и картинка.</p>` : ""}
     <p class="row between">
       <button class="btn" id="prev">назад</button>
       <button class="btn primary big" id="flip">${revealed ? "слушать" : "открыть"}</button>
@@ -2003,8 +2126,107 @@ function sound(file, zh, say, how, recKey) {
     <div data-chk="${rid}">${takeInner(rid)}</div>
   </article>`;
 }
+let howCat = "mouth";
+function gramEx(id) {
+  const p = P[id]; if (!p) return "";
+  const segs = faceSegs(id);
+  return `<div class="item" style="margin:.55rem 0">
+    <div class="head"><div class="ru">${esc(p.ru)}</div>${itemButtons(id)}</div>
+    <div class="zh">${p.zh}</div>
+    <div class="say">${displaySay(p.say)}</div>
+    ${segs.length >= 2 ? cubeHtml(segs) : ""}
+  </div>`;
+}
+function grammarCourse() {
+  return `
+    <div class="card">
+      <h2>Зачем этот раздел</h2>
+      <p>Китайский здесь не «язык с падежами». Это очередь кубиков. Слово — кубик. Фраза — те же кубики в ряд. Ниже — как они клеятся по смыслу, на ваших же фразах.</p>
+    </div>
+    <div class="card">
+      <h2>1. Слово — звук + картинка, не перевод</h2>
+      <p>Русское «метро» вы помните целиком. Китайское <b>地铁</b> лучше помнить как два смысла: земля + железо. Иначе картинка 地铁 держится, а из чего она — сыплется.</p>
+      <p>Поэтому кубик можно открыть. Ткнули <b>地</b> — карточка «земля» и её картинка. Ткнули <b>铁</b> — «железо». Потом снова складываете.</p>
+      ${gramEx("ditie")}
+      ${gramEx("gaotie")}
+    </div>
+    <div class="card">
+      <h2>2. Составное слово читается слева направо как мысль</h2>
+      <p>Не «красивое имя», а короткая формула.</p>
+      <p><b>出口</b> — выйти + отверстие = выход. <b>入口</b> — войти + то же отверстие = вход. Один и тот же 口.</p>
+      ${gramEx("chukou")}
+      ${gramEx("rukou")}
+      <p><b>机场</b> — машина + поле = аэропорт. <b>酒店</b> — алкоголь + лавка = гостиница (исторически «винный дом»).</p>
+      ${gramEx("jichang")}
+      ${gramEx("jiudian")}
+      <p><b>洗手间</b> — мыть + рука + комната. <b>买单</b> — купить + список = счёт. <b>多少</b> — много + мало = сколько.</p>
+      ${gramEx("wxishoujian")}
+      ${gramEx("maidan")}
+      ${gramEx("wduoshao")}
+    </div>
+    <div class="card">
+      <h2>3. Предложение — кто, делает, что</h2>
+      <p>Глагол не спрягается. Нет «я хочу / ты хочешь». Порядок такой: <b>кто → делает → что или куда</b>. Слова не переставляете, как в русском вопросе.</p>
+      <p>Новую фразу не изобретаете с нуля. Берёте рамку и подставляете кубик.</p>
+    </div>
+    <div class="card">
+      <h2>4. Семь рамок, которые закрывают поездку</h2>
+      <p><b>Мне это.</b> 我 + 要 + вещь. Вместо «это» — палец в меню, рис, чай.</p>
+      ${gramEx("woyao")}
+      <p><b>Не надо.</b> 不 + 要 + иногда признак: 不要辣 — не надо острого.</p>
+      ${gramEx("buyao")}
+      ${gramEx("buyaola")}
+      <p><b>Еду в…</b> 我 + 要 + 去 + место. Место лучше картинкой на экране.</p>
+      ${gramEx("woqu")}
+      <p><b>Где вещь?</b> Сначала вещь, потом 在 + 哪里. Не «где туалет», а «туалет находится где».</p>
+      ${gramEx("wc")}
+      <p><b>Есть?</b> 有 + вещь + 吗, или качели 有没有.</p>
+      ${gramEx("youmei")}
+      <p><b>Можно?</b> 可以 + действие + 吗. Ответ: 可以 или 不可以.</p>
+      ${gramEx("keyi")}
+      <p><b>Сколько?</b> Вещь (или ничего) + 多少钱. Ответ придёт числом + 块.</p>
+      ${gramEx("duoshao")}
+    </div>
+    <div class="card">
+      <h2>5. Три хвоста, не окончания</h2>
+      <p><b>吗</b> в конце делает вопрос. Слова те же, что в утверждении. 你会说英语吗 — не переворот «говоришь ли ты».</p>
+      <p><b>的</b> — служебный хвост. 好的 = «ладно», не отдельное слово «да».</p>
+      <p><b>了</b> — уже случилось или «хватит». 太贵了, 我迷路了, 不用了.</p>
+      ${gramEx("taigui")}
+      ${gramEx("milu")}
+    </div>
+    <div class="card">
+      <h2>6. «Не» садится перед глаголом</h2>
+      <p>不 + делать. 不要, 听不懂, 不是, 不可以, 不知道. Отрицание не в конце и не отдельным «нет» в русском смысле — хотя в ответ часто хватает одного 不 или 没.</p>
+      ${gramEx("tbd")}
+      ${gramEx("bushi")}
+      ${gramEx("buzhidao")}
+    </div>
+    <div class="card">
+      <h2>7. Есть и нету — разные кубики</h2>
+      <p>是 — «являться / да, так и есть». 有 — «иметь / есть в наличии». Поэтому «я из России» — 我是俄罗斯人 (я <i>есть</i> человек России), а «у меня бронь» — 我有预订 (у меня <i>имеется</i> бронь).</p>
+      ${gramEx("ru")}
+      ${gramEx("yuding")}
+      <p>Нет про «являться» — 不是. Нет про «иметь» — 没有. Путают часто. Смотрите, каким вопросом спросили.</p>
+    </div>
+    <div class="card">
+      <h2>8. Страна + человек</h2>
+      <p>俄罗斯 + 人 = русский. Так же 中国人 китаец. 是 здесь не «да», а «являюсь».</p>
+    </div>
+    <div class="card">
+      <h2>9. Что не нужно искать</h2>
+      <p>Рода нет. Падежей нет. «Хочу / хочешь / хочет» — одно 要. Множественное на табличке часто не нужно: один билет и два билета отличаются кубиком 两张, не окончанием.</p>
+      <p>Если рамка знакома, а дырка новая — подставляете кубик или тычете в экран. Это и есть весь рабочий минимум до Гуанчжоу.</p>
+    </div>
+    <p class="small muted">Кубик на карточке открывается. Картинка части — чтобы 地铁 не держалось одной сценой «дитя в вагоне», а собиралось снова: земля + железо.</p>`;
+}
 function renderHow() {
-  $("#tab-how").innerHTML = `
+  const chips = `<div class="chips">
+    <button class="btn ${howCat === "mouth" ? "on" : ""}" data-how="mouth">рот</button>
+    <button class="btn ${howCat === "build" ? "on" : ""}" data-how="build">как собирается</button>
+  </div>`;
+  if (howCat === "build") { $("#tab-how").innerHTML = chips + grammarCourse(); return; }
+  $("#tab-how").innerHTML = chips + `
     ${micNote()}
     <div class="card">
       <h2>Сначала слово, потом фраза</h2>
@@ -2097,6 +2319,9 @@ document.body.addEventListener("click", (e) => {
   const t = e.target.closest("button, .brow, .show") || e.target;
   const d = t.dataset || {};
   if (d.tab) { showTab(d.tab); return; }
+  if (d.how) { howCat = d.how; renderHow(); window.scrollTo({ top: 0 }); return; }
+  if (d.part) { openPart(d.part); return; }
+  if (d.partback) { closePart(); return; }
   if (d.open) { setDay(d.open); showTab("today"); return; }
   if (d.play) { playId(d.play); return; }
   if (d.playzh) { playZh(d.playzh); return; }
@@ -2150,7 +2375,11 @@ function renderBookList() {
   if (!bookQ && clr) clr.remove();
   const body = $("#book-body"); if (body) body.innerHTML = bookBody();
 }
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeShow(); });
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  if ($("#overlay") && $("#overlay").innerHTML) { closeShow(); return; }
+  if (partStack.length) { closePart(); return; }
+});
 
 // ---------- старт ----------
 if (SW_ON) {
