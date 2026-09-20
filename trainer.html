@@ -136,20 +136,25 @@
     .hidden { display: none !important; }
     .tag { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
-    .item .head { display: flex; justify-content: space-between; align-items: flex-start; gap: .6rem; }
+    .item .head, .card .head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: .55rem .7rem; flex-wrap: wrap;
+    }
+    .item .head .word, .card .head .word { min-width: 0; flex: 1 1 8rem; }
+    .item .head .btns, .card .head .btns { flex: 0 0 auto; margin-left: auto; }
     .item .zh, .card .zh { font-size: 2rem; line-height: 1.2; }
     .item .say, .card .say { font-size: 1.2rem; font-weight: 650; margin-top: .15rem; }
     .item .ru { margin-top: .05rem; }
-    .item .py, .card .py { color: var(--muted); font-size: .85rem; margin-top: .1rem; }
-    .wordpic { margin: .1rem 0 .45rem; }
+    .item .py, .card .py { color: var(--muted); font-size: .85rem; font-weight: 500; }
+    .item .say .py, .card .say .py { margin-left: .45rem; }
     .face-ru {
-      margin: .15rem 0 .55rem; font-size: 1.25rem; font-weight: 650;
-      padding: .55rem .75rem; background: var(--memo); border-radius: 10px;
+      margin: .4rem 0 .35rem; font-size: 1.15rem; font-weight: 650;
+      padding: .4rem .7rem; background: var(--memo); border-radius: 10px;
     }
-    .face-ru .lbl { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .15rem; }
+    .face-ru .lbl { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .1rem; }
     .item img, .card img, .sheet img {
-      width: 100%; border-radius: 10px; margin: .45rem 0 .15rem; display: block;
-      background: #eee; aspect-ratio: 4/3; object-fit: cover;
+      display: block; width: auto; max-width: 100%; max-height: 12.5rem;
+      height: auto; object-fit: contain; object-position: left center;
+      background: transparent; border-radius: 10px; margin: .35rem 0 .15rem;
     }
     .memo {
       background: var(--memo); border-left: 3px solid var(--accent);
@@ -254,7 +259,7 @@
     .live .hist .h { padding: .45rem 0; border-top: 1px solid var(--line); }
     .live .hist .h .zh { font-size: 1.25rem; }
 
-    .flash { min-height: 12rem; display: flex; flex-direction: column; justify-content: center; gap: .45rem; }
+    .flash { min-height: 12rem; display: flex; flex-direction: column; justify-content: flex-start; gap: .45rem; }
     .flash .big { font-size: 1.8rem; }
     .grade { display: flex; gap: .5rem; margin: .5rem 0; }
     .grade .btn { flex: 1; }
@@ -1477,8 +1482,7 @@ function renderSheet() {
       <span class="path">${esc(path)}</span>
     </div>
     <article class="item">
-      <div class="head"><div></div>${itemButtons(id)}</div>
-      ${face(id)}
+      ${face(id, { buttons: itemButtons(id) })}
       <div data-chk="${id}">${takeInner(id)}</div>
     </article>
   </div>`;
@@ -1501,14 +1505,16 @@ function face(id, opts) {
   const hasParts = segs.length >= 2;
   const tag = hasParts ? (p.screen ? "фраза · на экран" : "фраза")
     : (p.screen ? (PLACES.has(id) ? "место · на экран" : "фраза · на экран") : "слово");
-  return `<div class="tag">${tag}</div>
-    <div class="wordpic">
-      <div class="zh">${p.zh}</div>
-      <div class="say">${displaySay(p.say)}</div>
-      <div class="face-ru"><span class="lbl">по-русски</span>${esc(p.ru)}</div>
-      ${!o.noImg ? imgBlock(p) : ""}
+  return `<div class="head">
+      <div class="word">
+        <div class="tag">${tag}</div>
+        <div class="zh">${p.zh}</div>
+        <div class="say">${displaySay(p.say)}<span class="py">${esc(p.py)}</span></div>
+      </div>
+      ${o.buttons || ""}
     </div>
-    <div class="py">${esc(p.py)}</div>
+    <div class="face-ru"><span class="lbl">по-русски</span>${esc(p.ru)}</div>
+    ${!o.noImg ? imgBlock(p) : ""}
     ${hasParts ? cubeHtml(segs) : charsLine(p.zh)}
     ${p.note ? `<p class="small muted" style="margin:.4rem 0 0">${esc(p.note)}</p>` : ""}
     ${p.screen ? `<div class="screen">${PLACES.has(id) ? "Это имя показывают экраном. Произношение — запас." : "Показывайте экраном: нажмите «показать». Выговаривать не обязательно."}</div>` : ""}
@@ -1526,8 +1532,7 @@ function itemButtons(id) {
 function itemCard(id) {
   const p = P[id]; if (!p) return "";
   return `<article class="item" id="it-${id}">
-    <div class="head"><div></div>${itemButtons(id)}</div>
-    ${face(id)}
+    ${face(id, { buttons: itemButtons(id) })}
     <div data-chk="${id}">${takeInner(id)}</div>
   </article>`;
 }
