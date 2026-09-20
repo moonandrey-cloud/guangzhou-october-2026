@@ -323,9 +323,12 @@ const P = {
 
   wxie:{kind:"w",ru:"благодарить", py:"xiè", zh:"谢", say:"се",
     memo:"СЕстра кланяется. СЕ = благодарить. Два раза подряд — 谢谢."},
-  wde:{kind:"w", glue:true, ru:"само не говорят", py:"de", zh:"的", say:"дэ", img:"memo/w-de.jpg",
-    ex:{zh:"好的", say:"хао дэ", ru:"ладно, ок", how:"好 хорошо + 的 сзади. Одно 的 никому не говорят."},
-    memo:"Звук как ДЭньги в кармане. Карман с хвостом: 的 само пустое, только висит сзади. Нужно в 好的 — ладно."},
+  wde:{kind:"w", glue:true, ru:"хвост «чьё»", py:"de", zh:"的", say:"дэ", img:"memo/w-de.jpg",
+    exs:[
+      {lbl:"рамка", zh:"我的护照", say:"во дэ ху-чжао", ru:"мой паспорт", how:"кто + 的 + вещь = чья вещь. 我的 пароль, 你的 комната — та же склейка."},
+      {lbl:"застыло", zh:"好的", say:"хао дэ", ru:"ладно, ок", how:"Тот же знак, другой смысл. 好 + 的 = ок. Не «да» (это 是)."}
+    ],
+    memo:"Звук как ДЭньги. Карман с хвостом: 的 само пустое. Рабочее: я + 的 + вещь. Застыло: 好的."},
   wqi:{kind:"w",ru:"поднять", py:"qǐ", zh:"起", say:"ци",
     memo:"ЦИстерна встаёт, поднимается. ЦИ = поднять. 对不起: не поднять обиду = извините."},
   wzhe:{kind:"w",ru:"этот", py:"zhè", zh:"这", say:"джэ",
@@ -452,7 +455,13 @@ const P = {
   duibuqi:{ru:"извините", py:"duìbuqǐ", zh:"对不起", say:"дуй-бу-ци", img:"memo/memo-duibuqi.jpg", parts:["dui","wbu","wqi"],
     memo:"ДУЙнул так, что БУтылка и ЦИстерна упали. Извиняется. ДУЙ-БУ-ЦИ."},
   haode:{ru:"хорошо, ладно", py:"hǎo de", zh:"好的", say:"хао дэ", img:"memo/memo-haode.jpg", parts:["whao","wde"],
-    memo:"В ХАОСе мужик поднимает палец: «ДЭ, ладно». ХАО-ДЭ = ок."},
+    memo:"В ХАОСе мужик поднимает палец: «ДЭ, ладно». ХАО-ДЭ = ок. Тот же 的, что в 我的, тут уже не «чьё»."},
+  wode:{ru:"моё", py:"wǒ de", zh:"我的", say:"во дэ", parts:["wwo","wde"],
+    memo:"我 я + 的 хвост = моё. Дальше вещь: 我的护照, 我的密码."},
+  nide:{ru:"твоё", py:"nǐ de", zh:"你的", say:"ни дэ", parts:["wni","wde"],
+    memo:"你 ты + 的 = твоё. Тычете в сумку: 你的?"},
+  wodehuzhao:{ru:"мой паспорт", py:"wǒ de hùzhào", zh:"我的护照", say:"во дэ ху-чжао", parts:["wwo","wde","huzhao"],
+    memo:"кто + 的 + вещь. На стойке: это мой паспорт."},
 
   wni:{kind:"w",ru:"ты", py:"nǐ", zh:"你", say:"ни", img:"memo/w-ni-2.jpg",
     memo:"НИщий тычет в вас пальцем. НИ = ты."},
@@ -478,8 +487,12 @@ const P = {
     memo:"Боксёр бьёт ХУК — умеет. ХУЭЙ = уметь."},
   wyingyu:{kind:"w",ru:"английский", py:"yīngyǔ", zh:"英语", say:"ин-юй", img:"memo/w-yingyu-2.jpg",
     memo:"ИНдюк крутит ЮЛу. ИН-ЮЙ = английский."},
-  wma:{kind:"w",ru:"вопрос (хвост)", py:"ma", zh:"吗", say:"ма", img:"memo/w-ma-2.jpg",
-    memo:"МАма спрашивает. МА в конце = вопрос. Слова не переставляете."},
+  wma:{kind:"w", ru:"хвост вопроса", py:"ma", zh:"吗", say:"ма", img:"memo/w-ma-2.jpg",
+    exs:[
+      {lbl:"рамка", zh:"有WiFi吗？", say:"ю вай-фай ма", ru:"есть вайфай?", how:"Утверждение как есть + 吗 сзади. Слова не переставляете."},
+      {lbl:"рамка", zh:"可以吗？", say:"кэ-и ма", ru:"можно?", how:"可以 + 吗. В ответ кивок или 可以."}
+    ],
+    memo:"МАма спрашивает. МА в конце = вопрос. 有…吗, 可以…吗, 你会说英语吗."},
   zhege:{ru:"это", py:"zhège", zh:"这个", say:"джэ-гэ", img:"memo/memo-zhege.jpg", parts:["wzhe","wge"],
     memo:"ДЖЭконда ГЭния — вот ЭТО. Тычете пальцем. zh = «дж»."},
   nage:{ru:"вон то", py:"nàge", zh:"那个", say:"на-гэ", img:"memo/w-nage.jpg", parts:["wna","wge"],
@@ -584,8 +597,13 @@ const P = {
     memo:"ТАЙфун — слишком! ТАЙ = слишком. Вешается на любой признак."},
   wgui:{kind:"w",ru:"дорогой", py:"guì", zh:"贵", say:"гуй", img:"memo/w-gui.jpg",
     memo:"Золотой ГУсь с ценником. ГУЙ = дорогой."},
-  wle:{kind:"w",ru:"уже (случилось)", py:"le", zh:"了", say:"лэ", img:"memo/w-le.jpg",
-    memo:"Финишная ЛЕнта — уже, готово. ЛЭ = уже. Хвост фразы."},
+  wle:{kind:"w", ru:"хвост «уже»", py:"le", zh:"了", say:"лэ", img:"memo/w-le.jpg",
+    exs:[
+      {lbl:"рамка", zh:"太贵了", say:"тай гуй лэ", ru:"слишком дорого", how:"признак + 了. Оценка, «ну вот»."},
+      {lbl:"рамка", zh:"不用了", say:"бу юн лэ", ru:"не нужно, хватит", how:"Отказ. 了 закрывает тему."},
+      {lbl:"рамка", zh:"我迷路了", say:"во ми-лу лэ", ru:"я заблудился", how:"Уже случилось."}
+    ],
+    memo:"Финишная ЛЕнта. ЛЭ сзади: уже / хватит. 太贵了, 不用了, 我迷路了."},
 
   caidan:{ru:"меню", py:"càidān", zh:"菜单", say:"цай-дань", img:"memo/w-caidan.jpg", parts:["wcai","wdan"],
     memo:"ЦАпля подаёт ДАНе меню. ЦАЙ-ДАНЬ = меню. 菜 блюдо + 单 список."},
@@ -837,6 +855,7 @@ const LESSONS = [
   {iso:"2026-09-20",id:8,title:"Отель",
     blocks:[
       {title:"Слова",ids:["wyou","wyuding","huzhao","mima"]},{title:"Соберите",ids:["yuding"]},
+      {title:"Чьё — хвост 的",ids:["wode","nide","wodehuzhao"]},
       {title:"Слова",ids:["wtai","wgui","wle"]},{title:"Соберите",ids:["taigui"]}
     ],
     can:"На стойке: у меня бронь, паспорт, пароль, дорого.",
@@ -933,7 +952,7 @@ const BOOK = [
   {id:"money",title:"Деньги",ids:["duoshao","kuai","taigui","pianyi","youmei","liang","weixin","alipay","saoma","xianjin","s_card","fapiao"]},
   {id:"road",title:"Такси, дорога",ids:["woqu","qu","s_here","ting","zuo","you","jichang","jiudian","gzs","baiyun","s_taxi"]},
   {id:"train",title:"Поезд, знаки",ids:["gaotie","ditie","ditiezhan","zhan","piao","liangpiao","zhantai","chukou","rukou","cesuo","menpiao","suodao"]},
-  {id:"hotel",title:"Отель",ids:["yuding","huzhao","fangjian","mima","s_wifi","nali","keyi","s_taxi"]},
+  {id:"hotel",title:"Отель",ids:["yuding","huzhao","wodehuzhao","wode","nide","fangjian","mima","s_wifi","nali","keyi","s_taxi"]},
   {id:"help",title:"Если плохо",ids:["milu","bang","yaodian","yiyuan","s_doctor","s_allergy","jingcha","jiuming"]},
   {id:"places",title:"Места",ids:["gz","gzs","yangshuo","xingping","zjj","zjjx","libo","xqk","gyb","baiyun"]}
 ];
@@ -948,7 +967,8 @@ const BUILD = {
     {id:"where", pre:"", post:"在哪里？", say:"… цзай на-ли", ru:"где …?", slots:"p", partsPre:[], partsPost:["wzai","wnali"]},
     {id:"go", pre:"我要去", post:"", say:"во яо цюй …", ru:"мне в …", slots:"p", partsPre:["wwo","wyao","qu"], partsPost:[]},
     {id:"can", pre:"可以", post:"吗？", say:"кэ-и … ма", ru:"можно …?", slots:"c", partsPre:["ky"], partsPost:["wma"]},
-    {id:"howmuch", pre:"", post:"多少钱？", say:"… до-шао цянь", ru:"сколько стоит …?", slots:"t", partsPre:[], partsPost:["wduoshao","wqian"]}
+    {id:"howmuch", pre:"", post:"多少钱？", say:"… до-шао цянь", ru:"сколько стоит …?", slots:"t", partsPre:[], partsPost:["wduoshao","wqian"]},
+    {id:"mine", pre:"我的", post:"", say:"во дэ …", ru:"мой/моё …", slots:"t", partsPre:["wwo","wde"], partsPost:[]}
   ],
   fillers:[
     ["zhege","t"],["nage","t"],["mifan","t"],["shui","t"],["reshui","t"],["cha","t"],["pijiu","t"],["kafei","t"],["bing","t"],["wla","t"],
@@ -1110,7 +1130,7 @@ const SYL = {
 
 // Словарь для живого разбора: иероглиф или слово → [чтение, смысл]. Сначала ищутся длинные куски.
 const LEX = {
-  你:["ни","ты"],您:["нин","вы"],好:["хао","хорошо"],的:["дэ","хвост в 好的"],谢:["се","благодарить"],谢谢:["се-се","спасибо"],
+  你:["ни","ты"],您:["нин","вы"],好:["хао","хорошо"],的:["дэ","хвост «чьё»"],谢:["се","благодарить"],谢谢:["се-се","спасибо"],
   对:["дуй","верно"],对不起:["дуй-бу-ци","извините"],不:["бу","не"],起:["ци","поднять"],听:["тин","слышать"],懂:["дун","понимать"],
   听不懂:["тин-бу-дун","не понимаю"],请:["цин","прошу"],说:["шо","говорить"],慢:["мань","медленно"],一:["и","один"],点:["дянь","чуть / час"],
   一点:["и-дянь","чуть"],一下:["и-ся","разок"],会:["хуэй","уметь"],英:["ин","англ."],语:["юй","язык"],英语:["ин-юй","английский"],中文:["чжун-вэнь","китайский"],
@@ -1506,12 +1526,13 @@ function memoBlock(p) {
 }
 function imgBlock(p) { return p.img ? `<img src="${p.img}" alt="" loading="lazy">` : ""; }
 function exBlock(p) {
-  const x = p.ex; if (!x) return "";
-  return `<div class="face-ex"><span class="lbl">так говорят</span>
+  const list = p.exs || (p.ex ? [p.ex] : []);
+  if (!list.length) return "";
+  return list.map(x => `<div class="face-ex"><span class="lbl">${esc(x.lbl || "так говорят")}</span>
     <div class="zh">${x.zh}</div>
     <div class="ru">${esc(x.ru)}${x.say ? ` <span class="py">${esc(x.say)}</span>` : ""}</div>
     ${x.how ? `<p class="small muted" style="margin:.25rem 0 0">${esc(x.how)}</p>` : ""}
-  </div>`;
+  </div>`).join("");
 }
 function face(id, opts) {
   const p = P[id]; const o = opts || {};
@@ -2252,11 +2273,31 @@ function grammarCourse() {
       ${gramEx("duoshao")}
     </div>
     <div class="card">
-      <h2>5. Три хвоста, не окончания</h2>
-      <p><b>吗</b> в конце делает вопрос. Слова те же, что в утверждении. 你会说英语吗 — не переворот «говоришь ли ты».</p>
-      <p><b>的</b> само не слово. Одно 的 не говорят. Липнет сзади к 好: 好的 = «ладно», не отдельное «да».</p>
-      <p><b>了</b> — уже случилось или «хватит». 太贵了, 我迷路了, 不用了.</p>
+      <h2>5. Хвосты — кубики сзади, не окончания</h2>
+      <p>Русский меняет само слово: дорогой → дорого, я → моё. Китайский слово не трогает. Сзади садится маленький кубик. Сам он почти ничего не значит. Меняется вся фраза.</p>
+    </div>
+    <div class="card">
+      <h2>的 — чьё, и отдельно «ладно»</h2>
+      <p>Рабочая рамка: <b>кто + 的 + вещь</b>. 我的护照 — мой паспорт. 我的密码 — мой пароль. Без вещи, если тычете пальцем: 你的? — это твоё?</p>
+      <p>Другое, застывшее: <b>好的</b> — ладно. Тот же знак, не тот же смысл. Не путать с «да» (是).</p>
+      ${gramEx("wodehuzhao")}
+      ${gramEx("wode")}
+      ${gramEx("nide")}
+      ${gramEx("haode")}
+      <p class="small muted">В «Фразы» есть конструктор: рамка 我的 + вещь.</p>
+    </div>
+    <div class="card">
+      <h2>吗 — вопрос</h2>
+      <p>Рамка: <b>утверждение + 吗</b>. Слова не переставляете. 有WiFi吗 — «есть вайфай?», не «вайфай есть ли».</p>
+      ${gramEx("s_wifi")}
+      ${gramEx("keyi")}
+      ${gramEx("eng")}
+    </div>
+    <div class="card">
+      <h2>了 — уже / хватит</h2>
+      <p>Рамка: <b>фраза + 了</b>. Либо уже случилось, либо закрыли тему.</p>
       ${gramEx("taigui")}
+      ${gramEx("s_nothanks")}
       ${gramEx("milu")}
     </div>
     <div class="card">
