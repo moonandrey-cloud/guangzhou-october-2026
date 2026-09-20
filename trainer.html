@@ -137,11 +137,20 @@
     .tag { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
     .item .head { display: flex; justify-content: space-between; align-items: flex-start; gap: .6rem; }
-    .item .zh { font-size: 2rem; line-height: 1.2; }
-    .item .say { font-size: 1.2rem; font-weight: 650; margin-top: .15rem; }
+    .item .zh, .card .zh { font-size: 2rem; line-height: 1.2; }
+    .item .say, .card .say { font-size: 1.2rem; font-weight: 650; margin-top: .15rem; }
     .item .ru { margin-top: .05rem; }
-    .item .py { color: var(--muted); font-size: .85rem; margin-top: .1rem; }
-    .item img { width: 100%; border-radius: 10px; margin-top: .7rem; display: block; background: #eee; aspect-ratio: 4/3; object-fit: cover; }
+    .item .py, .card .py { color: var(--muted); font-size: .85rem; margin-top: .1rem; }
+    .wordpic { margin: .1rem 0 .45rem; }
+    .face-ru {
+      margin: .15rem 0 .55rem; font-size: 1.25rem; font-weight: 650;
+      padding: .55rem .75rem; background: var(--memo); border-radius: 10px;
+    }
+    .face-ru .lbl { display: block; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: .15rem; }
+    .item img, .card img, .sheet img {
+      width: 100%; border-radius: 10px; margin: .45rem 0 .15rem; display: block;
+      background: #eee; aspect-ratio: 4/3; object-fit: cover;
+    }
     .memo {
       background: var(--memo); border-left: 3px solid var(--accent);
       padding: .55rem .8rem; margin-top: .7rem; border-radius: 0 10px 10px 0;
@@ -161,6 +170,7 @@
     button.cube.tap {
       cursor: pointer; font: inherit; color: inherit;
       appearance: none; -webkit-appearance: none;
+      min-height: 4.8rem; min-width: 5.4rem;
     }
     button.cube.tap:active, button.cube.tap:focus { border-color: var(--accent); background: var(--accent-soft); outline: none; }
     button.cube.tap .more { display: block; font-size: .68rem; color: var(--accent); margin-top: .12rem; }
@@ -303,8 +313,8 @@ const P = {
 
   wxie:{kind:"w",ru:"благодарить", py:"xiè", zh:"谢", say:"се",
     memo:"СЕстра кланяется. СЕ = благодарить. Два раза подряд — 谢谢."},
-  wde:{kind:"w",ru:"служебное (хвост)", py:"de", zh:"的", say:"дэ",
-    memo:"ДЭньги в кармане — ленивый хвост. В 好的 = ладно."},
+  wde:{kind:"w",ru:"хвост (в 好的 — ладно)", py:"de", zh:"的", say:"дэ", img:"memo/w-de.jpg",
+    memo:"ДЭньги лежат в кармане — ленивый хвост. Сама по себе 的 почти ничего не значит. 好的 = ладно."},
   wqi:{kind:"w",ru:"поднять", py:"qǐ", zh:"起", say:"ци",
     memo:"ЦИстерна встаёт, поднимается. ЦИ = поднять. 对不起: не поднять обиду = извините."},
   wzhe:{kind:"w",ru:"этот", py:"zhè", zh:"这", say:"джэ",
@@ -539,14 +549,26 @@ const P = {
   gzs:{ru:"Гуанчжоу Южный", py:"Guǎngzhōu Nán", zh:"广州南", say:"гуан-чжоу нань", screen:true, parts:["gz","wnan"],
     memo:"Южный вокзал. Показывать экраном, не выговаривать."},
 
-  wyuding:{kind:"w",ru:"бронь", py:"yùdìng", zh:"预订", say:"юй-дин", img:"memo/w-yuding.jpg",
-    memo:"ДИНЬ — звонок на стойке, карточка брони. ЮЙ-ДИН = бронь."},
-  huzhao:{kind:"w",ru:"паспорт", py:"hùzhào", zh:"护照", say:"ху-чжао", img:"memo/w-huzhao.jpg",
-    memo:"ХУдая ЖАБа на фото в паспорте. ХУ-ЧЖАО = паспорт."},
+  wyu3:{kind:"w",ru:"заранее", py:"yù", zh:"预", say:"юй", img:"memo/w-yu3.jpg",
+    memo:"Юбка уже сложена заранее. ЮЙ = заранее. 预订 = заранее + заказать."},
+  wding:{kind:"w",ru:"заказать", py:"dìng", zh:"订", say:"дин", img:"memo/w-ding.jpg",
+    memo:"ДИНЬ — заказ записали. ДИН = заказать."},
+  whu:{kind:"w",ru:"защищать", py:"hù", zh:"护", say:"ху", img:"memo/w-hu.jpg",
+    memo:"ХУтор закрывают руками: защищают. ХУ = защищать. 护照 паспорт."},
+  wzhao:{kind:"w",ru:"снимок, свет", py:"zhào", zh:"照", say:"чжао", img:"memo/w-zhao.jpg",
+    memo:"ЖАБа на фото. ЧЖАО = снимок. 护照 паспорт, 拍照 фото."},
+  wmi3:{kind:"w",ru:"тайный", py:"mì", zh:"密", say:"ми", img:"memo/w-mi3.jpg",
+    memo:"МИмы шепчут секрет. МИ = тайный. 密码 пароль."},
+  wma2:{kind:"w",ru:"код", py:"mǎ", zh:"码", say:"ма", img:"memo/w-ma2.jpg",
+    memo:"МАма тычет в код. МА = код. 密码 пароль, 扫码 сканировать."},
+  wyuding:{ru:"бронь", py:"yùdìng", zh:"预订", say:"юй-дин", img:"memo/w-yuding.jpg", parts:["wyu3","wding"],
+    memo:"ДИНЬ — звонок на стойке. 预 заранее + 订 заказать = бронь."},
+  huzhao:{ru:"паспорт", py:"hùzhào", zh:"护照", say:"ху-чжао", img:"memo/w-huzhao.jpg", parts:["whu","wzhao"],
+    memo:"ХУдая ЖАБа на фото. 护 защищать + 照 снимок = паспорт."},
   fangjian:{ru:"номер (комната)", py:"fángjiān", zh:"房间", say:"фан-цзянь", parts:["wfang","wjian"],
     memo:"房 дом + 间 комната. Номер в отеле."},
-  mima:{kind:"w",ru:"пароль", py:"mìmǎ", zh:"密码", say:"ми-ма", img:"memo/w-mima.jpg",
-    memo:"МИМ показывает МАме пароль жестами. МИ-МА = пароль. WiFi ми-ма."},
+  mima:{ru:"пароль", py:"mìmǎ", zh:"密码", say:"ми-ма", img:"memo/w-mima.jpg", parts:["wmi3","wma2"],
+    memo:"МИМ показывает МАме пароль. 密 тайный + 码 код."},
   wtai:{kind:"w",ru:"слишком", py:"tài", zh:"太", say:"тай", img:"memo/w-tai.jpg",
     memo:"ТАЙфун — слишком! ТАЙ = слишком. Вешается на любой признак."},
   wgui:{kind:"w",ru:"дорогой", py:"guì", zh:"贵", say:"гуй", img:"memo/w-gui.jpg",
@@ -1355,14 +1377,33 @@ function idByZh(zh, notId) {
   return best;
 }
 function withId(id, p) { return Object.assign({ _id: id }, p); }
+function partKey(zh) {
+  return "cx_" + [...stripZh(zh)].map(c => c.codePointAt(0).toString(16)).join("_");
+}
+function ensurePart(w) {
+  if (w && w._id && P[w._id]) return w._id;
+  const zh = w && w.zh ? w.zh : "";
+  const hit = idByZh(zh);
+  if (hit) return hit;
+  const id = partKey(zh);
+  if (!P[id] && zh) {
+    const lx = LEX[zh] || LEX[stripZh(zh)];
+    P[id] = {
+      kind: "w",
+      zh,
+      say: (w && w.say) || (lx && lx[0]) || "",
+      ru: (w && w.ru) || (lx && lx[1]) || zh,
+      py: (w && w.py) || "",
+      memo: ((w && w.ru) || (lx && lx[1]) || zh) + ". Это кубик составного слова. Запомните знак и смысл, потом соберите обратно."
+    };
+  }
+  return id;
+}
 function cubeHtml(parts) {
-  return `<div class="tag">из слов · ткните кубик</div><div class="cubes">${parts.map((w, i) => {
-    const pid = w._id || idByZh(w.zh);
+  return `<div class="tag">из слов · нажмите кубик — откроется его карточка</div><div class="cubes">${parts.map((w, i) => {
+    const pid = ensurePart(w);
     const inner = `<div class="zw">${w.zh}</div><div class="ps">${displaySay(w.say)}</div><div class="pr">${esc(w.ru)}</div>`;
-    const cube = pid
-      ? `<button type="button" class="cube tap" data-part="${pid}">${inner}<span class="more">открыть</span></button>`
-      : `<span class="cube">${inner}</span>`;
-    return `${i ? '<span class="cube plus">+</span>' : ""}${cube}`;
+    return `${i ? '<span class="cube plus">+</span>' : ""}<button type="button" class="cube tap" data-part="${pid}">${inner}<span class="more">открыть карточку</span></button>`;
   }).join("")}</div>`;
 }
 function cubes(p) { return cubeHtml(p.parts.map(id => P[id] && withId(id, P[id])).filter(Boolean)); }
@@ -1461,16 +1502,18 @@ function face(id, opts) {
   const tag = hasParts ? (p.screen ? "фраза · на экран" : "фраза")
     : (p.screen ? (PLACES.has(id) ? "место · на экран" : "фраза · на экран") : "слово");
   return `<div class="tag">${tag}</div>
-    <div class="zh">${p.zh}</div>
-    <div class="say">${displaySay(p.say)}</div>
-    <div class="ru">${esc(p.ru)}</div>
+    <div class="wordpic">
+      <div class="zh">${p.zh}</div>
+      <div class="say">${displaySay(p.say)}</div>
+      <div class="face-ru"><span class="lbl">по-русски</span>${esc(p.ru)}</div>
+      ${!o.noImg ? imgBlock(p) : ""}
+    </div>
     <div class="py">${esc(p.py)}</div>
     ${hasParts ? cubeHtml(segs) : charsLine(p.zh)}
     ${p.note ? `<p class="small muted" style="margin:.4rem 0 0">${esc(p.note)}</p>` : ""}
     ${p.screen ? `<div class="screen">${PLACES.has(id) ? "Это имя показывают экраном. Произношение — запас." : "Показывайте экраном: нажмите «показать». Выговаривать не обязательно."}</div>` : ""}
     ${sylBlock(id)}
-    ${!o.noMemo ? memoBlock(p) : ""}
-    ${!o.noImg ? imgBlock(p) : ""}`;
+    ${!o.noMemo ? memoBlock(p) : ""}`;
 }
 function itemButtons(id) {
   const p = P[id];
@@ -2107,7 +2150,7 @@ function renderCards() {
       ${revealed ? face(id) : `<div class="big">${esc(p.ru)}</div><div class="muted">скажите по-китайски вслух, потом открывайте</div>`}
     </div>
     ${revealed && deckKind !== "all" ? `<div class="grade"><button class="btn" data-grade="no" data-gid="${id}">ещё раз завтра</button><button class="btn ok" data-grade="yes" data-gid="${id}">знаю</button></div>` : ""}
-    ${revealed && deckKind === "all" ? `<p class="small muted" style="margin:.2rem 0 0">Ткните кубик — откроется его карточка и картинка.</p>` : ""}
+    ${revealed && deckKind === "all" && faceSegs(id).length >= 2 ? `<p class="small muted" style="margin:.2rem 0 0">Нажмите кубик ниже — откроется его слово, перевод и картинка.</p>` : ""}
     <p class="row between">
       <button class="btn" id="prev">назад</button>
       <button class="btn primary big" id="flip">${revealed ? "слушать" : "открыть"}</button>
@@ -2316,11 +2359,12 @@ function showTab(name) {
 }
 
 document.body.addEventListener("click", (e) => {
+  const partEl = e.target.closest("[data-part]");
+  if (partEl && partEl.dataset.part) { e.stopPropagation(); openPart(partEl.dataset.part); return; }
   const t = e.target.closest("button, .brow, .show") || e.target;
   const d = t.dataset || {};
   if (d.tab) { showTab(d.tab); return; }
   if (d.how) { howCat = d.how; renderHow(); window.scrollTo({ top: 0 }); return; }
-  if (d.part) { openPart(d.part); return; }
   if (d.partback) { closePart(); return; }
   if (d.open) { setDay(d.open); showTab("today"); return; }
   if (d.play) { playId(d.play); return; }
