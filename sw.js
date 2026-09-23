@@ -1,7 +1,7 @@
 // Кэш тренажёра. Версию подставляет скрипт публикации — новая версия = полное обновление офлайн-копии.
 // Страница, манифест и список файлов — сеть, потом кэш. Картинки и звук — кэш, потом сеть.
 // При установке скачивается весь список из precache.json, чтобы в Китае всё было под рукой без сети.
-const CACHE = "zh-trainer-20260922-2358";
+const CACHE = "zh-trainer-20260923-1008";
 
 async function precache() {
   const cache = await caches.open(CACHE);
@@ -17,7 +17,7 @@ async function precache() {
         const req = new Request(url, { cache: "no-store" });
         const hit = await cache.match(req, { ignoreSearch: true });
         if (hit) { done++; return; }
-        if (/^(memo|audio)\//.test(url)) {
+        if (/^audio\//.test(url)) {
           for (const old of olds) { const o = await old.match(url, { ignoreSearch: true }); if (o) { await cache.put(url, o); done++; return; } }
         }
         const r = await fetch(req);
