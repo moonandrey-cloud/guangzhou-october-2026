@@ -197,10 +197,13 @@
     .sheet-bar { position: sticky; top: 0; z-index: 1; background: var(--bg); padding: .2rem 0 .55rem; display: flex; gap: .4rem; align-items: center; }
     .sheet-bar .path { color: var(--muted); font-size: .85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     details.syl { margin-top: .6rem; }
-    details.syl summary { cursor: pointer; color: var(--muted); font-size: .9rem; }
+    details.syl summary { cursor: pointer; color: var(--muted); font-size: .9rem; display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
     details.syl .box { margin-top: .4rem; padding: .6rem .8rem; background: #eef2ea; border-radius: 10px; }
-    details.syl ol { margin: .2rem 0 0; padding-left: 1.2rem; }
-    details.syl li { margin: .3rem 0; }
+    details.syl ol { margin: .2rem 0 0; padding-left: 0; list-style: none; }
+    details.syl li { margin: .35rem 0; display: flex; align-items: center; gap: .45rem; }
+    .tone-row { display: inline-flex; gap: .2rem; align-items: flex-end; }
+    .tone { width: 1.45rem; height: 1.35rem; color: var(--accent); flex: none; }
+    .tone-row.big .tone { width: 2rem; height: 1.85rem; }
     .check { margin-top: .65rem; padding: .65rem .8rem; border-radius: 10px; }
     .check p { margin: .35rem 0 0; }
     .check.yes { background: var(--ok-soft); }
@@ -1508,7 +1511,7 @@ function autoSyl(p) {
   const pys = pySyllables(p.py);
   const says = displaySay(p.say).split("-").filter(Boolean);
   if (!pys.length) return null;
-  const steps = pys.map((s, i) => ({ s: says[i] || s, go: TONE_TXT[toneOf(s)], how: "" }));
+  const steps = pys.map((s, i) => ({ s: says[i] || s, tone: toneOf(s), go: TONE_TXT[toneOf(s)], how: "" }));
   return { steps, end: steps.length === 1 ? "Один слог." : `${steps.length} удара, каждый со своим тоном.` };
 }
 
@@ -1734,12 +1737,39 @@ function renderSheet() {
     </article>
   </div>`;
 }
+function toneNum(go) {
+  const g = String(go || "").toLowerCase();
+  if (g.includes("ленив")) return 0;
+  if (g.includes("ровно")) return 1;
+  if (g.includes("низко") && g.includes("вверх")) return 3;
+  if (/вниз\s*,\s*низко/.test(g)) return 3;
+  if (g.includes("низко")) return 3;
+  if (g.includes("вверх")) return 2;
+  if (g.includes("вниз")) return 4;
+  return 0;
+}
+function stepTone(s) { return typeof s.tone === "number" ? s.tone : toneNum(s.go); }
+function toneArrow(n) {
+  const name = { 1: "ровно высоко", 2: "вверх", 3: "низко", 4: "вниз", 0: "лениво" }[n] || "лениво";
+  const line = `fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"`;
+  const head = `fill="currentColor"`;
+  const body = {
+    1: `<path ${line} d="M2 11 H20"/><path ${head} d="M17 6.5 L29 11 L17 15.5 Z"/>`,
+    2: `<path ${line} d="M5 26 L19 8"/><path ${head} d="M13 6 L28 3 L20 14 Z"/>`,
+    3: `<path ${line} d="M3 9 L13 26 L22 15"/><path ${head} d="M16 10 L29 12 L19 19 Z"/>`,
+    4: `<path ${line} d="M5 6 L19 24"/><path ${head} d="M13 20 L28 29 L16 16 Z"/>`,
+    0: `<path ${line} d="M5 22 H25" stroke-dasharray="1.4 3"/>`
+  }[n] || `<path ${line} d="M5 22 H25" stroke-dasharray="1.4 3"/>`;
+  return `<svg class="tone" viewBox="0 0 32 32" role="img" aria-label="${name}">${body}</svg>`;
+}
 function sylBlock(id) {
   const p = P[id]; if (!p) return "";
   const x = SYL[id] || autoSyl(p);
   if (!x) return "";
-  const rows = x.steps.map(s => `<li><b>${esc(s.s)}</b> — голос ${esc(s.go)}${s.how ? ". " + esc(s.how) : ""}</li>`).join("");
-  return `<details class="syl"><summary>по слогам</summary><div class="box"><ol>${rows}</ol><p class="small" style="margin:.5rem 0 0">${esc(x.end)} Каждый слог — свой удар, русского ударения нет.</p></div></details>`;
+  const tones = x.steps.map(stepTone);
+  const arrows = tones.map(toneArrow).join("");
+  const rows = x.steps.map((s, i) => `<li><span class="tone-one">${toneArrow(tones[i])}</span><span><b>${esc(s.s)}</b> — голос ${esc(s.go)}${s.how ? ". " + esc(s.how) : ""}</span></li>`).join("");
+  return `<details class="syl"><summary>по слогам <span class="tone-row">${arrows}</span></summary><div class="box"><div class="tone-row big">${arrows}</div><ol>${rows}</ol><p class="small" style="margin:.5rem 0 0">${esc(x.end)} Читайте стрелки слева направо: это мелодия всего слова. Каждый слог — свой удар, русского ударения нет.</p></div></details>`;
 }
 function memoBlock(p) {
   if (!p.memo) return "";
